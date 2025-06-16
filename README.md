@@ -8,5 +8,7 @@ The system is not designed for presentation-heavy or cinematic dialogue. You won
 Currently, there is no custom visual editor, but you can use Godot’s default inspector to edit dialogue. Editing large trees can be overwhelming, but you can work on branches individually and then drag and drop them into your tree.
 
 
+The files are inside the "raou_nodes" folder, the rest is just a sample project demonstrating it a bit.
+
 I've never writen documentation for anything before so its probably shit but heres a link to it:
 https://docs.google.com/document/d/1Qnnhuh9sHmmGB_JJ4gAYbsYFSRdI9RakOWvpAa3xm5g/edit?tab=t.0
