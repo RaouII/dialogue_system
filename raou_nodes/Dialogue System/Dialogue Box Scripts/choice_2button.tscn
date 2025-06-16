@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://4k71dg7hyw33"]
+
+[ext_resource type="Script" uid="uid://dd046ay1g7ber" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/topic_button.gd" id="1_nrvrh"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_rcu6t"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_fmoqq"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_813l6"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="5_7ohop"]
+
+[sub_resource type="Resource" id="Resource_ckf2u"]
+script = ExtResource("5_7ohop")
+_topicText = ""
+_responses = Array[ExtResource("4_813l6")]([])
+_sayOnce = false
+_goodbye = false
+_random = false
+_randomEnd = false
+_functions = Array[ExtResource("3_fmoqq")]([])
+_conditions = Array[ExtResource("2_rcu6t")]([])
+metadata/_custom_type_script = "uid://3ypewn6bdhn2"
+
+[node name="ChoiceButton" type="Button"]
+text = "Test"
+script = ExtResource("1_nrvrh")
+_dialogueTopic = SubResource("Resource_ckf2u")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

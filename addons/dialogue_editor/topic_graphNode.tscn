@@ -1,0 +1,240 @@
+[gd_scene load_steps=6 format=3 uid="uid://jsd763hsqsc6"]
+
+[ext_resource type="Texture2D" uid="uid://cycs1hqkc8o55" path="res://addons/dialogue_editor/Textures/ico_nodePanelDark.png" id="1_qqnds"]
+[ext_resource type="Script" uid="uid://dy6j4n0k5di73" path="res://addons/dialogue_editor/topic_graphnode.gd" id="1_vgfcm"]
+[ext_resource type="Texture2D" uid="uid://dnb6doajacgji" path="res://addons/dialogue_editor/Textures/ico_nodeBar.png" id="2_kmyeo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hwvf"]
+texture = ExtResource("1_qqnds")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqhy8"]
+texture = ExtResource("2_kmyeo")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[node name="Topic GraphNode" type="GraphNode"]
+offset_right = 442.0
+offset_bottom = 406.0
+rotation = 0.000167007
+theme_override_styles/panel = SubResource("StyleBoxTexture_1hwvf")
+theme_override_styles/titlebar = SubResource("StyleBoxTexture_uqhy8")
+resizable = true
+title = "Topic"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+script = ExtResource("1_vgfcm")
+
+[node name="Topic Container" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HFlowContainer" type="VBoxContainer" parent="Topic Container"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Topic Container/HFlowContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 115
+
+[node name="Label" type="Label" parent="Topic Container/HFlowContainer/MarginContainer"]
+layout_mode = 2
+text = "Topic"
+
+[node name="TextEdit" type="TextEdit" parent="Topic Container/HFlowContainer"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Topic Container"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Responses" type="Label" parent="Topic Container/MarginContainer"]
+layout_mode = 2
+text = "Responses"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color(0.509286, 0.509286, 0.509286, 1)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Flag Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Flag Container"]
+layout_mode = 2
+text = "Flags"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Flag Container"]
+layout_mode = 2
+theme_override_constants/margin_right = 115
+
+[node name="Panel" type="Panel" parent="Flag Container/MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Flag Container/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Flag Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 200
+
+[node name="SayOnce" type="Label" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Say Once"
+
+[node name="CheckButton" type="CheckButton" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Flag Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_right = 202
+
+[node name="SayOnce" type="Label" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+text = "Goodbye"
+
+[node name="CheckButton" type="CheckButton" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Flag Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/margin_right = 206
+
+[node name="SayOnce" type="Label" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "Random"
+
+[node name="CheckButton" type="CheckButton" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Flag Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 173
+
+[node name="SayOnce" type="Label" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "Random End"
+
+[node name="CheckButton" type="CheckButton" parent="Flag Container/MarginContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color(0.509286, 0.509286, 0.509286, 1)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Conditions Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Conditions Container"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Conditions Container/HBoxContainer"]
+layout_mode = 2
+text = "Conditions"
+
+[node name="AddCondition" type="Button" parent="Conditions Container/HBoxContainer"]
+layout_mode = 2
+text = " + "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Conditions Container"]
+layout_mode = 2
+
+[node name="Functions Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Functions Container"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Functions Container/HBoxContainer"]
+layout_mode = 2
+text = "Functions"
+
+[node name="MenuButton" type="MenuButton" parent="Functions Container/HBoxContainer"]
+layout_mode = 2
+text = " + "
+item_count = 1
+popup/item_0/text = "Add Var"
+popup/item_0/id = 0
+
+[node name="FileDialog" type="FileDialog" parent="Functions Container/HBoxContainer/MenuButton"]
+title = "Open File(s)"
+ok_button_text = "Open"
+file_mode = 1
+filters = PackedStringArray("*.tres,*.res ; Resource Files")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Functions Container"]
+layout_mode = 2
+
+[connection signal="pressed" from="Conditions Container/HBoxContainer/AddCondition" to="." method="_on_add_condition_pressed"]
+[connection signal="files_selected" from="Functions Container/HBoxContainer/MenuButton/FileDialog" to="." method="_on_file_dialog_files_selected"]

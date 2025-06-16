@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://8v136rihlugn"]
+
+[ext_resource type="Script" uid="uid://c3g2n5wacj880" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/dialogue_container.gd" id="1_xaxbe"]
+[ext_resource type="Material" uid="uid://7aqjwhtuio1t" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/M_textBox.tres" id="2_x40t5"]
+[ext_resource type="Texture2D" uid="uid://c8qvcguwevbq6" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/exclamation_portrait.png" id="2_xaxbe"]
+[ext_resource type="Texture2D" uid="uid://b3ddbigrvfbr8" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/ws_A.png" id="3_vg5yu"]
+
+[node name="Dialogue Container" type="MarginContainer" node_paths=PackedStringArray("label")]
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 24
+script = ExtResource("1_xaxbe")
+label = NodePath("HBoxContainer/MarginContainer/Text")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Portrait" type="Control" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2/Portrait"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer2/Portrait/MarginContainer"]
+material = ExtResource("2_x40t5")
+layout_mode = 2
+texture = ExtResource("3_vg5yu")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="PortraitTexture" type="TextureRect" parent="HBoxContainer/MarginContainer2/Portrait/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_xaxbe")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="RichTextLabel" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/line_separation = -7
+bbcode_enabled = true
+text = "sadsadasdasdasdasdasdasdasdasdasdasdasasdasasdasdas"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+vertical_alignment = 1

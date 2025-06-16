@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogueTopic" load_steps=5 format=3 uid="uid://f0hve67krp3j"]
+
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="1_o3p0v"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="2_xbh20"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="3_bkan6"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="4_5wj3x"]
+
+[resource]
+script = ExtResource("4_5wj3x")
+_topicText = ""
+_responses = Array[ExtResource("3_bkan6")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("2_xbh20")]([])
+_conditions = Array[ExtResource("1_o3p0v")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DialogueTopic" load_steps=8 format=3 uid="uid://ha2wvsusujcc"]
+
+[ext_resource type="Script" uid="uid://b3vr7eie4i7na" path="res://Dialogue System/Functions/Condition_RES.gd" id="1_ynlfy"]
+[ext_resource type="Script" uid="uid://cr3khurnbitxf" path="res://Dialogue System/Functions/Condition_QuestStage_RES.gd" id="2_0y7qg"]
+[ext_resource type="Script" uid="uid://4inc5ioipxhk" path="res://Dialogue System/Functions/functions_RES.gd" id="3_yf1m6"]
+[ext_resource type="Script" uid="uid://bix17uok3s8hn" path="res://Dialogue System/Resources Scripts/DialogueResponse_RES.gd" id="4_owksg"]
+[ext_resource type="Script" uid="uid://3ypewn6bdhn2" path="res://Dialogue System/Resources Scripts/DialogueTopic_RES.gd" id="5_eu5si"]
+
+[sub_resource type="Resource" id="Resource_sr0hl"]
+script = ExtResource("2_0y7qg")
+questStage = null
+comparison = null
+metadata/_custom_type_script = "uid://cr3khurnbitxf"
+
+[sub_resource type="Resource" id="Resource_dyo76"]
+script = ExtResource("4_owksg")
+_responseText = ""
+_idleAnimation = ""
+_emotionType = "Neutral"
+_emotionValue = 50.0
+_conditions = Array[String]([])
+metadata/_custom_type_script = "uid://bix17uok3s8hn"
+
+[resource]
+script = ExtResource("5_eu5si")
+_topicText = "Test Topic"
+_responses = Array[ExtResource("4_owksg")]([SubResource("Resource_dyo76")])
+_sayOnce = false
+_goodbye = false
+_random = false
+_randomEnd = false
+_functions = Array[ExtResource("3_yf1m6")]([])
+_conditions = Array[ExtResource("1_ynlfy")]([SubResource("Resource_sr0hl")])
+metadata/_custom_type_script = "uid://3ypewn6bdhn2"

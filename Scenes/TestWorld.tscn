@@ -1,0 +1,148 @@
+[gd_scene load_steps=24 format=3 uid="uid://b1f2sgeajum8o"]
+
+[ext_resource type="PackedScene" uid="uid://cxl512mjswrrt" path="res://player/player.tscn" id="1_k2eo1"]
+[ext_resource type="Texture2D" uid="uid://c564ne3q6t66b" path="res://icon.svg" id="2_4snwc"]
+[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Scenes/dialogue_component_edited.gd" id="2_g0pj6"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="4_7oy3y"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="4_77oos"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="5_4e6cy"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="6_1jowa"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_77oos"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="7_1jowa"]
+
+[sub_resource type="Resource" id="Resource_1jowa"]
+script = ExtResource("6_77oos")
+_responseText = ":D"
+_idleAnimation = ""
+_emotionType = "Neutral"
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_d5oxj"]
+script = ExtResource("4_77oos")
+_topicText = "Yes"
+_responses = Array[ExtResource("6_77oos")]([SubResource("Resource_1jowa")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("6_1jowa")]([])
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_hlj8m"]
+script = ExtResource("6_77oos")
+_responseText = ":("
+_idleAnimation = ""
+_emotionType = "Neutral"
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_1dj0o"]
+script = ExtResource("4_77oos")
+_topicText = "No"
+_responses = Array[ExtResource("6_77oos")]([SubResource("Resource_hlj8m")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("6_1jowa")]([])
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_5f2ua"]
+script = ExtResource("4_7oy3y")
+_topics = Array[ExtResource("4_77oos")]([SubResource("Resource_d5oxj"), SubResource("Resource_1dj0o")])
+metadata/_custom_type_script = "uid://bphmgatjcmttf"
+
+[sub_resource type="Resource" id="Resource_p5ob5"]
+script = ExtResource("6_77oos")
+_responseText = "Its a good day right"
+_idleAnimation = ""
+_emotionType = "Neutral"
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_0rqgs"]
+script = ExtResource("4_77oos")
+_topicText = "HI"
+_responses = Array[ExtResource("6_77oos")]([SubResource("Resource_p5ob5")])
+_nextBranch = SubResource("Resource_5f2ua")
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("6_1jowa")]([])
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_l0hd3"]
+script = ExtResource("4_77oos")
+_topicText = "Goodbye!"
+_responses = Array[ExtResource("6_77oos")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("6_1jowa")]([])
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_bnm2d"]
+script = ExtResource("4_7oy3y")
+_topics = Array[ExtResource("4_77oos")]([SubResource("Resource_0rqgs"), SubResource("Resource_l0hd3")])
+metadata/_custom_type_script = "uid://bphmgatjcmttf"
+
+[sub_resource type="Resource" id="Resource_icgjy"]
+script = ExtResource("6_77oos")
+_responseText = ">:("
+_idleAnimation = ""
+_emotionType = "Neutral"
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_wcdqp"]
+script = ExtResource("4_77oos")
+_topicText = "Third option from another branch"
+_responses = Array[ExtResource("6_77oos")]([SubResource("Resource_icgjy")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("6_1jowa")]([])
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_8a0ub"]
+script = ExtResource("4_7oy3y")
+_topics = Array[ExtResource("4_77oos")]([SubResource("Resource_wcdqp")])
+metadata/_custom_type_script = "uid://bphmgatjcmttf"
+
+[sub_resource type="Resource" id="Resource_4e6cy"]
+script = ExtResource("6_77oos")
+_responseText = "Good morning!"
+_idleAnimation = ""
+_emotionType = "Neutral"
+_conditions = Array[ExtResource("5_4e6cy")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_77oos"]
+script = ExtResource("7_1jowa")
+_branches = Array[ExtResource("4_7oy3y")]([SubResource("Resource_bnm2d"), SubResource("Resource_8a0ub")])
+_greeting = SubResource("Resource_4e6cy")
+metadata/_custom_type_script = "uid://tfh1etiytb5"
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_k2eo1")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sign Post" type="Node2D" parent="."]
+position = Vector2(82, 132)
+
+[node name="DialogueComponent" type="Node" parent="Sign Post"]
+script = ExtResource("2_g0pj6")
+_dialogueTree = SubResource("Resource_77oos")
+metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+
+[node name="Sign Sprite" type="Sprite2D" parent="Sign Post"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_4snwc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -261.0
+offset_top = -146.0
+offset_right = -56.0
+offset_bottom = -123.0
+text = "Press \"E\" to show dialogue"

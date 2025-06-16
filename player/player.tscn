@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=4 uid="uid://cxl512mjswrrt"]
+
+[ext_resource type="Script" uid="uid://codfkgw34kf3x" path="res://player/player_movement.gd" id="1_oul6g"]
+
+[sub_resource type="Animation" id="Animation_k2eo1"]
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_oul6g"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_se0eo"]
+_data = {
+&"Idle": SubResource("Animation_oul6g"),
+&"Walk": SubResource("Animation_k2eo1")
+}
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_rkbax"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAABSAQAAUklGRkoBAABXRUJQVlA4TD4BAAAvH8APED9AJmChxwr4nPofcqlBJmCh1xpo4hZTI5diAGigGBLolcgxf5I5zH9I8H1iQIFq8c8agKNtb9vmf6AjpK30D1laHcBlF3EB9z3lAD33f2wjPVkj+q/IbduG3ScBfQb+hkG+c2Nt0wprhGaVUiMirVhEbLJKqevNzEJOK8WjtkpJKsNbbU2zytXDoL0iqZBzrgSnldJ7d34jWaU33nfIKn1xFaSV8rTQ44ALACln16MjDwsFMNH9uG8AWV0sRgBcVy90wFdjXcgBaQ6oHv+zu6kfON0UmDjNG2BCdwoO0xucBv6LQb5zY23zVSM0U2pEMGMRsWnTc72ZWUjCo7bKBIa32ppmj6uHQfsUOedKMr135zc5432HVPGFvOPpisiG2NNynHKz1Uwy6uTQ5oyumQndKUine4PvGwA=")
+size_override = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
+size = Vector2(14, 8)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_oul6g")
+move_spd = 125.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_se0eo")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -23)
+scale = Vector2(2, 2)
+texture = SubResource("PortableCompressedTexture2D_rkbax")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://player/spr_alex.ase",
+"source_uid": 3699774809420115010
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e29faf478f21151ae80078ebbca0f010"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kqu6x")
