@@ -27,6 +27,7 @@ func start_dialogue(position: Vector2, _tree: DialogueTree):
 	Global.started_dialogue.emit()
 	current_tree = _tree
 	text_box_position = position
+	print(position)
 	show_greeting() ### THIS FUNCTION WILL CALL THE FIRST DIALOGUE WINDOW
 	is_dialogue_active = true
 
@@ -47,7 +48,7 @@ func show_greeting():
 			for topic in branch._topics: 
 				### IF THERE ARE TOPICS TO BE DISPLAYED, INSTANTIATE THE TOPIC COMPONENT OF THE DIALOGUE BOX
 				display_topic(topic) 
-	text_box.global_position = text_box_position
+	#text_box.position = text_box_position
 	can_advance_line = false
 
 func display_greeting_topics():
@@ -68,13 +69,13 @@ func show_responses(_topic: DialogueTopic):
 	
 	instantiate_text_box()
 	init_responseContainer()
-	text_box.global_position = text_box_position
+	#text_box.global_position = text_box_position
 	
 	var _responses = _topic._responses
 	if _topic._random:
 		var i = randi_range(0, _responses.size()-1)
 		var _response = _responses[i]
-		print(i)
+		#print(i)
 		text_box.display_text(_response._responseText)
 		Global.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation,_response._emotionType)
 		
@@ -143,7 +144,7 @@ func instantiate_text_box():
 		text_box.queue_free()
 	text_box = textbox_prefab.instantiate()
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
-	get_tree().root.add_child(text_box)
+	Global.canvas.add_child(text_box)
 
 
 

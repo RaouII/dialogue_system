@@ -5,8 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://b3ddbigrvfbr8" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/ws_A.png" id="2_xynfs"]
 
 [node name="TextBox" type="MarginContainer"]
-offset_right = 287.0
-offset_bottom = 75.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_3l04v")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

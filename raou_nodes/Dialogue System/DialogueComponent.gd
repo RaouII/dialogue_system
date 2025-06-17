@@ -4,5 +4,5 @@ class_name DialogueComponent extends Node
 # Called when the node enters the scene tree for the first time.
 
 func _start():
-	Dialogue.start_dialogue(get_parent().global_position, _dialogueTree)
+	Dialogue.start_dialogue(get_parent().position, _dialogueTree)
 	pass

@@ -8,7 +8,7 @@ var default_portrait: Texture2D = preload("uid://c8qvcguwevbq6")
 
 #const TOPIC_TEST = preload("res://Dialogue System/Graph Editor Test/topic_test.tres")
 
-const MAX_WIDTH = 256
+const MAX_WIDTH = 576
 
 var text: String
 var letter_index = 0
@@ -42,9 +42,9 @@ func display_text(text_to_display: String, _charInfo: CharacterID = null):
 		#await resized # await for y resize
 	#	print("break point")
 		custom_minimum_size.y = size.y
-	print(size)
-	global_position.x -= size.x/2
-	global_position.y -= size.y + 96
+	print(position)
+	#position.x -= size.x/4
+	#position.y -= size.y/2	
 	response_container.label.text = ""
 	#var txt: RichTextLabel
 	#response_container.label.text.size = size

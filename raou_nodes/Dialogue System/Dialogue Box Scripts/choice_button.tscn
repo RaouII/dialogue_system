@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbxh37k37eypu"]
+[gd_scene load_steps=8 format=3 uid="uid://dbxh37k37eypu"]
 
 [ext_resource type="Script" uid="uid://dd046ay1g7ber" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/topic_button.gd" id="1_8386n"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_7m13y"]
@@ -6,19 +6,22 @@
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_fm30b"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="5_x46hs"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30tnh"]
+
 [sub_resource type="Resource" id="Resource_ckf2u"]
 script = ExtResource("5_x46hs")
 _topicText = ""
 _responses = Array[ExtResource("4_fm30b")]([])
-_sayOnce = false
 _goodbye = false
 _random = false
-_randomEnd = false
 _functions = Array[ExtResource("3_06r6o")]([])
 _conditions = Array[ExtResource("2_7m13y")]([])
 metadata/_custom_type_script = "uid://3ypewn6bdhn2"
 
 [node name="ChoiceButton" type="Button"]
+offset_right = 41.0
+offset_bottom = 31.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_30tnh")
 text = "Test"
 script = ExtResource("1_8386n")
 _dialogueTopic = SubResource("Resource_ckf2u")

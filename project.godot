@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dialogue System"
-run/main_scene="uid://b1f2sgeajum8o"
+run/main_scene="uid://bddx0liy55qb2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

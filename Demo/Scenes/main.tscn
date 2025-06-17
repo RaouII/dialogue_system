@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bddx0liy55qb2"]
+
+[ext_resource type="PackedScene" uid="uid://b1f2sgeajum8o" path="res://Demo/Scenes/TestWorld.tscn" id="1_eru1v"]
+[ext_resource type="Script" uid="uid://w5rswat02b8h" path="res://Demo/Scenes/canvas_layer.gd" id="2_tnno3"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TestWorld" parent="." instance=ExtResource("1_eru1v")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_tnno3")

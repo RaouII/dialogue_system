@@ -12,7 +12,7 @@ signal set_character_idle_animation(_char: CharacterID,_anim: String,_emotion: S
 signal add_character_to_level_array(CharacterID)
 
 
-
+var canvas: CanvasLayer
 var variable := {}  # For numbers (ints or floats)
 var switch := {}   # For booleans
 

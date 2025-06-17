@@ -1,6 +1,22 @@
 [gd_scene load_steps=7 format=4 uid="uid://cxl512mjswrrt"]
 
-[ext_resource type="Script" uid="uid://codfkgw34kf3x" path="res://player/player_movement.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://codfkgw34kf3x" path="res://Demo/player/player_movement.gd" id="1_oul6g"]
+
+[sub_resource type="Animation" id="Animation_oul6g"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_k2eo1"]
 length = 0.4
@@ -17,22 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 0, 2]
-}
-
-[sub_resource type="Animation" id="Animation_oul6g"]
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_se0eo"]
@@ -59,13 +59,14 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -23)
-scale = Vector2(2, 2)
+position = Vector2(0, -10)
 texture = SubResource("PortableCompressedTexture2D_rkbax")
 hframes = 2
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://Demo Scenes/player/spr_alex.ase"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
