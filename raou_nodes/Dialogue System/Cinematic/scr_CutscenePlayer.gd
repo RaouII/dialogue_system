@@ -18,13 +18,13 @@ func show_message(_message: DialogueResponse, pos: Vector2 ) -> void:
 	Dialogue.text_box_position.y = 600
 	Dialogue.text_box.global_position = pos
 	Dialogue.text_box.display_text(_message._responseText)
-	Global.set_character_idle_animation.emit(_message.character_id, _message._idleAnimation,_message._emotionType)
+	Global.set_character_idle_animation.emit(_message.character_id, _message._idleAnimation)
 	print("show_message_end")
 	is_dialogue_active = true
 	pause()
 
 func set_character_animation(_data: DialogueResponse) -> void:
-		Global.set_character_idle_animation.emit(_data.character_id, _data._idleAnimation,_data._emotionType)
+		Global.set_character_idle_animation.emit(_data.character_id, _data._idleAnimation)
 
 func _unhandled_input(event):
 	#print("dialogue unhandled input")

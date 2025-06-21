@@ -41,7 +41,7 @@ func show_greeting():
 		var _greeting = current_tree._greeting
 		init_responseContainer() ### IF THERE IS A GREETING TO BE DISPLAYED, INSTANTIATE THE TEXT COMPONENT OF THE DIALOGUE BOX
 		text_box.display_text(_greeting._responseText) #### THIS FUNCTION WILL DISPLAY THE TEXT ON THE DIALOGUE BOX
-		Global.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation,_greeting._emotionType)
+		Global.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation)
 	
 	if current_tree._branches != null: ## this will check if there are branches set
 		for branch in current_tree._branches:
@@ -77,7 +77,7 @@ func show_responses(_topic: DialogueTopic):
 		var _response = _responses[i]
 		#print(i)
 		text_box.display_text(_response._responseText)
-		Global.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation,_response._emotionType)
+		Global.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 		
 		if current_topic._nextBranch != null:
 			for topic in current_topic._nextBranch._topics:
@@ -89,7 +89,7 @@ func show_responses(_topic: DialogueTopic):
 	if _responses[current_line_index] != null:
 		var _response = _responses[current_line_index]
 		text_box.display_text(_response._responseText)
-		Global.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation,_response._emotionType)
+		Global.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 	else:
 		push_error("No response found at current_line_index")
 

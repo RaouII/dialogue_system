@@ -17,7 +17,6 @@
 script = ExtResource("9_qt145")
 _responseText = ":D"
 _idleAnimation = ""
-_emotionType = "Neutral"
 _conditions = Array[ExtResource("7_44usp")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -35,7 +34,6 @@ metadata/_custom_type_script = "uid://wgnly555mcgi"
 script = ExtResource("9_qt145")
 _responseText = ":("
 _idleAnimation = ""
-_emotionType = "Neutral"
 _conditions = Array[ExtResource("7_44usp")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -58,7 +56,6 @@ metadata/_custom_type_script = "uid://bphmgatjcmttf"
 script = ExtResource("9_qt145")
 _responseText = "Its a good day right"
 _idleAnimation = ""
-_emotionType = "Neutral"
 _conditions = Array[ExtResource("7_44usp")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -92,7 +89,6 @@ metadata/_custom_type_script = "uid://bphmgatjcmttf"
 script = ExtResource("9_qt145")
 _responseText = ">:("
 _idleAnimation = ""
-_emotionType = "Neutral"
 _conditions = Array[ExtResource("7_44usp")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -115,7 +111,6 @@ metadata/_custom_type_script = "uid://bphmgatjcmttf"
 script = ExtResource("9_qt145")
 _responseText = "Good morning!"
 _idleAnimation = ""
-_emotionType = "Neutral"
 _conditions = Array[ExtResource("7_44usp")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
