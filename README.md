@@ -1,3 +1,6 @@
+I started working on this for a personal project and liked how easy it was to actually use it, so I figure I'd put it out there in case its useful to someone else as well
+
+
 About:
 
 This is a framework designed for games where NPCs' conversations can change dynamically, reacting to the world or the player, without requiring a custom cutscene or tightly choreographed moment. Dialogue is structured around reusable branches that become available when specific conditions are met.
