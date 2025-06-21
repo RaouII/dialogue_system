@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventStage" load_steps=3 format=3 uid="uid://b2d5njq0fubj5"]
+
+[ext_resource type="Script" uid="uid://drjk6r8x4dibu" path="res://raou_nodes/EventTracker System/event_stageObjective_rscript.gd" id="1_cx616"]
+[ext_resource type="Script" uid="uid://cbvojl6sdkejp" path="res://raou_nodes/EventTracker System/event_stage_rscript.gd" id="2_4r874"]
+
+[resource]
+resource_name = "Agreed to get the fruits"
+script = ExtResource("2_4r874")
+_designer_notes = ""
+_objectives = Array[ExtResource("1_cx616")]([])
+metadata/_custom_type_script = "uid://cbvojl6sdkejp"

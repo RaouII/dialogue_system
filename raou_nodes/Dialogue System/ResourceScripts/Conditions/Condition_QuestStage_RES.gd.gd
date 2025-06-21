@@ -5,5 +5,5 @@ class_name EventStage_C extends Condition
 
 func check():
 	if event.current_stage == eventStage:
-				return true
+		return true
 	return false

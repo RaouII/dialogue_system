@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Event" load_steps=8 format=3 uid="uid://c633wolx21jwq"]
+
+[ext_resource type="Script" uid="uid://5gnvf308skfu" path="res://raou_nodes/EventTracker System/event_rscript.gd" id="1_2hbv3"]
+[ext_resource type="Resource" uid="uid://eucs7wnnndgy" path="res://Demo/NPCs/Tom/QS_empty.tres" id="1_p2mbn"]
+[ext_resource type="Script" uid="uid://cbvojl6sdkejp" path="res://raou_nodes/EventTracker System/event_stage_rscript.gd" id="2_7asgk"]
+[ext_resource type="Resource" uid="uid://b2d5njq0fubj5" path="res://Demo/NPCs/Tom/QStage_AgreedToGetFruit.tres" id="3_0mt3e"]
+[ext_resource type="Script" uid="uid://drjk6r8x4dibu" path="res://raou_nodes/EventTracker System/event_stageObjective_rscript.gd" id="3_7asgk"]
+
+[sub_resource type="Resource" id="Resource_p2mbn"]
+resource_name = "Talked to the old man"
+script = ExtResource("2_7asgk")
+_designer_notes = ""
+_objectives = Array[ExtResource("3_7asgk")]([])
+metadata/_custom_type_script = "uid://cbvojl6sdkejp"
+
+[sub_resource type="Resource" id="Resource_vfri4"]
+resource_name = "Got the Fruits"
+script = ExtResource("2_7asgk")
+_designer_notes = ""
+_objectives = Array[ExtResource("3_7asgk")]([])
+metadata/_custom_type_script = "uid://cbvojl6sdkejp"
+
+[resource]
+script = ExtResource("1_2hbv3")
+name = &""
+current_stage = ExtResource("1_p2mbn")
+current_index = 0
+stages = Array[ExtResource("2_7asgk")]([ExtResource("1_p2mbn"), ExtResource("3_0mt3e"), SubResource("Resource_p2mbn"), SubResource("Resource_vfri4")])
+metadata/_custom_type_script = "uid://5gnvf308skfu"

@@ -114,7 +114,8 @@ func display_topic(topic: DialogueTopic):
 		create_topic(topic)
 		return
 	for condition in topic._conditions:
-		if topic._conditions[condition].check() != true:
+		print(condition)
+		if condition.check() != true:
 			push_warning("Topic skipped: conditions not met")
 			return
 	create_topic(topic)

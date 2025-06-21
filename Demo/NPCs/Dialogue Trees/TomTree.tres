@@ -1,12 +1,22 @@
-[gd_resource type="Resource" script_class="DialogueTree" load_steps=20 format=3 uid="uid://ctmm3rrrwgnem"]
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=24 format=3 uid="uid://ctmm3rrrwgnem"]
 
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_5npu8"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="2_310di"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="3_0e6aq"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_gqf7r"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_1husk"]
+[ext_resource type="Resource" uid="uid://c633wolx21jwq" path="res://Demo/NPCs/Tom/quest_for_fruit.tres" id="5_g05f3"]
 [ext_resource type="Resource" uid="uid://ee5j6euh6g2h" path="res://Demo/NPCs/Tom/tom_ID.tres" id="6_310di"]
+[ext_resource type="Resource" uid="uid://b2d5njq0fubj5" path="res://Demo/NPCs/Tom/QStage_AgreedToGetFruit.tres" id="6_bbska"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_g05f3"]
+[ext_resource type="Script" uid="uid://diyuq1exix57a" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/eventSetter_RES.gd" id="7_6j3le"]
+
+[sub_resource type="Resource" id="Resource_dfcci"]
+script = ExtResource("7_6j3le")
+_event = ExtResource("5_g05f3")
+_stage = ExtResource("6_bbska")
+_name = ""
+metadata/_custom_type_script = "uid://diyuq1exix57a"
 
 [sub_resource type="Resource" id="Resource_5y3u2"]
 script = ExtResource("5_1husk")
@@ -22,7 +32,7 @@ _topicText = "Yes"
 _responses = Array[ExtResource("5_1husk")]([SubResource("Resource_5y3u2")])
 _goodbye = true
 _random = false
-_functions = Array[ExtResource("4_gqf7r")]([])
+_functions = Array[ExtResource("4_gqf7r")]([SubResource("Resource_dfcci")])
 _conditions = Array[ExtResource("3_0e6aq")]([])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
 
