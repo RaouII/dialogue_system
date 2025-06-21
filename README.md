@@ -1,5 +1,7 @@
 I started working on this for a personal project and liked how easy it was to actually use it, so I figure I'd put it out there in case its useful to someone else as well
 
+Little demo video:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/z_re1ueZL2s?si=_U-GMmbBHeXTfHTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 About:
 
