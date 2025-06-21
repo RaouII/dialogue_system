@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=4 uid="uid://b1f2sgeajum8o"]
 
 [ext_resource type="TileSet" uid="uid://dt873lhy1lbwa" path="res://Demo/Tileset/ts_base.tres" id="1_pxnob"]
+[ext_resource type="PackedScene" uid="uid://ijv84t0ewfit" path="res://Demo/NPCs/tom.tscn" id="2_8p0k2"]
 [ext_resource type="PackedScene" uid="uid://cxl512mjswrrt" path="res://Demo/player/player.tscn" id="2_nepek"]
-[ext_resource type="Resource" uid="uid://ctmm3rrrwgnem" path="res://Demo/NPCs/Dialogue Trees/TomTree.tres" id="3_8p0k2"]
 [ext_resource type="Script" uid="uid://dafknqj7ljxn" path="res://Demo/camera_2d.gd" id="3_se5p1"]
 [ext_resource type="Resource" uid="uid://clkfyv5xsaao2" path="res://Demo/NPCs/Dialogue Trees/OldManTree.tres" id="4_4ykap"]
 [ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="4_wfkig"]
@@ -12,6 +12,20 @@
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="9_qt145"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="10_sc2xv"]
 [ext_resource type="AudioStream" uid="uid://cb0ces5qwv0mq" path="res://Demo/Audio/BGM/BGM04town0.wav" id="12_8p0k2"]
+
+[sub_resource type="Resource" id="Resource_5y3u2"]
+script = ExtResource("9_qt145")
+_responseText = "Hi there sweetie"
+_idleAnimation = ""
+_conditions = Array[ExtResource("7_44usp")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_8p0k2"]
+resource_name = "Old Woman Tree"
+script = ExtResource("10_sc2xv")
+_branches = Array[ExtResource("5_54l6r")]([])
+_greeting = SubResource("Resource_5y3u2")
+metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5y3u2"]
 _data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAAB6AQAAUklGRnIBAABXRUJQVlA4TGUBAAAvH8APEFegNJIUBh9VRtP/DA3ShpoAIBjzFmBF0EsnjeTQQ2kkKQwupybovzIUg2b+AwD8zZlmHaoQ+1Mr5gh17Yr7AzmubUlS9BS1BDYQej8JVFjFf8loVki5AGY7EsUC2AMbKCwwwWKb1crfc7cb0X8GbtvGYdvdm7Bv4C8cTGAoPxVOKapkr7OlqOIT1S2o5Hk0r2NaVvLYxsqalpVsZ22onpYVbG1yH7CsYMthtgHLCrJ58YSgkg9aOUlR5cN7t+NFhchvx9LHW8LuW8WQy9Xr5WfbW5O+1/n+xb7Xdl9MAK+lQwLsssMEWHl5bA6Y7p6PBJhIOSDSTYDoRgGSzAVsJGkVBbCRVlgG/guDCQzlp8IphbzOFvKJ6hbt59G8jikwtrGyRuysDdWjG1ub3AdEOMwWyubFU4QHrZww/G/v3dYhI3ehzPd1iV27OiN6PrqTh9xIhcyl0EaSVvjOXOHPGQAA")
@@ -58,20 +72,6 @@ _data = {
 &"Walk": SubResource("Animation_8p0k2")
 }
 
-[sub_resource type="Resource" id="Resource_5y3u2"]
-script = ExtResource("9_qt145")
-_responseText = "Hi there sweetie"
-_idleAnimation = ""
-_conditions = Array[ExtResource("7_44usp")]([])
-metadata/_custom_type_script = "uid://d2xpiewoltoba"
-
-[sub_resource type="Resource" id="Resource_8p0k2"]
-resource_name = "Old Woman Tree"
-script = ExtResource("10_sc2xv")
-_branches = Array[ExtResource("5_54l6r")]([])
-_greeting = SubResource("Resource_5y3u2")
-metadata/_custom_type_script = "uid://tfh1etiytb5"
-
 [sub_resource type="Resource" id="Resource_t36p8"]
 script = ExtResource("9_qt145")
 _responseText = "Good morning!"
@@ -103,48 +103,8 @@ tile_set = ExtResource("1_pxnob")
 tile_map_data = PackedByteArray("AAAIAPv/AQAHABAAAAAIAPz/AQAHABEAAAAJAPv/AQAIABAAAAAJAPz/AQAIABEAAAAKAPv/AQAJABAAAAAKAPz/AQAJABEAAAABAAUAAQAAABAAAAABAAYAAQAAABEAAAABAAcAAQAAABIAAAABAAgAAQAAABMAAAACAAUAAQABABAAAAACAAYAAQABABEAAAACAAcAAQABABIAAAACAAgAAQABABMAAAADAAUAAQACABAAAAADAAYAAQACABEAAAADAAcAAQACABIAAAADAAgAAQACABMAAAAQAAwAAQAHABAAAAAQAA0AAQAHABEAAAARAAwAAQAIABAAAAARAA0AAQAIABEAAAASAAwAAQAJABAAAAASAA0AAQAJABEAAAAOAA4AAQAHABAAAAAOAA8AAQAHABEAAAAPAA4AAQAIABAAAAAPAA8AAQAIABEAAAAQAA4AAQAJABAAAAAQAA8AAQAJABEAAAALAA8AAQAHABAAAAALABAAAQAHABEAAAAMAA8AAQAIABAAAAAMABAAAQAIABEAAAANAA8AAQAJABAAAAANABAAAQAJABEAAAAOABEAAQAHABAAAAAOABIAAQAHABEAAAAPABEAAQAIABAAAAAPABIAAQAIABEAAAAQABEAAQAJABAAAAAQABIAAQAJABEAAAAMABMAAQAHABAAAAAMABQAAQAHABEAAAANABMAAQAIABAAAAANABQAAQAIABEAAAAOABMAAQAJABAAAAAOABQAAQAJABEAAAAJABIAAQAHABAAAAAJABMAAQAHABEAAAAKABIAAQAIABAAAAAKABMAAQAIABEAAAALABIAAQAJABAAAAALABMAAQAJABEAAAAIABQAAQAHABAAAAAIABUAAQAHABEAAAAJABQAAQAIABAAAAAJABUAAQAIABEAAAAKABQAAQAJABAAAAAKABUAAQAJABEAAAAFABMAAQAHABAAAAAFABQAAQAHABEAAAAGABMAAQAIABAAAAAGABQAAQAIABEAAAAHABMAAQAJABAAAAAHABQAAQAJABEAAAACABUAAQAHABAAAAACABYAAQAHABEAAAADABUAAQAIABAAAAADABYAAQAIABEAAAAEABUAAQAJABAAAAAEABYAAQAJABEAAAD//xQAAQAHABAAAAD//xUAAQAHABEAAAAAABQAAQAIABAAAAAAABUAAQAIABEAAAABABQAAQAJABAAAAABABUAAQAJABEAAAA=")
 tile_set = ExtResource("1_pxnob")
 
-[node name="Tom" type="Node2D" parent="."]
+[node name="Tom" parent="." instance=ExtResource("2_8p0k2")]
 position = Vector2(50, -41)
-
-[node name="DialogueComponent" type="Node" parent="Tom"]
-script = ExtResource("4_wfkig")
-_dialogueTree = ExtResource("3_8p0k2")
-metadata/_custom_type_script = "uid://dqfcqdux7dbap"
-
-[node name="NPC Sprite" type="Sprite2D" parent="Tom"]
-texture_filter = 1
-position = Vector2(0, -4)
-texture = SubResource("PortableCompressedTexture2D_5y3u2")
-hframes = 2
-vframes = 2
-metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
-}
-metadata/_aseprite_wizard_config_ = {
-"embed_tex": true,
-"i_mode": 0,
-"keep_anim_length": false,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"player": "NPC/AnimationPlayer",
-"slice": "",
-"source": "res://Demo/NPCs/spr_tom.aseprite",
-"source_uid": 2524987145834706730
-}
-metadata/_aseprite_wizard_source_file_hash_ = "1dabd3f2afd0aed3c1bea0325d1503ee"
-
-[node name="RigidBody2D" type="StaticBody2D" parent="Tom"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom/RigidBody2D"]
-shape = SubResource("RectangleShape2D_8p0k2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tom"]
-libraries = {
-&"": SubResource("AnimationLibrary_t36p8")
-}
 
 [node name="Old Woman" type="Node2D" parent="."]
 position = Vector2(-37, 217)

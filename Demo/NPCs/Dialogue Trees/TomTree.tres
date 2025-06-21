@@ -1,16 +1,18 @@
-[gd_resource type="Resource" script_class="DialogueTree" load_steps=19 format=3 uid="uid://ctmm3rrrwgnem"]
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=20 format=3 uid="uid://ctmm3rrrwgnem"]
 
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_5npu8"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="2_310di"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="3_0e6aq"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_gqf7r"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_1husk"]
+[ext_resource type="Resource" uid="uid://ee5j6euh6g2h" path="res://Demo/NPCs/Tom/tom_ID.tres" id="6_310di"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_g05f3"]
 
 [sub_resource type="Resource" id="Resource_5y3u2"]
 script = ExtResource("5_1husk")
 _responseText = "Thank you! :D"
-_idleAnimation = ""
+character_id = ExtResource("6_310di")
+_idleAnimation = "Walk"
 _conditions = Array[ExtResource("3_0e6aq")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 

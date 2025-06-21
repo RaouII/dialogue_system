@@ -8,7 +8,7 @@ signal started_dialogue()
 ## close dialogue signal: sends a signal saying a dialogue has ended
 signal closed_dialogue()
 ## set idle animation signal: it sends a signal with a variety of useful information to animate characters during dialogue.
-signal set_character_idle_animation(_char: CharacterID,_anim: String,_emotion: String,_emote_intensity: int)
+signal set_character_idle_animation(_char: CharacterID,_anim: String)
 signal add_character_to_level_array(CharacterID)
 
 var player: CharacterBody2D
