@@ -25,16 +25,17 @@ signal finished_displaying()
 
 func display_text(text_to_display: String, _charInfo: CharacterID = null):
 	text = text_to_display
+
 	response_container.label.text = text_to_display
 	if _charInfo != null:
 		pass
 		#response_container.portrait_texture.texture = _charInfo.portrait
-		
 	else:
 		pass
 		#response_container.portrait_texture.texture = default_portrait
 	#window_skin.set_instance_shader_parameter("shader_parameter/replace_color",Color(1.0,0.0,0.0,1.0))
-	await resized
+	#await resized
+	print("displaying text")
 	custom_minimum_size.x = min(size.x,MAX_WIDTH)
 	if size.x > MAX_WIDTH:
 		response_container.label.autowrap_mode = TextServer.AUTOWRAP_WORD
@@ -46,6 +47,7 @@ func display_text(text_to_display: String, _charInfo: CharacterID = null):
 	#position.x -= size.x/4
 	#position.y -= size.y/2	
 	response_container.label.text = ""
+	
 	#var txt: RichTextLabel
 	#response_container.label.text.size = size
 	display_letter()
@@ -57,7 +59,6 @@ func display_letter():
 	letter_index +=1
 	if letter_index >= text.length():
 		finished_displaying.emit()
-#		print("finished_displaying")
 		return
 #	print("display_letter")
 	match text[letter_index]:

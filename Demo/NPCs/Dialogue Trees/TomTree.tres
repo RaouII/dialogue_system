@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=19 format=3 uid="uid://ctmm3rrrwgnem"]
+
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_5npu8"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="2_310di"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="3_0e6aq"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_gqf7r"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_1husk"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_g05f3"]
+
+[sub_resource type="Resource" id="Resource_5y3u2"]
+script = ExtResource("5_1husk")
+_responseText = "Thank you! :D"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_t36p8"]
+script = ExtResource("2_310di")
+_topicText = "Yes"
+_responses = Array[ExtResource("5_1husk")]([SubResource("Resource_5y3u2")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_gqf7r")]([])
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_ywa68"]
+script = ExtResource("5_1husk")
+_responseText = "Oh... thats alright... Thanks anyway"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_3akf8"]
+script = ExtResource("2_310di")
+_topicText = "No"
+_responses = Array[ExtResource("5_1husk")]([SubResource("Resource_ywa68")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("4_gqf7r")]([])
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_8jugw"]
+script = ExtResource("1_5npu8")
+_topics = Array[ExtResource("2_310di")]([SubResource("Resource_t36p8"), SubResource("Resource_3akf8")])
+metadata/_custom_type_script = "uid://bphmgatjcmttf"
+
+[sub_resource type="Resource" id="Resource_tikav"]
+script = ExtResource("5_1husk")
+_responseText = "I'm doing alright"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_iaisx"]
+script = ExtResource("5_1husk")
+_responseText = "My mom's been craving some of that fruit the old man grows"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_qnd8r"]
+script = ExtResource("5_1husk")
+_responseText = "He's in a bit of a bad mood though, and wont give us any."
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_cb4y4"]
+script = ExtResource("5_1husk")
+_responseText = "Do you think you can get some for me?"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_0rqgs"]
+script = ExtResource("2_310di")
+_topicText = "How are you doing?"
+_responses = Array[ExtResource("5_1husk")]([SubResource("Resource_tikav"), SubResource("Resource_iaisx"), SubResource("Resource_qnd8r"), SubResource("Resource_cb4y4")])
+_nextBranch = SubResource("Resource_8jugw")
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_gqf7r")]([])
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_bnm2d"]
+resource_name = "Request for Fruit "
+script = ExtResource("1_5npu8")
+_topics = Array[ExtResource("2_310di")]([SubResource("Resource_0rqgs")])
+metadata/_custom_type_script = "uid://bphmgatjcmttf"
+
+[sub_resource type="Resource" id="Resource_4e6cy"]
+script = ExtResource("5_1husk")
+_responseText = "Hi!"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_0e6aq")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[resource]
+resource_name = "Tom's Dialogue Tree"
+script = ExtResource("6_g05f3")
+_branches = Array[ExtResource("1_5npu8")]([SubResource("Resource_bnm2d")])
+_greeting = SubResource("Resource_4e6cy")
+metadata/_custom_type_script = "uid://tfh1etiytb5"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbxh37k37eypu"]
+[gd_scene load_steps=12 format=3 uid="uid://dbxh37k37eypu"]
 
 [ext_resource type="Script" uid="uid://dd046ay1g7ber" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/topic_button.gd" id="1_8386n"]
+[ext_resource type="FontFile" uid="uid://daqh0x18id3lb" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/PIXEARG_.TTF" id="1_jkuqf"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_7m13y"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_06r6o"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_fm30b"]
@@ -34,7 +35,7 @@ Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1_jkuqf")
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_30tnh")

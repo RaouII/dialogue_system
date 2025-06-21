@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dyyd0g0ro38j1"
+path="res://.godot/imported/spr_oldperson1.aseprite-564b3b390035a4db86bb1d349b26fdda.res"
+
+[deps]
+
+source_file="res://Demo/NPCs/spr_oldperson1.aseprite"
+dest_files=["res://.godot/imported/spr_oldperson1.aseprite-564b3b390035a4db86bb1d349b26fdda.res"]
+
+[params]
+

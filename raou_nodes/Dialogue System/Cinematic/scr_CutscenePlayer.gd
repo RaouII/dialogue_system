@@ -11,7 +11,6 @@ func _ready() -> void:
 
 
 func show_message(_message: DialogueResponse, pos: Vector2 ) -> void:
-	print("show_message")
 	Dialogue.instantiate_text_box()
 	Dialogue.init_responseContainer()
 	Dialogue.text_box_position.x = 1000
@@ -19,7 +18,6 @@ func show_message(_message: DialogueResponse, pos: Vector2 ) -> void:
 	Dialogue.text_box.global_position = pos
 	Dialogue.text_box.display_text(_message._responseText)
 	Global.set_character_idle_animation.emit(_message.character_id, _message._idleAnimation)
-	print("show_message_end")
 	is_dialogue_active = true
 	pause()
 

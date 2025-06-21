@@ -159,6 +159,7 @@ func _unhandled_input(event):
 		
 
 func advance_dialogue():
+	print("Dialogue advanced")
 	text_box.queue_free()
 	current_line_index += 1
 
@@ -176,6 +177,7 @@ func advance_dialogue():
 
 
 func _on_text_box_finished_displaying():
+	print("finished displaying text")
 	can_advance_line = true
 
 func cutscene_close_dialogue():
