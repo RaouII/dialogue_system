@@ -6,15 +6,45 @@
 [ext_resource type="Texture2D" uid="uid://b3ddbigrvfbr8" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/ws_A.png" id="3_vg5yu"]
 
 [node name="Dialogue Container" type="MarginContainer" node_paths=PackedStringArray("label")]
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_bottom = 24
+offset_right = 316.0
+offset_bottom = 32.0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
 script = ExtResource("1_xaxbe")
-label = NodePath("HBoxContainer/MarginContainer/Text")
+label = NodePath("HBoxContainer/Text Container/Text")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+[node name="Text Container" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="RichTextLabel" parent="HBoxContainer/Text Container"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.219501, 0.219501, 0.219501, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/line_separation = -7
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "sd
+sd
+sd
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+vertical_alignment = 1
+
+[node name="Portait Container" type="MarginContainer" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -23,17 +53,17 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Portrait" type="Control" parent="HBoxContainer/MarginContainer2"]
+[node name="Portrait" type="Control" parent="HBoxContainer/Portait Container"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2/Portrait"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Portait Container/Portrait"]
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer2/Portrait/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/Portait Container/Portrait/MarginContainer"]
 material = ExtResource("2_x40t5")
 layout_mode = 2
 texture = ExtResource("3_vg5yu")
@@ -42,28 +72,6 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="PortraitTexture" type="TextureRect" parent="HBoxContainer/MarginContainer2/Portrait/MarginContainer"]
+[node name="PortraitTexture" type="TextureRect" parent="HBoxContainer/Portait Container/Portrait/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_xaxbe")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 10
-
-[node name="Text" type="RichTextLabel" parent="HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/line_separation = -7
-bbcode_enabled = true
-text = "sadsadasdasdasdasdasdasdasdasdasdasdasasdasasdasdas"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-vertical_alignment = 1

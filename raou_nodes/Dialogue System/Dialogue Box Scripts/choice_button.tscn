@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbxh37k37eypu"]
+[gd_scene load_steps=11 format=3 uid="uid://dbxh37k37eypu"]
 
 [ext_resource type="Script" uid="uid://dd046ay1g7ber" path="res://raou_nodes/Dialogue System/Dialogue Box Scripts/topic_button.gd" id="1_8386n"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_7m13y"]
@@ -6,7 +6,40 @@
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_fm30b"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="5_x46hs"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30tnh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30tnh"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkuqf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt6rn"]
+bg_color = Color(0.831373, 0.831373, 0.831373, 0.521569)
+
+[sub_resource type="Theme" id="Theme_4gyac"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.370364, 0.370364, 0.370364, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 0)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+Button/colors/icon_normal_color = Color(0, 0, 0, 0)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 0)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_30tnh")
+Button/styles/normal = SubResource("StyleBoxFlat_jkuqf")
+Button/styles/pressed = SubResource("StyleBoxFlat_wt6rn")
 
 [sub_resource type="Resource" id="Resource_ckf2u"]
 script = ExtResource("5_x46hs")
@@ -19,9 +52,9 @@ _conditions = Array[ExtResource("2_7m13y")]([])
 metadata/_custom_type_script = "uid://3ypewn6bdhn2"
 
 [node name="ChoiceButton" type="Button"]
-offset_right = 41.0
-offset_bottom = 31.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_30tnh")
+offset_right = 65.0
+offset_bottom = 23.0
+theme = SubResource("Theme_4gyac")
 text = "Test"
 script = ExtResource("1_8386n")
 _dialogueTopic = SubResource("Resource_ckf2u")

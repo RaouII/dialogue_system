@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+
 @export var move_spd : float = 500
 var character_direction : Vector2
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
+
+func _ready():
+	Global.player = self
 
 func _physics_process(delta):
 	character_direction.x = Input.get_axis("move_left","move_right")

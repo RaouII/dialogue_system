@@ -4,5 +4,6 @@ class_name DialogueComponent extends Node
 # Called when the node enters the scene tree for the first time.
 
 func _start():
-	Dialogue.start_dialogue(get_parent().position, _dialogueTree)
+	var v2 = Vector2.ZERO ## This isn't currently being used in this script so I just set it to VectorZERO for now
+	Dialogue.start_dialogue(v2, _dialogueTree)
 	pass

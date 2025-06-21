@@ -11,7 +11,7 @@ signal closed_dialogue()
 signal set_character_idle_animation(_char: CharacterID,_anim: String,_emotion: String,_emote_intensity: int)
 signal add_character_to_level_array(CharacterID)
 
-
+var player: CharacterBody2D
 var canvas: CanvasLayer
 var variable := {}  # For numbers (ints or floats)
 var switch := {}   # For booleans
