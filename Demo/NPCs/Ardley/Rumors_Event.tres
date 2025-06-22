@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://bbgq7elrsrnbl"]
+
+[ext_resource type="Script" uid="uid://5gnvf308skfu" path="res://raou_nodes/EventTracker System/event_rscript.gd" id="1_v1uyk"]
+[ext_resource type="Script" uid="uid://cbvojl6sdkejp" path="res://raou_nodes/EventTracker System/event_stage_rscript.gd" id="2_8hbfr"]
+[ext_resource type="Resource" uid="uid://db2jj5mipfspl" path="res://Demo/NPCs/Ardley/ES_HaventHeardRumors.tres" id="3_8hbfr"]
+[ext_resource type="Resource" uid="uid://c1l0uqdc5paid" path="res://Demo/NPCs/Ardley/EStage_HeardRumors.tres" id="4_8hbfr"]
+
+[resource]
+resource_name = "Rumors"
+script = ExtResource("1_v1uyk")
+name = &"Rumors"
+current_stage = ExtResource("3_8hbfr")
+current_index = 0
+stages = Array[ExtResource("2_8hbfr")]([ExtResource("3_8hbfr"), ExtResource("4_8hbfr")])
+metadata/_custom_type_script = "uid://5gnvf308skfu"

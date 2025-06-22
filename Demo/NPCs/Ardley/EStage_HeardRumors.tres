@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventStage" load_steps=3 format=3 uid="uid://c1l0uqdc5paid"]
+
+[ext_resource type="Script" uid="uid://drjk6r8x4dibu" path="res://raou_nodes/EventTracker System/event_stageObjective_rscript.gd" id="1_mdgdg"]
+[ext_resource type="Script" uid="uid://cbvojl6sdkejp" path="res://raou_nodes/EventTracker System/event_stage_rscript.gd" id="2_uuftq"]
+
+[resource]
+resource_name = "Heard about the old man's secret "
+script = ExtResource("2_uuftq")
+_designer_notes = ""
+_objectives = Array[ExtResource("1_mdgdg")]([])
+metadata/_custom_type_script = "uid://cbvojl6sdkejp"

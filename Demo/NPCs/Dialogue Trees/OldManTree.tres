@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueTree" load_steps=18 format=3 uid="uid://clkfyv5xsaao2"]
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=25 format=3 uid="uid://clkfyv5xsaao2"]
 
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_pen5b"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="2_788cv"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_f1vq0"]
 [ext_resource type="Resource" uid="uid://b2d5njq0fubj5" path="res://Demo/NPCs/Tom/QStage_AgreedToGetFruit.tres" id="7_ynr26"]
 [ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="8_f1vq0"]
+[ext_resource type="Resource" uid="uid://bbgq7elrsrnbl" path="res://Demo/NPCs/Ardley/Rumors_Event.tres" id="9_f1vq0"]
+[ext_resource type="Resource" uid="uid://c1l0uqdc5paid" path="res://Demo/NPCs/Ardley/EStage_HeardRumors.tres" id="10_6m4e0"]
 
 [sub_resource type="Resource" id="Resource_pen5b"]
 script = ExtResource("5_ynr26")
@@ -46,6 +48,7 @@ _conditions = Array[ExtResource("3_8psop")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_hu308"]
+resource_name = "Ask For Some Fruits"
 script = ExtResource("2_788cv")
 _topicText = "Can I have some of your fruits?"
 _responses = Array[ExtResource("5_ynr26")]([SubResource("Resource_ynr26")])
@@ -55,10 +58,47 @@ _functions = Array[ExtResource("4_cgyt1")]([])
 _conditions = Array[ExtResource("3_8psop")]([SubResource("Resource_f1vq0")])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
 
+[sub_resource type="Resource" id="Resource_sd6ec"]
+script = ExtResource("8_f1vq0")
+event = ExtResource("6_cgyt1")
+eventStage = ExtResource("7_ynr26")
+metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
+
+[sub_resource type="Resource" id="Resource_sxtry"]
+script = ExtResource("8_f1vq0")
+event = ExtResource("9_f1vq0")
+eventStage = ExtResource("10_6m4e0")
+metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
+
+[sub_resource type="Resource" id="Resource_ku475"]
+script = ExtResource("5_ynr26")
+_responseText = "Wh-what?!"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_8psop")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_tpqqt"]
+script = ExtResource("5_ynr26")
+_responseText = "Where did you hear about that?!"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_8psop")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_2fdqo"]
+resource_name = "Offer help with granny"
+script = ExtResource("2_788cv")
+_topicText = "I can help you with Granny"
+_responses = Array[ExtResource("5_ynr26")]([SubResource("Resource_ku475"), SubResource("Resource_tpqqt")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("4_cgyt1")]([])
+_conditions = Array[ExtResource("3_8psop")]([SubResource("Resource_sd6ec"), SubResource("Resource_sxtry")])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
 [sub_resource type="Resource" id="Resource_hqgv6"]
 resource_name = "Get Fruits Branch"
 script = ExtResource("1_pen5b")
-_topics = Array[ExtResource("2_788cv")]([SubResource("Resource_hu308")])
+_topics = Array[ExtResource("2_788cv")]([SubResource("Resource_hu308"), SubResource("Resource_2fdqo")])
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
 [sub_resource type="Resource" id="Resource_cgyt1"]
