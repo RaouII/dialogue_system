@@ -1,7 +1,7 @@
 I started working on this for a personal project and liked how easy it was to actually use it, so I figure I'd put it out there in case its useful to someone else as well
 
 Little demo video:
-https://www.youtube.com/watch?v=z_re1ueZL2s
+https://www.youtube.com/watch?v=BQT7F73EWRY&t
 
 About:
 
