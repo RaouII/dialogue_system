@@ -46,7 +46,7 @@ _data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAABSAQAAUklGRkoBAABXRUJQVlA4TD4
 size_override = Vector2(32, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
-size = Vector2(14, 8)
+size = Vector2(12, 6)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_oul6g")

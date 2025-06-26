@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="DialogueBranch" load_steps=28 format=3 uid="uid://dqoq2oaexvlsu"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_b8n2j"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_t31ob"]
+[ext_resource type="Resource" uid="uid://bbgq7elrsrnbl" path="res://Demo/NPCs/Ardley/Rumors_Event.tres" id="3_hwi02"]
+[ext_resource type="Script" uid="uid://dlkrxq3j1efes" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_Variable_RES.gd" id="3_r8sai"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_hwi02"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="4_r8sai"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_8din7"]
+[ext_resource type="Script" uid="uid://diyuq1exix57a" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/eventSetter_RES.gd" id="7_hwi02"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_jdxqn"]
+[ext_resource type="Resource" uid="uid://db2jj5mipfspl" path="res://Demo/NPCs/Ardley/ES_HaventHeardRumors.tres" id="8_hwi02"]
+[ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="9_8din7"]
+[ext_resource type="Script" uid="uid://3jcwj5yk0k42" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/varSetter_RES.gd" id="11_jdxqn"]
+
+[sub_resource type="Resource" id="Resource_ulasg"]
+script = ExtResource("9_8din7")
+metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
+
+[sub_resource type="Resource" id="Resource_jhaoc"]
+script = ExtResource("4_r8sai")
+_name = ""
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_63peu"]
+script = ExtResource("1_b8n2j")
+_topicText = "Choice 1"
+_responses = Array[ExtResource("6_8din7")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_hwi02")]([])
+_conditions = Array[ExtResource("2_t31ob")]([SubResource("Resource_ulasg"), SubResource("Resource_jhaoc")])
+
+[sub_resource type="Resource" id="Resource_yatf2"]
+script = ExtResource("11_jdxqn")
+_name = ""
+metadata/_custom_type_script = "uid://3jcwj5yk0k42"
+
+[sub_resource type="Resource" id="Resource_8h8fo"]
+script = ExtResource("1_b8n2j")
+_topicText = "Choice 2"
+_responses = Array[ExtResource("6_8din7")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_hwi02")]([SubResource("Resource_yatf2")])
+_conditions = Array[ExtResource("2_t31ob")]([])
+
+[sub_resource type="Resource" id="Resource_3sure"]
+script = ExtResource("7_jdxqn")
+_topics = Array[ExtResource("1_b8n2j")]([SubResource("Resource_63peu"), SubResource("Resource_8h8fo")])
+
+[sub_resource type="Resource" id="Resource_8euru"]
+script = ExtResource("6_8din7")
+_responseText = ""
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_t31ob")]([])
+
+[sub_resource type="Resource" id="Resource_2tmk4"]
+script = ExtResource("1_b8n2j")
+_topicText = "Choice 2"
+_responses = Array[ExtResource("6_8din7")]([SubResource("Resource_8euru")])
+_nextBranch = SubResource("Resource_3sure")
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("4_hwi02")]([])
+_conditions = Array[ExtResource("2_t31ob")]([])
+
+[sub_resource type="Resource" id="Resource_ln5nf"]
+script = ExtResource("7_jdxqn")
+_topics = Array[ExtResource("1_b8n2j")]([SubResource("Resource_2tmk4")])
+
+[sub_resource type="Resource" id="Resource_n10ox"]
+script = ExtResource("6_8din7")
+_responseText = "Response 1"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_t31ob")]([])
+
+[sub_resource type="Resource" id="Resource_024ig"]
+script = ExtResource("1_b8n2j")
+_topicText = "Start"
+_responses = Array[ExtResource("6_8din7")]([SubResource("Resource_n10ox")])
+_nextBranch = SubResource("Resource_ln5nf")
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_hwi02")]([])
+_conditions = Array[ExtResource("2_t31ob")]([])
+
+[sub_resource type="Resource" id="Resource_qd7lm"]
+script = ExtResource("3_r8sai")
+_name = "Sdsdsds"
+_value = 0.0
+comparison = "=="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_8din7"]
+script = ExtResource("7_hwi02")
+_event = ExtResource("3_hwi02")
+_stage = ExtResource("8_hwi02")
+_name = ""
+metadata/_custom_type_script = "uid://diyuq1exix57a"
+
+[sub_resource type="Resource" id="Resource_v7131"]
+script = ExtResource("6_8din7")
+_responseText = "Response 2"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_t31ob")]([])
+
+[sub_resource type="Resource" id="Resource_kvqjj"]
+script = ExtResource("1_b8n2j")
+_topicText = "Start 2"
+_responses = Array[ExtResource("6_8din7")]([SubResource("Resource_v7131")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_hwi02")]([SubResource("Resource_8din7")])
+_conditions = Array[ExtResource("2_t31ob")]([SubResource("Resource_qd7lm")])
+
+[resource]
+script = ExtResource("7_jdxqn")
+_topics = Array[ExtResource("1_b8n2j")]([SubResource("Resource_024ig"), SubResource("Resource_kvqjj")])
