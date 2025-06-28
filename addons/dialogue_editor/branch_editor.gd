@@ -108,6 +108,8 @@ func reconnect_loaded_nodes():
 		pass
 	
 func _on_file_dialog_file_selected(path):  ### SAVE FILE DIALOG
+	current_branch_path = path
+	branch_name.text = path.get_file()
 	var new_branch := DialogueBranch.new()
 	new_branch._topics.clear()
 	#new_branch.take_over_path(path)

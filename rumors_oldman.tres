@@ -1,40 +1,26 @@
-[gd_resource type="Resource" script_class="DialogueBranch" load_steps=13 format=3 uid="uid://mkhq3kpkef0m"]
+[gd_resource type="Resource" script_class="DialogueBranch" load_steps=8 format=3 uid="uid://mkhq3kpkef0m"]
 
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_mbe36"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_ypva7"]
-[ext_resource type="Resource" uid="uid://bbgq7elrsrnbl" path="res://Demo/NPCs/Ardley/Rumors_Event.tres" id="3_io102"]
-[ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="4_4y5sp"]
-[ext_resource type="Script" uid="uid://beuxf1qqtjhqn" path="res://addons/raou_event_tracker/event_stage_list.gd" id="4_ypva7"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="5_eo1ge"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_j5fkx"]
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_p68hx"]
 
-[sub_resource type="Resource" id="Resource_io102"]
-script = ExtResource("4_ypva7")
-selected_option = ""
-selected_index = 0
-
-[sub_resource type="Resource" id="Resource_g7nwq"]
-script = ExtResource("4_4y5sp")
-event = ExtResource("3_io102")
-eventStage = SubResource("Resource_io102")
-metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
-
-[sub_resource type="Resource" id="Resource_kncuo"]
+[sub_resource type="Resource" id="Resource_erpak"]
 script = ExtResource("6_j5fkx")
-_responseText = "No go away"
+_responseText = "test"
 _idleAnimation = ""
 _conditions = Array[ExtResource("2_ypva7")]([])
 
-[sub_resource type="Resource" id="Resource_00d7l"]
+[sub_resource type="Resource" id="Resource_gi32c"]
 script = ExtResource("1_mbe36")
-_topicText = "Have you heard any rumours?"
-_responses = Array[ExtResource("6_j5fkx")]([SubResource("Resource_kncuo")])
-_goodbye = true
+_topicText = "Test"
+_responses = Array[ExtResource("6_j5fkx")]([SubResource("Resource_erpak")])
+_goodbye = false
 _random = false
 _functions = Array[ExtResource("5_eo1ge")]([])
-_conditions = Array[ExtResource("2_ypva7")]([SubResource("Resource_g7nwq")])
+_conditions = Array[ExtResource("2_ypva7")]([])
 
 [resource]
 script = ExtResource("7_p68hx")
-_topics = Array[ExtResource("1_mbe36")]([SubResource("Resource_00d7l")])
+_topics = Array[ExtResource("1_mbe36")]([SubResource("Resource_gi32c")])

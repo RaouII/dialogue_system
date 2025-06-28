@@ -29,7 +29,8 @@ func _on_add_condition_pressed():
 	condition_list.append(condition_container)
 	condition_container.deleted.connect(_on_condition_deleted)
 
-func _on_condition_deleted(_name: String):
+func _on_condition_deleted(_name: ConditionContainer):
+	condition_list.erase(_name)
 	pass
 ########################	
 func _on_add_function_pressed():
@@ -38,5 +39,6 @@ func _on_add_function_pressed():
 	function_list.append(function_container)
 	function_container.deleted.connect(_on_function_deleted)
 
-func _on_function_deleted(_name: String):
+func _on_function_deleted(_name: FunctionContainer):
+	function_list.erase(_name)
 	pass

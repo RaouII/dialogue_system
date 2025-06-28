@@ -8,10 +8,10 @@ var current_resource
 @onready var h_box_container = $HBoxContainer
 @onready var check_box = $HBoxContainer/CheckBox
 
-signal deleted(_string: String)
+signal deleted()
 
 func _on_delete_pressed():
-	deleted.emit(name)
+	deleted.emit(self)
 	queue_free()
 	
 	
