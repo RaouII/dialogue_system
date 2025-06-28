@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueTree" load_steps=25 format=3 uid="uid://clkfyv5xsaao2"]
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=27 format=3 uid="uid://clkfyv5xsaao2"]
 
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_pen5b"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="2_788cv"]
@@ -7,10 +7,9 @@
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_ynr26"]
 [ext_resource type="Resource" uid="uid://c633wolx21jwq" path="res://Demo/NPCs/Tom/quest_for_fruit.tres" id="6_cgyt1"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_f1vq0"]
-[ext_resource type="Resource" uid="uid://b2d5njq0fubj5" path="res://Demo/NPCs/Tom/QStage_AgreedToGetFruit.tres" id="7_ynr26"]
 [ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="8_f1vq0"]
+[ext_resource type="Script" uid="uid://beuxf1qqtjhqn" path="res://addons/raou_event_tracker/event_stage_list.gd" id="9_6m4e0"]
 [ext_resource type="Resource" uid="uid://bbgq7elrsrnbl" path="res://Demo/NPCs/Ardley/Rumors_Event.tres" id="9_f1vq0"]
-[ext_resource type="Resource" uid="uid://c1l0uqdc5paid" path="res://Demo/NPCs/Ardley/EStage_HeardRumors.tres" id="10_6m4e0"]
 
 [sub_resource type="Resource" id="Resource_pen5b"]
 script = ExtResource("5_ynr26")
@@ -34,10 +33,15 @@ script = ExtResource("1_pen5b")
 _topics = Array[ExtResource("2_788cv")]([SubResource("Resource_788cv")])
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
+[sub_resource type="Resource" id="Resource_6m4e0"]
+script = ExtResource("9_6m4e0")
+selected_option = ""
+selected_index = 1
+
 [sub_resource type="Resource" id="Resource_f1vq0"]
 script = ExtResource("8_f1vq0")
 event = ExtResource("6_cgyt1")
-eventStage = ExtResource("7_ynr26")
+eventStage = SubResource("Resource_6m4e0")
 metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
 
 [sub_resource type="Resource" id="Resource_ynr26"]
@@ -58,16 +62,26 @@ _functions = Array[ExtResource("4_cgyt1")]([])
 _conditions = Array[ExtResource("3_8psop")]([SubResource("Resource_f1vq0")])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
 
+[sub_resource type="Resource" id="Resource_ucqy4"]
+script = ExtResource("9_6m4e0")
+selected_option = ""
+selected_index = 1
+
 [sub_resource type="Resource" id="Resource_sd6ec"]
 script = ExtResource("8_f1vq0")
 event = ExtResource("6_cgyt1")
-eventStage = ExtResource("7_ynr26")
+eventStage = SubResource("Resource_ucqy4")
 metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
+
+[sub_resource type="Resource" id="Resource_yyhq4"]
+script = ExtResource("9_6m4e0")
+selected_option = ""
+selected_index = 1
 
 [sub_resource type="Resource" id="Resource_sxtry"]
 script = ExtResource("8_f1vq0")
 event = ExtResource("9_f1vq0")
-eventStage = ExtResource("10_6m4e0")
+eventStage = SubResource("Resource_yyhq4")
 metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
 
 [sub_resource type="Resource" id="Resource_ku475"]

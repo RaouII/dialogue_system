@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SetEventStage" load_steps=5 format=3 uid="uid://dy8nkg3m5iqte"]
+
+[ext_resource type="Resource" uid="uid://c633wolx21jwq" path="res://Demo/NPCs/Tom/quest_for_fruit.tres" id="1_2g18h"]
+[ext_resource type="Script" uid="uid://diyuq1exix57a" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/eventSetter_RES.gd" id="1_bfwtx"]
+[ext_resource type="Script" uid="uid://beuxf1qqtjhqn" path="res://addons/raou_event_tracker/event_stage_list.gd" id="2_77h3p"]
+
+[sub_resource type="Resource" id="Resource_77h3p"]
+script = ExtResource("2_77h3p")
+selected_option = ""
+selected_index = 0
+
+[resource]
+script = ExtResource("1_bfwtx")
+_event = ExtResource("1_2g18h")
+_stage = SubResource("Resource_77h3p")
+_name = ""
+metadata/_custom_type_script = "uid://diyuq1exix57a"

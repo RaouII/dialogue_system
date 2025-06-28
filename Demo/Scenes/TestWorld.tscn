@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b1f2sgeajum8o"]
+[gd_scene load_steps=39 format=4 uid="uid://b1f2sgeajum8o"]
 
 [ext_resource type="TileSet" uid="uid://dt873lhy1lbwa" path="res://Demo/Tileset/ts_base.tres" id="1_pxnob"]
 [ext_resource type="PackedScene" uid="uid://ijv84t0ewfit" path="res://Demo/NPCs/tom.tscn" id="2_8p0k2"]
@@ -7,15 +7,15 @@
 [ext_resource type="Resource" uid="uid://clkfyv5xsaao2" path="res://Demo/NPCs/Dialogue Trees/OldManTree.tres" id="4_4ykap"]
 [ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="4_wfkig"]
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_54l6r"]
-[ext_resource type="Resource" uid="uid://dxe3e4njqlhbx" path="res://test_branch.tres" id="5_dfy7w"]
+[ext_resource type="Resource" uid="uid://mkhq3kpkef0m" path="res://rumors_oldman.tres" id="5_cb4y4"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="7_44usp"]
 [ext_resource type="Texture2D" uid="uid://ryfuggt2styr" path="res://Demo/NPCs/spr_npc_1.png" id="8_8p0k2"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="8_tikav"]
 [ext_resource type="Resource" uid="uid://bbgq7elrsrnbl" path="res://Demo/NPCs/Ardley/Rumors_Event.tres" id="9_iaisx"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="9_qt145"]
-[ext_resource type="Resource" uid="uid://db2jj5mipfspl" path="res://Demo/NPCs/Ardley/ES_HaventHeardRumors.tres" id="10_qnd8r"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="10_sc2xv"]
 [ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="11_cb4y4"]
+[ext_resource type="Script" uid="uid://beuxf1qqtjhqn" path="res://addons/raou_event_tracker/event_stage_list.gd" id="11_dfy7w"]
 [ext_resource type="AudioStream" uid="uid://cb0ces5qwv0mq" path="res://Demo/Audio/BGM/BGM04town0.wav" id="12_8p0k2"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="12_dfy7w"]
 [ext_resource type="Script" uid="uid://diyuq1exix57a" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/eventSetter_RES.gd" id="13_iaisx"]
@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 [sub_resource type="Resource" id="Resource_8p0k2"]
 resource_name = "Old Woman Tree"
 script = ExtResource("10_sc2xv")
-_branches = Array[ExtResource("5_54l6r")]([ExtResource("5_dfy7w")])
+_branches = Array[ExtResource("5_54l6r")]([ExtResource("5_cb4y4")])
 _greeting = SubResource("Resource_5y3u2")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 
@@ -80,15 +80,26 @@ _data = {
 &"Walk": SubResource("Animation_8p0k2")
 }
 
+[sub_resource type="Resource" id="Resource_e5ogi"]
+script = ExtResource("11_dfy7w")
+selected_option = ""
+selected_index = 0
+
 [sub_resource type="Resource" id="Resource_f2i3v"]
 script = ExtResource("11_cb4y4")
 event = ExtResource("9_iaisx")
-eventStage = ExtResource("10_qnd8r")
+eventStage = SubResource("Resource_e5ogi")
 metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
+
+[sub_resource type="Resource" id="Resource_dfy7w"]
+script = ExtResource("11_dfy7w")
+selected_option = ""
+selected_index = 1
 
 [sub_resource type="Resource" id="Resource_qnd8r"]
 script = ExtResource("13_iaisx")
 _event = ExtResource("9_iaisx")
+_stage = SubResource("Resource_dfy7w")
 _name = ""
 metadata/_custom_type_script = "uid://diyuq1exix57a"
 

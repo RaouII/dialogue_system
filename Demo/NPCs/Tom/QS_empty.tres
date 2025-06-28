@@ -6,6 +6,7 @@
 [resource]
 resource_name = "Starting Stage"
 script = ExtResource("2_6ufqu")
+_name = "Starting Stage"
 _designer_notes = ""
 completed = false
 _objectives = Array[ExtResource("1_k24xi")]([])

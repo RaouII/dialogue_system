@@ -1,11 +1,19 @@
-[gd_resource type="Resource" script_class="Event" load_steps=3 format=3 uid="uid://bm6fa7aa2jr20"]
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://bm6fa7aa2jr20"]
 
 [ext_resource type="Script" uid="uid://5gnvf308skfu" path="res://raou_nodes/EventTracker System/event_rscript.gd" id="1_4gq1t"]
 [ext_resource type="Script" uid="uid://cbvojl6sdkejp" path="res://raou_nodes/EventTracker System/event_stage_rscript.gd" id="2_hj4h2"]
+[ext_resource type="Script" uid="uid://drjk6r8x4dibu" path="res://raou_nodes/EventTracker System/event_stageObjective_rscript.gd" id="3_g81lk"]
+
+[sub_resource type="Resource" id="Resource_g81lk"]
+script = ExtResource("2_hj4h2")
+_name = "New Event Stage"
+_designer_notes = ""
+completed = false
+_objectives = Array[ExtResource("3_g81lk")]([])
+metadata/_custom_type_script = "uid://cbvojl6sdkejp"
 
 [resource]
 script = ExtResource("1_4gq1t")
 name = &""
-current_index = 0
-stages = Array[ExtResource("2_hj4h2")]([null])
+stages = Array[ExtResource("2_hj4h2")]([SubResource("Resource_g81lk"), null, null, null, null])
 metadata/_custom_type_script = "uid://5gnvf308skfu"

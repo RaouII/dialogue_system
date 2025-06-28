@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Event" load_steps=3 format=3 uid="uid://cywu1r0fynwnt"]
+
+[ext_resource type="Script" uid="uid://5gnvf308skfu" path="res://raou_nodes/EventTracker System/event_rscript.gd" id="1_joilb"]
+[ext_resource type="Script" uid="uid://cbvojl6sdkejp" path="res://raou_nodes/EventTracker System/event_stage_rscript.gd" id="2_g6n7p"]
+
+[resource]
+script = ExtResource("1_joilb")
+name = &""
+stages = Array[ExtResource("2_g6n7p")]([])
+metadata/_custom_type_script = "uid://5gnvf308skfu"

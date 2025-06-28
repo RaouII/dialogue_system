@@ -13,18 +13,27 @@ func _on_delete_pressed():
 	deleted.emit(name)
 	queue_free()
 	
-
+func _update_resource_editor(is_visible):
+	if resource_editor != null:
+		resource_editor.queue_free()
+	resource_editor = EditorInspector.new()
+	resource_editor.draw_focus_border = true
+	resource_editor.custom_minimum_size= Vector2(100,200)
+	self.add_child(resource_editor)
+	resource_editor.edit(current_resource)
+	resource_editor.visible = is_visible
+	
 func _on_resource_changed(_resource: Resource):
-	resource_editor.edit(_resource)
-	current_resource = _resource
 	if _resource:
 		check_box.set_pressed_no_signal(true)
 		check_box.text = "▼"
-		resource_editor.visible = true
+		_update_resource_editor(true)
 	else:
 		check_box.text = "▶"
 		check_box.set_pressed_no_signal(false)
-		resource_editor.visible = false
+		_update_resource_editor(false)
+	resource_editor.edit(_resource)
+	current_resource = _resource
 	pass
 func _ready():
 	function_picker = EditorResourcePicker.new()
@@ -39,18 +48,14 @@ func _ready():
 	function_picker.toggle_mode = true
 	h_box_container.add_child(function_picker)
 	h_box_container.add_child(delete_button)
-	
-	resource_editor = EditorInspector.new()
-	resource_editor.visible = false
-	resource_editor.draw_focus_border = true
-	resource_editor.custom_minimum_size= Vector2(100,200)
-	self.add_child(resource_editor)
+	_update_resource_editor(false)
+
 
 
 func _on_check_box_toggled(toggled_on):
 	if current_resource:
 		function_picker.set_toggle_pressed(toggled_on)
-		resource_editor.visible = toggled_on
+		_update_resource_editor(toggled_on)
 		if toggled_on:
 			check_box.text = "▼"
 		else:
