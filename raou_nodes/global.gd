@@ -20,7 +20,10 @@ func set_variable(name: String, value: int) -> void:
 	variable[name] = value
 
 func get_variable(name: String) -> int:
-	return variable.get(name)
+	if variable.has(name):
+		return variable.get(name)
+	else:
+		return -1
 
 func add_to_variable(name: String, amount: int) -> void:
 	variable[name] = get_variable(name) + amount

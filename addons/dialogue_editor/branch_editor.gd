@@ -13,6 +13,10 @@ var starting_topics:= []
 var nodes:= []
 var rows = 0
 
+var topic_to_node = {}
+var response_to_node = {}
+
+
 func _add_topic_node() -> void:
 	print_debug("adding new node")
 	var node = TOPIC_GRAPH_NODE.instantiate()
@@ -42,48 +46,8 @@ func _on_button_pressed() -> void:
 	print_debug("pressing button new node")
 	call_deferred("_add_topic_node")
 
-func create_topic_resource(_node: TopicGraphNode) -> DialogueTopic:
-	var new_topic := DialogueTopic.new()
-	new_topic._topicText = _node.topic_prompt.text
-	new_topic._goodbye = _node.goodbye.button_pressed
-	new_topic._random = _node.random.button_pressed
-	for condition:ConditionContainer in _node.condition_list:
-		new_topic._conditions.append(condition.current_resource)
-	for function:FunctionContainer in _node.function_list:
-		new_topic._functions.append(function.current_resource)
-	
-	var response_chain := get_response_chain_from_topic(_node,new_topic)
-	for response in response_chain:
-		var new_response := DialogueResponse.new()
-		new_response._responseText = response.topic_prompt.text
-		new_response.character_id = response.characterID
-		new_response._idleAnimation = response.animation
-		new_topic._responses.append(new_response)
-	return(new_topic)
 
-func get_response_chain_from_topic(_topic: TopicGraphNode, topic: DialogueTopic) ->Array:
-	var chain:= []
-	var current_node = _topic
-	
-	while current_node:
-		var next_node: GraphNode = null
-		var connection_list = graph_edit.get_connection_list()
-		for connections in connection_list:
-			if connections.from_node == current_node.name:
-				for node in nodes:
-					if node.name == connections.to_node:
-						if node is ResponseGraphNode:
-							var target = node
-							if target and target not in chain:
-								next_node = target
-								chain.append(next_node)
-								break
-						elif node is TopicGraphNode:
-							topic._nextBranch = create_new_branch(current_node,topic)
-							return(chain)
-		current_node = next_node
-	
-	return(chain)
+
 	
 func create_new_branch(_response: ResponseGraphNode,_topic: DialogueTopic) -> DialogueBranch:
 	var new_branch := DialogueBranch.new()
@@ -119,6 +83,29 @@ func _on_button_2_button_up():
 	pass # Replace with function body.
 
 
+func reconnect_loaded_nodes():
+	for key:DialogueTopic in topic_to_node:
+		for response in key._responses:
+			var current_pos: int = key._responses.find(response)
+			var last_pos: int = key._responses.size()-1
+			if current_pos == 0:
+				graph_edit.connect_node(topic_to_node[key], 0, response_to_node[response], 0)
+			else:
+				if current_pos <= last_pos:
+					graph_edit.connect_node(response_to_node[key._responses[current_pos-1]], 0, response_to_node[response], 0)
+			print("last response = ", key._responses[last_pos])
+			print("current response = ", response)
+			if response == key._responses[last_pos]:
+				print("last response")
+				if key._nextBranch:
+					print("Next Branch Topics: ",key._nextBranch)
+					for topic:DialogueTopic in key._nextBranch._topics:
+						print("topic: ", topic)
+						graph_edit.connect_node(response_to_node[response], 0, topic_to_node[topic], 0)
+						pass
+		
+		pass
+	
 func _on_file_dialog_file_selected(path):  ### SAVE FILE DIALOG
 	var new_branch := DialogueBranch.new()
 	new_branch._topics.clear()
@@ -127,22 +114,69 @@ func _on_file_dialog_file_selected(path):  ### SAVE FILE DIALOG
 	for connections in connection_list:
 		for topic in starting_topics:
 			if topic != null:
-				print(topic.topic_prompt)
 				if connections.from_node == topic.name:
 					for node in nodes:
 						if node.name == connections.to_node:
 							if node is ResponseGraphNode:
 								new_branch._topics.append(create_topic_resource(topic))
 			
-		#if starting_topics.size() > 0:
-		#for topic in starting_topics:
-			#new_branch._topics.append(create_topic_resource(topic))
 	ResourceSaver.save(new_branch,path)
 	ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)
 	print_debug("save branch")
 	file_dialog.visible = false
 
-	pass # Replace with function body.
+
+func create_topic_resource(_node: TopicGraphNode) -> DialogueTopic:
+	var new_topic := DialogueTopic.new()
+	new_topic._topicText = _node.topic_prompt.text
+	new_topic._goodbye = _node.goodbye.button_pressed
+	new_topic._random = _node.random.button_pressed
+	for condition:ConditionContainer in _node.condition_list:
+		new_topic._conditions.append(condition.current_resource)
+	for function:FunctionContainer in _node.function_list:
+		new_topic._functions.append(function.current_resource)
+	
+	var response_chain := get_response_chain_from_topic(_node,new_topic)
+	for response in response_chain:
+		var current_pos: int = response_chain.find(response)
+		var last_pos: int = response_chain.size()-1
+		var new_response := DialogueResponse.new()
+		new_response._responseText = response.topic_prompt.text
+		new_response.character_id = response.characterID
+		new_response._idleAnimation = response.animation
+		new_topic._responses.append(new_response)
+
+			
+	return(new_topic)
+
+func get_response_chain_from_topic(_topic: TopicGraphNode, topic: DialogueTopic) ->Array:
+	var chain:= []
+	var current_node = _topic
+	while current_node:
+		var next_node: GraphNode = null
+		var connection_list = graph_edit.get_connection_list()
+		for connections in connection_list:
+			if connections.from_node == current_node.name:
+				print("current node: ",connections.from_node)
+				for node in nodes:
+					if node.name == connections.to_node:
+						print("connected node: ",connections.to_node)
+						if node is ResponseGraphNode:
+							print("found response graph node connection")
+							var target = node
+							if target and target not in chain:
+								next_node = target
+								chain.append(next_node)
+						elif node is TopicGraphNode:
+							print("found topic graph node connection")
+							topic._nextBranch = create_new_branch(current_node,topic)
+							return(chain)
+		current_node = next_node
+	
+	return(chain)
+
+
+
 
 
 func _on_button_3_button_up():
@@ -183,7 +217,7 @@ func _create_response_node_from_file(_init_pos, _index):
 	node_index += 1
 	return(node)
 
-
+	
 func _load_topic_node_from_file(_init_pos, _index,_startingTopic: bool):
 	var node
 	if _startingTopic:
@@ -197,6 +231,8 @@ func _load_topic_node_from_file(_init_pos, _index,_startingTopic: bool):
 	print(node.topic_prompt)
 	if _startingTopic:
 		starting_topics.append(node)
+	else:
+		nodes.append(node)
 	node_index += 1
 	return(node)
 
@@ -205,6 +241,7 @@ func _load_responses(topic:DialogueTopic, offset, parent_offset,parent):
 	for response in topic._responses:
 		var new_init_pos = init_pos+Vector2(parent_offset.x,0) + offset
 		var response_node:ResponseGraphNode = _create_response_node_from_file(new_init_pos,_i)
+		response_to_node[response] = response_node.name
 		response_node.topic_prompt.text = response._responseText
 		if _i == topic._responses.size()-1:
 			if topic._nextBranch:
@@ -222,6 +259,7 @@ func load_topics(parent_topic: DialogueTopic, response: DialogueResponse,offset,
 	for topic in parent_topic._nextBranch._topics:
 		var new_init_pos = init_pos+Vector2(parent_offset.x,0) + offset
 		var new_topic: TopicGraphNode =  _load_topic_node_from_file(new_init_pos, _i,false)
+		topic_to_node[topic] = new_topic.name
 		new_topic.topic_prompt.text = topic._topicText
 		new_topic.goodbye.set_pressed_no_signal(topic._goodbye)
 		new_topic.random.set_pressed_no_signal(topic._random)
@@ -241,11 +279,14 @@ func load_topics(parent_topic: DialogueTopic, response: DialogueResponse,offset,
 		print(rows)
 
 func load_starting_topics(path):
+	topic_to_node = {}
+	response_to_node = {}
 	rows = 1
 	var branch_data: DialogueBranch = load(path)
 	var i = 0
 	for topic in branch_data._topics:
 		var new_topic: TopicGraphNode =  _load_topic_node_from_file(init_pos, i,true)
+		topic_to_node[topic] = new_topic.name
 		new_topic.topic_prompt.text = topic._topicText
 		new_topic.goodbye.set_pressed_no_signal(topic._goodbye)
 		new_topic.random.set_pressed_no_signal(topic._random)
@@ -268,6 +309,7 @@ func load_starting_topics(path):
 		#new_topic.set_position(init_pos + starting_topics.size()*new_topic.size.y)
 	for topics in starting_topics:
 		print(topics.goodbye.toggle_mode)
+	reconnect_loaded_nodes()
 
 
 func _on_load_file_dialog_file_selected(path):
@@ -281,6 +323,8 @@ func _on_load_file_dialog_file_selected(path):
 	$"HBoxContainer/Load Branch/LoadFileDialog".visible = false
 	load_starting_topics(path)
 	pass # Replace with function body.
+
+
 
 
 func _on_clear_graph_button_up():
