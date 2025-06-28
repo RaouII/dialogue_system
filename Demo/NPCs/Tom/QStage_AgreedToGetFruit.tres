@@ -7,5 +7,6 @@
 resource_name = "Agreed to get the fruits"
 script = ExtResource("2_4r874")
 _designer_notes = ""
+completed = false
 _objectives = Array[ExtResource("1_cx616")]([])
 metadata/_custom_type_script = "uid://cbvojl6sdkejp"

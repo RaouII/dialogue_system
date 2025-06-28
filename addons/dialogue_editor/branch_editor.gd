@@ -177,7 +177,6 @@ func _create_response_node_from_file(_init_pos, _index):
 	var width = node.size.x+padding
 	var height = node.size.y+padding
 	var y_offset = height*rows
-	print("init pos: ",_init_pos)
 	node.position_offset = _init_pos + Vector2(0,y_offset) + (_index * Vector2(width,0)) 
 	graph_edit.add_child(node)
 	nodes.append(node)
@@ -192,10 +191,7 @@ func _load_topic_node_from_file(_init_pos, _index,_startingTopic: bool):
 	else: 
 		node = TOPIC_GRAPH_NODE.instantiate()
 	var height = node.size.y+50
-	print(rows)
 	var y_offset = height*rows
-	print_debug("adding new node. rows:", rows)
-	print("init pos: ",_init_pos)
 	node.position_offset = _init_pos + Vector2(0,y_offset)
 	graph_edit.add_child(node)
 	print(node.topic_prompt)

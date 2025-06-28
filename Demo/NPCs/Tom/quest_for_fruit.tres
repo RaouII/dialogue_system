@@ -10,6 +10,7 @@
 resource_name = "Talked to the old man"
 script = ExtResource("2_7asgk")
 _designer_notes = ""
+completed = false
 _objectives = Array[ExtResource("3_7asgk")]([])
 metadata/_custom_type_script = "uid://cbvojl6sdkejp"
 
@@ -17,6 +18,7 @@ metadata/_custom_type_script = "uid://cbvojl6sdkejp"
 resource_name = "Got the Fruits"
 script = ExtResource("2_7asgk")
 _designer_notes = ""
+completed = false
 _objectives = Array[ExtResource("3_7asgk")]([])
 metadata/_custom_type_script = "uid://cbvojl6sdkejp"
 

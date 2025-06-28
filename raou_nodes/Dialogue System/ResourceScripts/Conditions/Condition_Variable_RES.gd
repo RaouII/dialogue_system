@@ -1,4 +1,4 @@
-class_name Variable_C extends Condition
+class_name Variable_Condition extends Condition
 
 @export var _name: String
 @export var _value: float

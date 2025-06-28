@@ -1,4 +1,3 @@
-@icon("res://Quest System/ICO_Quest.png")
 class_name Event extends Resource
 
 @export var name: StringName
@@ -14,7 +13,8 @@ func resetQuest():
 func setQuestStageIndex(_index: int):
 	current_stage = stages[_index]
 	current_index = _index
-	
+
+
 func setQuestStage(_stage: EventStage):
 	if stages.has(_stage):
 		current_stage = _stage
@@ -22,12 +22,13 @@ func setQuestStage(_stage: EventStage):
 	else:
 		printerr("Tried to set '%s' stage to a Event that doesnt have it in its stages list" % [_stage])
 
-func advanceStage():
+func advanceStage(_completed: bool):
 	if current_stage == null:
 		setQuestStageIndex(0)
 	else:
 		if current_index != stages.size()-1:
 			current_index = current_index+1
+			current_stage.completed = _completed
 			current_stage = stages[current_index]
 			print_rich("[color=yellow]Advance Event Stage to '%s'" % [current_stage.resource_name])
 		else:

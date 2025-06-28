@@ -1,4 +1,4 @@
-class_name FloatSetter extends VariableSetter
+class_name SetFloat extends VariableSetter
 
 @export var _value: float
 

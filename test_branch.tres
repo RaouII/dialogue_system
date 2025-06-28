@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="DialogueBranch" load_steps=32 format=3 uid="uid://dxe3e4njqlhbx"]
+[gd_resource type="Resource" script_class="DialogueBranch" load_steps=34 format=3 uid="uid://dxe3e4njqlhbx"]
 
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_hfct3"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_7wc33"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_ln283"]
+[ext_resource type="Script" uid="uid://diyuq1exix57a" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/eventSetter_RES.gd" id="4_7wc33"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_ip873"]
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_v8w2b"]
+
+[sub_resource type="Resource" id="Resource_jt8cg"]
+script = ExtResource("4_7wc33")
+_name = ""
+metadata/_custom_type_script = "uid://diyuq1exix57a"
 
 [sub_resource type="Resource" id="Resource_e4nge"]
 script = ExtResource("4_ip873")
@@ -113,7 +119,7 @@ _responses = Array[ExtResource("4_ip873")]([SubResource("Resource_7v6v8"), SubRe
 _nextBranch = SubResource("Resource_tkcco")
 _goodbye = false
 _random = false
-_functions = Array[ExtResource("3_ln283")]([])
+_functions = Array[ExtResource("3_ln283")]([SubResource("Resource_jt8cg")])
 _conditions = Array[ExtResource("2_7wc33")]([])
 
 [sub_resource type="Resource" id="Resource_yhses"]

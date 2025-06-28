@@ -1,4 +1,4 @@
-class_name Switch_C extends Condition
+class_name Switch_Condition extends Condition
 
 @export var _name: String
 @export var _value: bool

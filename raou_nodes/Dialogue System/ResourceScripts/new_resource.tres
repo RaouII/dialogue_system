@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SetEventStage" load_steps=2 format=3 uid="uid://ct561qlr5to1o"]
+
+[ext_resource type="Script" uid="uid://diyuq1exix57a" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/eventSetter_RES.gd" id="1_rpai4"]
+
+[resource]
+script = ExtResource("1_rpai4")
+metadata/_custom_type_script = "uid://diyuq1exix57a"

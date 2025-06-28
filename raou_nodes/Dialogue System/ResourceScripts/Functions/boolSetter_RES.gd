@@ -1,4 +1,4 @@
-class_name BoolSetter extends VariableSetter
+class_name SetBool extends VariableSetter
 
 @export var _value: bool
 

@@ -1,4 +1,4 @@
-class_name EventStageIndex_C extends Condition
+class_name EventStageIndexCondition extends Condition
 
 @export var event: Event
 @export var eventStage: int

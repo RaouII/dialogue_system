@@ -1,4 +1,4 @@
-class_name IntSetter extends VariableSetter
+class_name SetInt extends VariableSetter
 
 @export var _value: int
 
