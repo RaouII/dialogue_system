@@ -1,6 +1,7 @@
 @tool
 extends Control
 
+@onready var branch_name = $PanelContainer/VBoxContainer/HBoxContainer2/BranchName
 @onready var warning_dialog = $WarningDialog
 @onready var file_dialog = $FileDialog
 @onready var graph_edit: GraphEdit = $GraphEdit
@@ -12,7 +13,7 @@ var node_index = 0
 var starting_topics:= []
 var nodes:= []
 var rows = 0
-
+var current_branch_path: String
 var topic_to_node = {}
 var response_to_node = {}
 
@@ -201,7 +202,7 @@ func _on_graph_edit_connection_drag_started(from_node, from_port, is_output):
 
 
 func _on_load_branch_button_up():
-	$"HBoxContainer/Load Branch/LoadFileDialog".visible = true
+	$"PanelContainer/VBoxContainer/HBoxContainer/Load Branch/LoadFileDialog".visible = true
 	pass # Replace with function body.
 
 func _create_response_node_from_file(_init_pos, _index):
@@ -278,11 +279,13 @@ func load_topics(parent_topic: DialogueTopic, response: DialogueResponse,offset,
 		rows +=1
 		print(rows)
 
+
 func load_starting_topics(path):
 	topic_to_node = {}
 	response_to_node = {}
 	rows = 1
 	var branch_data: DialogueBranch = load(path)
+	branch_name.text = path.get_file()
 	var i = 0
 	for topic in branch_data._topics:
 		var new_topic: TopicGraphNode =  _load_topic_node_from_file(init_pos, i,true)
@@ -313,6 +316,7 @@ func load_starting_topics(path):
 
 
 func _on_load_file_dialog_file_selected(path):
+	current_branch_path = path
 	node_index = 0
 	starting_topics.clear()
 	nodes.clear()
@@ -320,7 +324,7 @@ func _on_load_file_dialog_file_selected(path):
 		if child is GraphNode:
 			child.queue_free()
 	pass # Replace with function body.
-	$"HBoxContainer/Load Branch/LoadFileDialog".visible = false
+	$"PanelContainer/VBoxContainer/HBoxContainer/Load Branch/LoadFileDialog".visible = false
 	load_starting_topics(path)
 	pass # Replace with function body.
 
@@ -339,4 +343,10 @@ func _on_clear_graph_button_up():
 
 func _on_warning_dialog_confirmed():
 	warning_dialog.visible = false
+	pass # Replace with function body.
+
+
+func _on_reload_branch_pressed():
+	if current_branch_path:
+		_on_load_file_dialog_file_selected(current_branch_path)
 	pass # Replace with function body.
