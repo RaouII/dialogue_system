@@ -30,20 +30,25 @@ offset_top = 108.0
 offset_right = 171.0
 offset_bottom = 209.0
 scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 6
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "+ Add Starting Topic
 "
+alignment = 0
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "+ Add Response"
+alignment = 0
+icon_alignment = 2
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "+ Add Topic
 "
-
-[node name="Button3" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "+ Add Response"
+alignment = 0
 
 [node name="CharacterIDLabel" type="Label" parent="."]
 layout_mode = 0
@@ -107,8 +112,8 @@ dialog_text = "You must connect at least one [StartingTopic] to a [Response] nod
 [connection signal="disconnection_request" from="GraphEdit" to="." method="_on_graph_edit_disconnection_request"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="button_up" from="VBoxContainer/Button2" to="." method="_on_button_2_button_up"]
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="button_up" from="VBoxContainer/Button3" to="." method="_on_button_3_button_up"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Save Branch" to="." method="_on_save_branch_button_up"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch" to="." method="_on_load_branch_button_up"]
 [connection signal="file_selected" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch/LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]

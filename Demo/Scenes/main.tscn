@@ -1,11 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://bddx0liy55qb2"]
+[gd_scene load_steps=7 format=3 uid="uid://bddx0liy55qb2"]
 
-[ext_resource type="PackedScene" uid="uid://b1f2sgeajum8o" path="res://Demo/Scenes/TestWorld.tscn" id="1_eru1v"]
+[ext_resource type="Script" uid="uid://c67bdyafko0lt" path="res://Demo/System/main.gd" id="1_8p7tb"]
+[ext_resource type="PackedScene" uid="uid://cxl512mjswrrt" path="res://Demo/player/player.tscn" id="2_pms3x"]
 [ext_resource type="Script" uid="uid://w5rswat02b8h" path="res://Demo/Scenes/canvas_layer.gd" id="2_tnno3"]
+[ext_resource type="PackedScene" uid="uid://ckvlu66t2x3os" path="res://Demo/player/Camera.tscn" id="3_1pwr5"]
+[ext_resource type="AudioStream" uid="uid://cb0ces5qwv0mq" path="res://Demo/Audio/BGM/BGM04town0.wav" id="5_yt1sf"]
+[ext_resource type="Script" uid="uid://dcmlqm5swdug8" path="res://Demo/System/SimpleSceneManager/teleport_sfx.gd" id="6_1pwr5"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node" node_paths=PackedStringArray("world_2d")]
+script = ExtResource("1_8p7tb")
+world_2d = NodePath("World2D")
+first_scene = "res://Demo/Scenes/TestWorld.tscn"
 
-[node name="TestWorld" parent="." instance=ExtResource("1_eru1v")]
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="PlayerLayer" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerLayer" instance=ExtResource("2_pms3x")]
+
+[node name="Camera2D" parent="PlayerLayer" node_paths=PackedStringArray("character") instance=ExtResource("3_1pwr5")]
+character = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_tnno3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yt1sf")
+volume_db = -22.106
+autoplay = true
+
+[node name="TeleportSFX" type="AudioStreamPlayer" parent="."]
+volume_db = -15.307
+script = ExtResource("6_1pwr5")

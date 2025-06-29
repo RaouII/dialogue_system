@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckvlu66t2x3os"]
+
+[ext_resource type="Script" uid="uid://dafknqj7ljxn" path="res://Demo/camera_2d.gd" id="1_yg4fq"]
+
+[node name="Camera2D" type="Camera2D" node_paths=PackedStringArray("character")]
+zoom = Vector2(2, 2)
+script = ExtResource("1_yg4fq")
+character = NodePath("")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -189.0
+offset_top = -142.0
+offset_right = -35.0
+offset_bottom = -119.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "Press \"E\" to interact
+\"Mouse Button 1\" to select and advance dialogue
+\"Mouse Button 2\" to manually close a dialogue box"

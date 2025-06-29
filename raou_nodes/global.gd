@@ -2,7 +2,7 @@ extends Node
 
 
 
-
+signal door_sfx(type: int)
 ## started dialogue signal: sends a signal saying a dialogue has started
 signal started_dialogue()
 ## close dialogue signal: sends a signal saying a dialogue has ended
@@ -11,10 +11,13 @@ signal closed_dialogue()
 signal set_character_idle_animation(_char: CharacterID,_anim: String)
 signal add_character_to_level_array(CharacterID)
 
+var main: Main
+var level: Level
 var player: CharacterBody2D
 var canvas: CanvasLayer
 var variable := {}  # For numbers (ints or floats)
 var switch := {}   # For booleans
+
 
 func set_variable(name: String, value: int) -> void:
 	variable[name] = value

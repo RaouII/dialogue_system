@@ -49,6 +49,7 @@ size_override = Vector2(32, 64)
 size = Vector2(12, 6)
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, 3)
 script = ExtResource("1_oul6g")
 move_spd = 65.0
 
