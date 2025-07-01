@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("2_f7du0")
+_name = "New Event Stage"
 _designer_notes = ""
+completed = false
 _objectives = Array[ExtResource("1_6qw08")]([])
 metadata/_custom_type_script = "uid://cbvojl6sdkejp"

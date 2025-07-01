@@ -1,6 +1,6 @@
 extends Node
 
-
+signal set_new_character_greeting(_id: CharacterID,_greeting: DialogueTopic)
 signal play_sfx(sound: AudioStream)
 signal door_sfx(type: int)
 ## started dialogue signal: sends a signal saying a dialogue has started
@@ -15,6 +15,7 @@ var main: Main
 var level: Level
 var player: CharacterBody2D
 var canvas: CanvasLayer
+var DialogueTreeDictionary : Dictionary[String,DialogueTree]
 var variable := {}  # For numbers (ints or floats)
 var switch := {}   # For booleans
 

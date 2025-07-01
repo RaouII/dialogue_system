@@ -1,11 +1,7 @@
 class_name SetNewGreeting extends Function
 
 @export var new_greeting: DialogueTopic
-
+@export var character_id: CharacterID
 func run():
-	
-	print(Dialogue.current_tree._greeting)
-	Dialogue.current_tree._greeting = new_greeting
-	print(Dialogue.current_tree)
-	print(Dialogue.current_tree._greeting)
-	
+	Global.DialogueTreeDictionary[character_id.name]._greeting = new_greeting
+	#Global.set_new_character_greeting.emit(character_id,new_greeting)

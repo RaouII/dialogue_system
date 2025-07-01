@@ -21,6 +21,9 @@ var can_advance_line = false
 
 
 
+
+	
+
 #### FIRST STEP: START THE DIALOGUE
 func start_dialogue(position: Vector2, _tree: DialogueTree):
 	if is_dialogue_active:

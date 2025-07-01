@@ -51,9 +51,10 @@ _data = {
 
 [node name="Biggs" type="Node2D"]
 
-[node name="DialogueComponent" type="Node" parent="."]
+[node name="DialogueComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
 script = ExtResource("1_faued")
 _dialogueTree = ExtResource("2_vylfd")
+entity = NodePath("../Entity")
 metadata/_custom_type_script = "uid://dqfcqdux7dbap"
 
 [node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]

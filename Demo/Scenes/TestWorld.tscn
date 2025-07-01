@@ -1,18 +1,13 @@
-[gd_scene load_steps=25 format=4 uid="uid://b1f2sgeajum8o"]
+[gd_scene load_steps=13 format=4 uid="uid://b1f2sgeajum8o"]
 
 [ext_resource type="Script" uid="uid://rrrxrqqwjgj" path="res://Demo/Scenes/level.gd" id="1_dfy7w"]
 [ext_resource type="TileSet" uid="uid://dt873lhy1lbwa" path="res://Demo/Tileset/ts_base.tres" id="1_pxnob"]
 [ext_resource type="PackedScene" uid="uid://ijv84t0ewfit" path="res://Demo/NPCs/Biggs/biggs.tscn" id="2_8p0k2"]
 [ext_resource type="PackedScene" uid="uid://px1fygb0l1al" path="res://Demo/NPCs/bolt.tscn" id="5_5y3u2"]
 [ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="5_ywa68"]
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="6_3akf8"]
-[ext_resource type="Resource" uid="uid://dpos4j7kddnxs" path="res://Demo/boat_dialogueBranch.tres" id="7_qq1l0"]
-[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="8_tikav"]
-[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="10_qnd8r"]
-[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="10_t36p8"]
-[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="12_ywa68"]
-[ext_resource type="Script" uid="uid://cb3dk43iupgpw" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/setNewGreeting_RES.gd" id="13_ywa68"]
-[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="14_4763h"]
+[ext_resource type="Resource" uid="uid://bnws8x3h06gh1" path="res://Demo/Boat_DialogueTree.tres" id="7_4ykap"]
+[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="8_73ek6"]
+[ext_resource type="Resource" uid="uid://ch28ldjsifmmt" path="res://Demo/NPCs/boat_ID.tres" id="9_iw2aa"]
 [ext_resource type="Script" uid="uid://b4o8wcqnu75bc" path="res://Demo/System/SimpleSceneManager/teleport.gd" id="22_f2i3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2i3v"]
@@ -24,58 +19,6 @@ sampling_rate = 48000.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_qnd8r"]
 packet_sequence = SubResource("OggPacketSequence_2jfyn")
-
-[sub_resource type="Resource" id="Resource_ywa68"]
-script = ExtResource("10_qnd8r")
-_responseText = "What should we do?"
-_idleAnimation = ""
-_conditions = Array[ExtResource("8_tikav")]([])
-metadata/_custom_type_script = "uid://d2xpiewoltoba"
-
-[sub_resource type="Resource" id="Resource_tikav"]
-script = ExtResource("12_ywa68")
-_topicText = ""
-_responses = Array[ExtResource("10_qnd8r")]([SubResource("Resource_ywa68")])
-_goodbye = false
-_random = false
-_functions = Array[ExtResource("10_t36p8")]([])
-_conditions = Array[ExtResource("8_tikav")]([])
-metadata/_custom_type_script = "uid://wgnly555mcgi"
-
-[sub_resource type="Resource" id="Resource_iaisx"]
-script = ExtResource("13_ywa68")
-new_greeting = SubResource("Resource_tikav")
-metadata/_custom_type_script = "uid://cb3dk43iupgpw"
-
-[sub_resource type="Resource" id="Resource_3akf8"]
-script = ExtResource("10_qnd8r")
-_responseText = "Its our boat. Its not fancy, but it keeps above the water."
-_idleAnimation = ""
-_conditions = Array[ExtResource("8_tikav")]([])
-metadata/_custom_type_script = "uid://d2xpiewoltoba"
-
-[sub_resource type="Resource" id="Resource_t36p8"]
-script = ExtResource("10_qnd8r")
-_responseText = "What should we do?"
-_idleAnimation = ""
-_conditions = Array[ExtResource("8_tikav")]([])
-metadata/_custom_type_script = "uid://d2xpiewoltoba"
-
-[sub_resource type="Resource" id="Resource_8jugw"]
-script = ExtResource("12_ywa68")
-_topicText = ""
-_responses = Array[ExtResource("10_qnd8r")]([SubResource("Resource_3akf8"), SubResource("Resource_t36p8")])
-_goodbye = false
-_random = false
-_functions = Array[ExtResource("10_t36p8")]([SubResource("Resource_iaisx")])
-_conditions = Array[ExtResource("8_tikav")]([])
-metadata/_custom_type_script = "uid://wgnly555mcgi"
-
-[sub_resource type="Resource" id="Resource_6ty51"]
-script = ExtResource("14_4763h")
-_branches = Array[ExtResource("6_3akf8")]([ExtResource("7_qq1l0")])
-_greeting = SubResource("Resource_8jugw")
-metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [node name="TestWorld" type="Node2D" node_paths=PackedStringArray("portals")]
 y_sort_enabled = true
@@ -247,7 +190,14 @@ position = Vector2(-35, 102)
 [node name="Boat" type="Marker2D" parent="Interactables"]
 position = Vector2(1, 19)
 
-[node name="DialogueComponent" type="Node" parent="Interactables/Boat"]
+[node name="DialogueComponent" type="Node" parent="Interactables/Boat" node_paths=PackedStringArray("entity")]
 script = ExtResource("5_ywa68")
-_dialogueTree = SubResource("Resource_6ty51")
+_dialogueTree = ExtResource("7_4ykap")
+entity = NodePath("Entity")
 metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+
+[node name="Entity" type="Node" parent="Interactables/Boat/DialogueComponent" node_paths=PackedStringArray("dialogueComponent")]
+script = ExtResource("8_73ek6")
+characterID = ExtResource("9_iw2aa")
+dialogueComponent = NodePath("..")
+metadata/_custom_type_script = "uid://7aaar335xgew"

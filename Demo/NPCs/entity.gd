@@ -8,9 +8,16 @@ class_name Entity extends Node
 
 @export var characterID: CharacterID
 @export var animationPlayer: AnimationPlayer
-
+@export var dialogueComponent: DialogueComponent
 func _ready():
 	Global.set_character_idle_animation.connect(_on_idle_animation)
+	Global.set_new_character_greeting.connect(_on_set_new_greeting)
+	
+func _on_set_new_greeting(_char: CharacterID,_greeting: DialogueTopic):
+	if _char == characterID:
+		print("FOUND CHARACTER")
+		Global.DialogueTreeDictionary[characterID.name]._greeting = _greeting
+		#dialogueComponent._dialogueTree._greeting = _greeting
 	
 func _on_idle_animation(_char: CharacterID,_anim: String):
 	### This funcion checks if the characterID assigned to the Dialogue Response is the same as this one.

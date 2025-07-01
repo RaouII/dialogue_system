@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=16 format=3 uid="uid://bnws8x3h06gh1"]
+
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_l8w5a"]
+[ext_resource type="Resource" uid="uid://dpos4j7kddnxs" path="res://Demo/boat_dialogueBranch.tres" id="2_yu1x3"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="3_efhru"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_2gv8n"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_gpunc"]
+[ext_resource type="Resource" uid="uid://ch28ldjsifmmt" path="res://Demo/NPCs/boat_ID.tres" id="5_yu1x3"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="6_5l1b2"]
+[ext_resource type="Script" uid="uid://cb3dk43iupgpw" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/setNewGreeting_RES.gd" id="7_023vk"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="8_oywji"]
+
+[sub_resource type="Resource" id="Resource_yu1x3"]
+script = ExtResource("5_gpunc")
+_responseText = "What should we do?"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_efhru")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_efhru"]
+script = ExtResource("6_5l1b2")
+_topicText = ""
+_responses = Array[ExtResource("5_gpunc")]([SubResource("Resource_yu1x3")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_2gv8n")]([])
+_conditions = Array[ExtResource("3_efhru")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_2gv8n"]
+script = ExtResource("7_023vk")
+new_greeting = SubResource("Resource_efhru")
+character_id = ExtResource("5_yu1x3")
+metadata/_custom_type_script = "uid://cb3dk43iupgpw"
+
+[sub_resource type="Resource" id="Resource_hwsp1"]
+script = ExtResource("5_gpunc")
+_responseText = "Its our boat. Its not fancy, but it keeps us above the water"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_efhru")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_ywa68"]
+script = ExtResource("5_gpunc")
+_responseText = "What should we do?"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_efhru")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_tikav"]
+script = ExtResource("6_5l1b2")
+_topicText = ""
+_responses = Array[ExtResource("5_gpunc")]([SubResource("Resource_hwsp1"), SubResource("Resource_ywa68")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_2gv8n")]([SubResource("Resource_2gv8n")])
+_conditions = Array[ExtResource("3_efhru")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[resource]
+script = ExtResource("8_oywji")
+_branches = Array[ExtResource("1_l8w5a")]([ExtResource("2_yu1x3")])
+_greeting = SubResource("Resource_tikav")
+metadata/_custom_type_script = "uid://tfh1etiytb5"
