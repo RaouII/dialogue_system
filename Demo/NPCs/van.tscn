@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://ijv84t0ewfit"]
+[gd_scene load_steps=10 format=4 uid="uid://c60wg8vi03nyg"]
 
-[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_faued"]
-[ext_resource type="Resource" uid="uid://ctmm3rrrwgnem" path="res://Demo/NPCs/Dialogue Trees/TomTree.tres" id="2_vylfd"]
-[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_vylfd"]
-[ext_resource type="Resource" uid="uid://ee5j6euh6g2h" path="res://Demo/NPCs/Tom/tom_ID.tres" id="4_qy482"]
+[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_l8pgm"]
+[ext_resource type="Resource" uid="uid://ctmm3rrrwgnem" path="res://Demo/NPCs/Dialogue Trees/TomTree.tres" id="2_x8k5a"]
+[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_a8com"]
+[ext_resource type="Resource" uid="uid://ee5j6euh6g2h" path="res://Demo/NPCs/Biggs/biggs_ID.tres" id="4_b25al"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5y3u2"]
 _data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAAB6AQAAUklGRnIBAABXRUJQVlA4TGUBAAAvH8APEFegNJIUBh9VRtP/DA3ShpoAIBjzFmBF0EsnjeTQQ2kkKQwupybovzIUg2b+AwD8zZlmHaoQ+1Mr5gh17Yr7AzmubUlS9BS1BDYQej8JVFjFf8loVki5AGY7EsUC2AMbKCwwwWKb1crfc7cb0X8GbtvGYdvdm7Bv4C8cTGAoPxVOKapkr7OlqOIT1S2o5Hk0r2NaVvLYxsqalpVsZ22onpYVbG1yH7CsYMthtgHLCrJ58YSgkg9aOUlR5cN7t+NFhchvx9LHW8LuW8WQy9Xr5WfbW5O+1/n+xb7Xdl9MAK+lQwLsssMEWHl5bA6Y7p6PBJhIOSDSTYDoRgGSzAVsJGkVBbCRVlgG/guDCQzlp8IphbzOFvKJ6hbt59G8jikwtrGyRuysDdWjG1ub3AdEOMwWyubFU4QHrZww/G/v3dYhI3ehzPd1iV27OiN6PrqTh9xIhcyl0EaSVvjOXOHPGQAA")
@@ -49,12 +49,17 @@ _data = {
 &"Walk": SubResource("Animation_8p0k2")
 }
 
-[node name="Tom" type="Node2D"]
+[node name="Biggs" type="Node2D"]
 
 [node name="DialogueComponent" type="Node" parent="."]
-script = ExtResource("1_faued")
-_dialogueTree = ExtResource("2_vylfd")
+script = ExtResource("1_l8pgm")
+_dialogueTree = ExtResource("2_x8k5a")
 metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+
+[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("3_a8com")
+characterID = ExtResource("4_b25al")
+animationPlayer = NodePath("../AnimationPlayer")
 
 [node name="NPC Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -90,8 +95,3 @@ shape = SubResource("RectangleShape2D_8p0k2")
 libraries = {
 &"": SubResource("AnimationLibrary_t36p8")
 }
-
-[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]
-script = ExtResource("3_vylfd")
-characterID = ExtResource("4_qy482")
-animationPlayer = NodePath("../AnimationPlayer")

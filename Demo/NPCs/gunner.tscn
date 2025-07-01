@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=4 uid="uid://q4c5haj3704m"]
+
+[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_ivyid"]
+[ext_resource type="Resource" uid="uid://clkfyv5xsaao2" path="res://Demo/NPCs/Dialogue Trees/OldManTree.tres" id="2_ge7xk"]
+[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_4airl"]
+[ext_resource type="Resource" uid="uid://d2norlbbag3ow" path="res://Demo/NPCs/Gunner/gunner_ID.tres" id="4_ivyid"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ivyid"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAABoAQAAUklGRmABAABXRUJQVlA4TFQBAAAvH8APEF+gJgDQBG7616KAvjYrsB6K2jaS5jXfe/izGBjXotgFsZKaRlKg69CB/2ABG5j4oaOa/wCAd62TmO/yHSrGrmLLx4dJJEadBji2ti1qvnr+CrdONjD8HZRMRzVVZAvU0VlAbAXu+v4NLv+3OyBvPGkj+s/AbdtG6rh9/If8QaPnvOElUTSlSq9etW3DlKTWsHbKlMTaRUxJ1sLM1pQquTATU0Vd894rU3qj1rBjmKKbce5RidI7LadSt6fmrdKbV3Jx/9wwpQL0mSK9E2Bm5K0iHrsHcCLe7XYnWPSierwIqs5DBOq8QgSAdxC5AYCAAXIDBPIW+BdHz3nDS6Joyo/1qm0beqw1rJ3SrH2vtTCzxcuFmZimrnnvlX42ag07hm6bce5R2fG0nErdnhrSvJKL++fsUitAn76C7uTAO5rzqqB5B9BuACCQd2YgP2cI")
+size_override = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0k2"]
+size = Vector2(22, 22)
+
+[sub_resource type="Animation" id="Animation_5y3u2"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ivyid"]
+resource_name = "Protest"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_8p0k2"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t36p8"]
+_data = {
+&"Idle": SubResource("Animation_5y3u2"),
+&"Protest": SubResource("Animation_ivyid"),
+&"Walk": SubResource("Animation_8p0k2")
+}
+
+[node name="Gunner" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="DialogueComponent" type="Node" parent="."]
+script = ExtResource("1_ivyid")
+_dialogueTree = ExtResource("2_ge7xk")
+metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+
+[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("3_4airl")
+characterID = ExtResource("4_ivyid")
+animationPlayer = NodePath("../AnimationPlayer")
+
+[node name="NPC Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+texture = SubResource("PortableCompressedTexture2D_ivyid")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Demo/NPCs/Sprites/oldman01.ase",
+"source_uid": 5898083835569954596
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0184fdf18d7e5e65d88ac96994ad8b93"
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_8p0k2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t36p8")
+}
+speed_scale = 0.6

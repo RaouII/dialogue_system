@@ -1,7 +1,7 @@
 extends Node
 
 
-
+signal play_sfx(sound: AudioStream)
 signal door_sfx(type: int)
 ## started dialogue signal: sends a signal saying a dialogue has started
 signal started_dialogue()

@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=4 uid="uid://dresscd6hker5"]
+
+[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_fvye3"]
+[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_esigh"]
+[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="4_fvye3"]
+
+[sub_resource type="Resource" id="Resource_yc26a"]
+resource_name = "Maria Dahlwind"
+script = ExtResource("4_fvye3")
+name = "Maria Dahlwind"
+color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://d3qwl0rfl1cas"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0k2"]
+size = Vector2(22, 22)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_fvye3"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAACkAQAAUklGRpwBAABXRUJQVlA4TJABAAAvH8APEHegNpKVinaIKYbS/2CqoeYObaiJJCm6X8Hxg38xF4EEMhwQqgkANKEFdchGUf65u8x/AIAJ+y7lOZOP9svsirW9b0vGcE4w+FEn3CzsC+Bm+6e2+bdW7xHCpSoPEK4MnTfIk4qjCcKM/wupypP7P2ZYgXUDGE4DGG4I2/mHkzai/wzctm2kjtvHf8BvHETvLGorYhW3b7SyOKVpjNYJTukYX+sko7g9/6GqlfVWcfuPIbuhrbeKq5xt+7JtMcrDRGRsrcopidxyYabGKYlgvBiucQrNz8Y2iFM8ZzZ267FK07lNcgpQU7WTBG8VcA+0frUAqKa8BAHI6s7ugwCQorL6goPuiPYHIZGQOASEpCGAKAUCnCEiBjgAzoZ/egv8D4PonUVtxU+3b7SyuJrGaJ3g6hhf6yR33fMfquyl238M2Q3NpZxt+7LN9TARGVurciVyy4WZGlswXgyz0fxsbIO4PGc2duuxF03nNsldANW8doKACVdKR1KwCUmEbFIgsp0hIgbgnRmAnzMA")
+size_override = Vector2(32, 64)
+
+[sub_resource type="Animation" id="Animation_5y3u2"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8p0k2"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t36p8"]
+_data = {
+&"Idle": SubResource("Animation_5y3u2"),
+&"Walk": SubResource("Animation_8p0k2")
+}
+
+[node name="Maria" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DialogueComponent" type="Node" parent="."]
+script = ExtResource("1_fvye3")
+metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+
+[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("3_esigh")
+characterID = SubResource("Resource_yc26a")
+animationPlayer = NodePath("../AnimationPlayer")
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_8p0k2")
+
+[node name="NPC Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+texture = SubResource("PortableCompressedTexture2D_fvye3")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Demo/NPCs/Sprites/oldwoman01.ase",
+"source_uid": 7940718934575269861
+}
+metadata/_aseprite_wizard_source_file_hash_ = "cf680fbf333535859acbd1ff4e0ce337"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t36p8")
+}

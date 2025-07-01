@@ -13,12 +13,14 @@ world_2d = NodePath("World2D")
 first_scene = "res://Demo/Scenes/TestWorld.tscn"
 
 [node name="World2D" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="PlayerLayer" type="Node2D" parent="."]
+[node name="PlayerLayer" type="Node2D" parent="World2D"]
+y_sort_enabled = true
 
-[node name="Player" parent="PlayerLayer" instance=ExtResource("2_pms3x")]
+[node name="Player" parent="World2D/PlayerLayer" instance=ExtResource("2_pms3x")]
 
-[node name="Camera2D" parent="PlayerLayer" node_paths=PackedStringArray("character") instance=ExtResource("3_1pwr5")]
+[node name="Camera2D" parent="World2D/PlayerLayer" node_paths=PackedStringArray("character") instance=ExtResource("3_1pwr5")]
 character = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

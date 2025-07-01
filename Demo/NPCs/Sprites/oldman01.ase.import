@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cqbctxnax5t61"
+path="res://.godot/imported/oldman01.ase-413deacda5146b64c3b3e0bf923967ca.res"
+
+[deps]
+
+source_file="res://Demo/NPCs/Sprites/oldman01.ase"
+dest_files=["res://.godot/imported/oldman01.ase-413deacda5146b64c3b3e0bf923967ca.res"]
+
+[params]
+

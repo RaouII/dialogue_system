@@ -10,6 +10,7 @@ var current_line_index = 0
 
 var current_branch: DialogueBranch
 var current_topic: DialogueTopic
+var current_greeting: DialogueTopic
 
 var text_box
 var text_box_position: Vector2
@@ -31,42 +32,56 @@ func start_dialogue(position: Vector2, _tree: DialogueTree):
 	show_greeting() ### THIS FUNCTION WILL CALL THE FIRST DIALOGUE WINDOW
 	is_dialogue_active = true
 
+
+
+func choose_greeting(greeting: DialogueTopic):
+	print("run choose greeting")
+	current_greeting = greeting
+	if current_tree._greeting != null:
+		print("greeting isnt null")
+		if greeting._conditions.is_empty():
+			show_responses(greeting)
+			return
+		for condition in greeting._conditions:
+			print(condition)
+			if condition.check() != true:
+				push_warning("Topic skipped: conditions not met")
+				return
+		show_responses(greeting)
 #### SECOND STEP:	SHOW THE FIRST DIALOGUE WINDOW, IT'LL SHOW:
 #################	1) A GREETING TEXT,
 #################	2) A LIST OF AVAILABLE TOPICS TO TALK ABOUT,
 #################	3) BOTH
 func show_greeting():
-	instantiate_text_box()
-	if current_tree._greeting != null: ## this will check if there is a greeting text set
-		var _greeting = current_tree._greeting
-		init_responseContainer() ### IF THERE IS A GREETING TO BE DISPLAYED, INSTANTIATE THE TEXT COMPONENT OF THE DIALOGUE BOX
-		text_box.display_text(_greeting._responseText) #### THIS FUNCTION WILL DISPLAY THE TEXT ON THE DIALOGUE BOX
-		Global.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation)
-	
-	if current_tree._branches != null: ## this will check if there are branches set
-		for branch in current_tree._branches:
-			for topic in branch._topics: 
-				### IF THERE ARE TOPICS TO BE DISPLAYED, INSTANTIATE THE TOPIC COMPONENT OF THE DIALOGUE BOX
-				display_topic(topic) 
-	#text_box.position = text_box_position
-	can_advance_line = false
+	print("show greeting")
+	choose_greeting(current_tree._greeting)
+	#if current_tree._greeting != null: ## this will check if there is a greeting text set
+		
+		#var _greeting = current_tree._greeting
+		#init_responseContainer() ### IF THERE IS A GREETING TO BE DISPLAYED, INSTANTIATE THE TEXT COMPONENT OF THE DIALOGUE BOX
+		#text_box.display_text(_greeting._responseText) #### THIS FUNCTION WILL DISPLAY THE TEXT ON THE DIALOGUE BOX
+		#Global.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation)
+	if current_tree._greeting._responses.size() < 1:
+		if current_tree._branches != null: ## this will check if there are branches set
+			display_maintree_topics()
+		#text_box.position = text_box_position
+		can_advance_line = false
 
-func display_greeting_topics():
-	for i in current_tree._branches:
-		for ii in i._topics: 
+func display_maintree_topics():
+	for branch in current_tree._branches:
+		for topic in branch._topics: 
 			### IF THERE ARE TOPICS TO BE DISPLAYED, INSTANTIATE THE TOPIC COMPONENT OF THE DIALOGUE BOX
-			display_topic(ii) 
+			display_topic(topic) 
+
 
 
 #### THIRD STEP:	HANDLES EVERY TEXT MESSAGE AFTER THE INITIAL GREETING 
 func show_responses(_topic: DialogueTopic):
-	if _topic._responses.is_empty():
+	if _topic._responses.is_empty(): ### IF THERE ARE NO DIALOGUE RESPONSES IN THE CURRENT TOPIC, CLOSE IT
 		close_dialogue()
 		return
-	current_topic = _topic
-	for f in current_topic._functions:
-		f.run() ## Runs the function if there is one
 	
+	current_topic = _topic	
 	instantiate_text_box()
 	init_responseContainer()
 	#text_box.global_position = text_box_position
@@ -97,7 +112,13 @@ func show_responses(_topic: DialogueTopic):
 		for topic in current_topic._nextBranch._topics:
 			display_topic(topic)
 			current_line_index = 0
+			
+	if current_line_index == _responses.size()-1 and current_topic == current_greeting:
+		display_maintree_topics()
+		current_line_index = 0
 	can_advance_line = false
+	for f in current_topic._functions:
+		f.run() ## Runs the function if there is one
 
 func create_topic(topic: DialogueTopic):
 	if text_box.choice_container == null:
@@ -175,7 +196,6 @@ func advance_dialogue():
 			show_responses(current_topic)
 	else:
 		close_dialogue()
-
 
 func _on_text_box_finished_displaying():
 	print("finished displaying text")

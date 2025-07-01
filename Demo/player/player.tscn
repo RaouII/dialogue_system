@@ -46,10 +46,12 @@ _data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAABSAQAAUklGRkoBAABXRUJQVlA4TD4
 size_override = Vector2(32, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
-size = Vector2(12, 6)
+size = Vector2(10, 9)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, 3)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 1)
 script = ExtResource("1_oul6g")
 move_spd = 65.0
 
@@ -86,4 +88,5 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "e29faf478f21151ae80078ebbca0f010"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_kqu6x")

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dykxp8ipotinm"
+path="res://.godot/imported/woman02.ase-12f9994e2f80f8a7f0bf7ab2cdc96e71.res"
+
+[deps]
+
+source_file="res://Demo/NPCs/Sprites/woman02.ase"
+dest_files=["res://.godot/imported/woman02.ase-12f9994e2f80f8a7f0bf7ab2cdc96e71.res"]
+
+[params]
+

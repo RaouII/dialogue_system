@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=4 uid="uid://bqogggy7liw4q"]
+
+[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_mnde8"]
+[ext_resource type="Resource" uid="uid://ctmm3rrrwgnem" path="res://Demo/NPCs/Dialogue Trees/TomTree.tres" id="2_3vrot"]
+[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_meo5s"]
+[ext_resource type="Resource" uid="uid://ee5j6euh6g2h" path="res://Demo/NPCs/Biggs/biggs_ID.tres" id="4_mvaen"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5y3u2"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAAB6AQAAUklGRnIBAABXRUJQVlA4TGUBAAAvH8APEFegNJIUBh9VRtP/DA3ShpoAIBjzFmBF0EsnjeTQQ2kkKQwupybovzIUg2b+AwD8zZlmHaoQ+1Mr5gh17Yr7AzmubUlS9BS1BDYQej8JVFjFf8loVki5AGY7EsUC2AMbKCwwwWKb1crfc7cb0X8GbtvGYdvdm7Bv4C8cTGAoPxVOKapkr7OlqOIT1S2o5Hk0r2NaVvLYxsqalpVsZ22onpYVbG1yH7CsYMthtgHLCrJ58YSgkg9aOUlR5cN7t+NFhchvx9LHW8LuW8WQy9Xr5WfbW5O+1/n+xb7Xdl9MAK+lQwLsssMEWHl5bA6Y7p6PBJhIOSDSTYDoRgGSzAVsJGkVBbCRVlgG/guDCQzlp8IphbzOFvKJ6hbt59G8jikwtrGyRuysDdWjG1ub3AdEOMwWyubFU4QHrZww/G/v3dYhI3ehzPd1iV27OiN6PrqTh9xIhcyl0EaSVvjOXOHPGQAA")
+size_override = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0k2"]
+size = Vector2(22, 22)
+
+[sub_resource type="Animation" id="Animation_5y3u2"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8p0k2"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t36p8"]
+_data = {
+&"Idle": SubResource("Animation_5y3u2"),
+&"Walk": SubResource("Animation_8p0k2")
+}
+
+[node name="Biggs" type="Node2D"]
+
+[node name="DialogueComponent" type="Node" parent="."]
+script = ExtResource("1_mnde8")
+_dialogueTree = ExtResource("2_3vrot")
+metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+
+[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("3_meo5s")
+characterID = ExtResource("4_mvaen")
+animationPlayer = NodePath("../AnimationPlayer")
+
+[node name="NPC Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+texture = SubResource("PortableCompressedTexture2D_5y3u2")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "NPC/AnimationPlayer",
+"slice": "",
+"source": "res://Demo/NPCs/spr_tom.aseprite",
+"source_uid": 2524987145834706730
+}
+metadata/_aseprite_wizard_source_file_hash_ = "1dabd3f2afd0aed3c1bea0325d1503ee"
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_8p0k2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t36p8")
+}

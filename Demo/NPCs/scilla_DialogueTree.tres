@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=14 format=3 uid="uid://uwsv8sirvmc1"]
+
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_a56e5"]
+[ext_resource type="Resource" uid="uid://c1nm3ha3q220n" path="res://Demo/NPCs/NPC_GenericBranch01.tres" id="2_2shbf"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="3_8sgqd"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_8sgqd"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_nbcjw"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="5_7mp2g"]
+[ext_resource type="Script" uid="uid://cb3dk43iupgpw" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/setNewGreeting_RES.gd" id="5_nbcjw"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="6_nbcjw"]
+
+[sub_resource type="Resource" id="Resource_ejbao"]
+script = ExtResource("4_nbcjw")
+_responseText = "Hi there!"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_8sgqd")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_rxyk3"]
+script = ExtResource("6_nbcjw")
+_topicText = ""
+_responses = Array[ExtResource("4_nbcjw")]([SubResource("Resource_ejbao")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_8sgqd")]([])
+_conditions = Array[ExtResource("3_8sgqd")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_nbcjw"]
+script = ExtResource("5_nbcjw")
+new_greeting = SubResource("Resource_rxyk3")
+metadata/_custom_type_script = "uid://cb3dk43iupgpw"
+
+[sub_resource type="Resource" id="Resource_7mp2g"]
+script = ExtResource("4_nbcjw")
+_responseText = "Hello!"
+_idleAnimation = ""
+_conditions = Array[ExtResource("3_8sgqd")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_xeiuo"]
+script = ExtResource("6_nbcjw")
+_topicText = ""
+_responses = Array[ExtResource("4_nbcjw")]([SubResource("Resource_7mp2g")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_8sgqd")]([SubResource("Resource_nbcjw")])
+_conditions = Array[ExtResource("3_8sgqd")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[resource]
+script = ExtResource("5_7mp2g")
+_branches = Array[ExtResource("1_a56e5")]([ExtResource("2_2shbf")])
+_greeting = SubResource("Resource_xeiuo")
+metadata/_custom_type_script = "uid://tfh1etiytb5"

@@ -14,8 +14,6 @@ func _ready() -> void:
 	
 #func _on_add_character_to_level_array(_char: CharacterID):
 	#characters.append(_char)
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

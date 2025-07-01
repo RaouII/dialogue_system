@@ -1,0 +1,108 @@
+[gd_resource type="Resource" script_class="DialogueBranch" load_steps=19 format=3 uid="uid://cwbj8o0bc25lv"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_wow46"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_4mg0d"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_gbd8m"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_y21bs"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_wjiom"]
+
+[sub_resource type="Resource" id="Resource_wow46"]
+script = ExtResource("1_wow46")
+_topicText = "test"
+_responses = Array[ExtResource("4_y21bs")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_gbd8m")]([])
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_4mg0d"]
+script = ExtResource("1_wow46")
+_topicText = "test"
+_responses = Array[ExtResource("4_y21bs")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_gbd8m")]([])
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_gbd8m"]
+script = ExtResource("5_wjiom")
+_topics = Array[ExtResource("1_wow46")]([SubResource("Resource_wow46"), SubResource("Resource_4mg0d")])
+
+[sub_resource type="Resource" id="Resource_y21bs"]
+script = ExtResource("4_y21bs")
+_responseText = "test"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_wjiom"]
+script = ExtResource("1_wow46")
+_topicText = "Test"
+_responses = Array[ExtResource("4_y21bs")]([SubResource("Resource_y21bs")])
+_nextBranch = SubResource("Resource_gbd8m")
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_gbd8m")]([])
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_05ey8"]
+script = ExtResource("4_y21bs")
+_responseText = ""
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_a7wtu"]
+script = ExtResource("4_y21bs")
+_responseText = ""
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_lwo30"]
+script = ExtResource("1_wow46")
+_topicText = ""
+_responses = Array[ExtResource("4_y21bs")]([SubResource("Resource_05ey8"), SubResource("Resource_a7wtu")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_gbd8m")]([])
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_kg8mt"]
+script = ExtResource("1_wow46")
+_topicText = ""
+_responses = Array[ExtResource("4_y21bs")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_gbd8m")]([])
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_n87su"]
+script = ExtResource("1_wow46")
+_topicText = ""
+_responses = Array[ExtResource("4_y21bs")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_gbd8m")]([])
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_hyxlp"]
+script = ExtResource("5_wjiom")
+_topics = Array[ExtResource("1_wow46")]([SubResource("Resource_kg8mt"), SubResource("Resource_n87su")])
+
+[sub_resource type="Resource" id="Resource_8frqp"]
+script = ExtResource("4_y21bs")
+_responseText = ""
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[sub_resource type="Resource" id="Resource_kh6m1"]
+script = ExtResource("1_wow46")
+_topicText = ""
+_responses = Array[ExtResource("4_y21bs")]([SubResource("Resource_8frqp")])
+_nextBranch = SubResource("Resource_hyxlp")
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_gbd8m")]([])
+_conditions = Array[ExtResource("2_4mg0d")]([])
+
+[resource]
+script = ExtResource("5_wjiom")
+_topics = Array[ExtResource("1_wow46")]([SubResource("Resource_wjiom"), SubResource("Resource_lwo30"), SubResource("Resource_kh6m1")])

@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="DialogueBranch" load_steps=20 format=3 uid="uid://cbhpephg04dcd"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_j5v63"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_r2om6"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_xveq8"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_w8ml0"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_l8dcy"]
+
+[sub_resource type="Resource" id="Resource_b3abu"]
+script = ExtResource("4_w8ml0")
+_responseText = "Thanks again! I'll be here waiting "
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_khj1b"]
+script = ExtResource("1_j5v63")
+_topicText = "Alright"
+_responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_b3abu")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("3_xveq8")]([])
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_sv3nc"]
+script = ExtResource("4_w8ml0")
+_responseText = "Oh... ok. Let me know if you change again..."
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_exrr1"]
+script = ExtResource("1_j5v63")
+_topicText = "Sorry I changed my mind"
+_responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_sv3nc")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("3_xveq8")]([])
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_tvykv"]
+script = ExtResource("5_l8dcy")
+_topics = Array[ExtResource("1_j5v63")]([SubResource("Resource_khj1b"), SubResource("Resource_exrr1")])
+
+[sub_resource type="Resource" id="Resource_fobrx"]
+script = ExtResource("4_w8ml0")
+_responseText = "Awesome! "
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_q4xor"]
+script = ExtResource("4_w8ml0")
+_responseText = "Here's the thing: my sister Scilla has been bothering me for days now"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_p53if"]
+script = ExtResource("4_w8ml0")
+_responseText = "She says she wants me to get some of the fruit the old man grows"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_o16lh"]
+script = ExtResource("4_w8ml0")
+_responseText = "I've tried asking him, but he seems to be in a bit of a mood"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_0pgd6"]
+script = ExtResource("4_w8ml0")
+_responseText = "Can you see if you can convince him to give us some?"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_siwp8"]
+script = ExtResource("4_w8ml0")
+_responseText = "I'm willing to pay, both you and the old man, but he doesnt seem open to even that right now"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_sdg8w"]
+script = ExtResource("1_j5v63")
+_topicText = "Sure"
+_responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_fobrx"), SubResource("Resource_q4xor"), SubResource("Resource_p53if"), SubResource("Resource_o16lh"), SubResource("Resource_0pgd6"), SubResource("Resource_siwp8")])
+_nextBranch = SubResource("Resource_tvykv")
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_xveq8")]([])
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_su5j6"]
+script = ExtResource("4_w8ml0")
+_responseText = "I see... thanks anyway"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[sub_resource type="Resource" id="Resource_svi20"]
+script = ExtResource("1_j5v63")
+_topicText = "I'm sorry, I don't have the time right now"
+_responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_su5j6")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("3_xveq8")]([])
+_conditions = Array[ExtResource("2_r2om6")]([])
+
+[resource]
+script = ExtResource("5_l8dcy")
+_topics = Array[ExtResource("1_j5v63")]([SubResource("Resource_sdg8w"), SubResource("Resource_svi20")])

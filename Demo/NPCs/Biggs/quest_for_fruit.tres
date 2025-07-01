@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://c633wolx21jwq"]
 
 [ext_resource type="Script" uid="uid://5gnvf308skfu" path="res://raou_nodes/EventTracker System/event_rscript.gd" id="1_2hbv3"]
-[ext_resource type="Resource" uid="uid://eucs7wnnndgy" path="res://Demo/NPCs/Tom/QS_empty.tres" id="1_p2mbn"]
+[ext_resource type="Resource" uid="uid://eucs7wnnndgy" path="res://Demo/NPCs/Biggs/QS_empty.tres" id="1_p2mbn"]
 [ext_resource type="Script" uid="uid://beuxf1qqtjhqn" path="res://addons/raou_event_tracker/event_stage_list.gd" id="1_vfri4"]
 [ext_resource type="Script" uid="uid://cbvojl6sdkejp" path="res://raou_nodes/EventTracker System/event_stage_rscript.gd" id="2_7asgk"]
-[ext_resource type="Resource" uid="uid://b2d5njq0fubj5" path="res://Demo/NPCs/Tom/QStage_AgreedToGetFruit.tres" id="3_0mt3e"]
+[ext_resource type="Resource" uid="uid://b2d5njq0fubj5" path="res://Demo/NPCs/Biggs/QStage_AgreedToGetFruit.tres" id="3_0mt3e"]
 [ext_resource type="Script" uid="uid://drjk6r8x4dibu" path="res://raou_nodes/EventTracker System/event_stageObjective_rscript.gd" id="3_7asgk"]
 
 [sub_resource type="Resource" id="Resource_u1lw6"]

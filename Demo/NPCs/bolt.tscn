@@ -1,0 +1,153 @@
+[gd_scene load_steps=21 format=4 uid="uid://px1fygb0l1al"]
+
+[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_rh75q"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="2_dbs4g"]
+[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_p1q5d"]
+[ext_resource type="Resource" uid="uid://cbhpephg04dcd" path="res://Demo/NPCs/Bolt/Bolt_QuestForFruitBranch.tres" id="3_xfx7s"]
+[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="4_rh75q"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="4_ts6y0"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="5_ts6y0"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_wahbi"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_m3vsl"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="7_wahbi"]
+
+[sub_resource type="Resource" id="Resource_m3vsl"]
+script = ExtResource("5_wahbi")
+_responseText = "Hi, can you help me out?"
+_idleAnimation = ""
+_conditions = Array[ExtResource("4_ts6y0")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_sfqyv"]
+script = ExtResource("7_wahbi")
+_topicText = ""
+_responses = Array[ExtResource("5_wahbi")]([SubResource("Resource_m3vsl")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("5_ts6y0")]([])
+_conditions = Array[ExtResource("4_ts6y0")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_idoat"]
+script = ExtResource("6_m3vsl")
+_branches = Array[ExtResource("2_dbs4g")]([ExtResource("3_xfx7s")])
+_greeting = SubResource("Resource_sfqyv")
+metadata/_custom_type_script = "uid://tfh1etiytb5"
+
+[sub_resource type="Resource" id="Resource_qjpog"]
+resource_name = "Bolt"
+script = ExtResource("4_rh75q")
+name = "Bolt"
+color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://d3qwl0rfl1cas"
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_m47wj"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAIAAAACEBAAAUklGRnwEAABXRUJQVlA4TG8EAAAvP8AfEH+gJpIUiZzwNYUb/GKAIqIuem0ojm2b+QHFKEEjirbTg1XOrIyaSJKUOzEn5RWzmg8/Y8aq+Q8A8J0fzcpr8ONWHI46JqCu397P/6B8QZZx46CsTBPQdbXtkaS84VL/FeC9myHy0E1YUmm674DN8RCVVJpqvG0J72mtG4dKej/Mr3Hd830aFSbdO5h8czK0FbRU5p/CQxbRfwZu28ZR292bhD0D/wGGN3O/q8ef+2r9yHUs4R4pcnXAuTTLsqNuR0gwyeqh8Gtr6/HaVw6Stjq6As9kJ84K52efJ+l43fnRKI9HRUjAeB6nufPr6+P5+sx57tSWPCTIUylSOkzsq3Pn5vB5Pp7ndF0BJqpKBeycrR3NgYkVIkGBjXdEavz+uBw7wMRGOu8KWj1CV3NtVX7iOpawoPzVWoyXy/2G66py0wBrBA5AtRQDsLp3+fJwFxg2FgWkEewB8NTWZ3+57+fHK1dbzKRBzZpODAdbDUu7/X5b1lTDbWtCbLBXtlhpgD03mx0aYEvqYcNzwqUBG0P7QSLg6OjKi+fOAconT44J8OT4SQpAq0phzedmazU0E20QNSNANWuY2bkjmwEkVVo9QjZQlAQ+ntXjGmCDJKOwQI0R6tlare9FPQT/K4Y3c6d3BAVeilzd6R0hwSSrh4Y6pOmYB3o8k504K1ygI8/iUUrX7fGM53GahzqKJJ7EDPXkqRQpw5ZckyLQg4mqUhHoEIrIHN0e2HhHREMdojrat1CP3x8LXbCDuj92oR5f/moMd9BuroI9qJZiCHaYLkuEemBUF+7wwlN6hoMtF+7wK9t7rZ6V29qsdLjtjQ5bbQa7jWljaD9IBKBafXPRdOhV24sa53ZVCkCrSiHgfysXi/cAalUagbPfmIkCVLOGswdm7y1CHaLUFhQlgfemNn1vEerwxtaP2qAao6ZjOl20OkwYoQlghKDgten0TKDjf8XwZu70jqDAS5GrO70jJJCsHvPTOhIN9Pg8i0cpXahjlCbFjuv2+CKJJzHDHUkc7mGSa1IEO9IsTYtAD4QiMkegY5JlaTZHtweiOtq3QEdLl2uox1P3xy7YkRVZ7kI9nnZzFe7Ii4LBHpguS4Q6hkLqXqgHXugQ6PC37YkOb3OtHmuxsr0HdDt8ub2yNagabtvaa9MR3HNbw9Juv9+WNdVqq3dDr9peBOC9R3dLAPYceWiAVuWADqBWpRFYvPde9ZEDVK+8KAKImj1x0GAmBN5bmJ09qNkxG7UQigKkKFtMbboAaKLG1m+iOWCDJowA/9502u4gGaEVECEoeG06PRPo+F80vJnrCvotKXJ1XUEfJMuyRLuCPvt8lCbFjusKelAkSZzSdQR9YJqlaeE6gj43JlmWZvOuoO8juXYFvT6UFVnuuoJe5EVBA6wR9GIopCogQupeH1Z3RaVBRVd3+2DlA9vmAG+DByrrQ/UD9bDhOeHVsg/KJ0+OCfDk+ElKH2gm2iBqxl6QKg0qZC82SDIKCHrOKCD45xkAAA==")
+size_override = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0k2"]
+size = Vector2(22, 22)
+
+[sub_resource type="Animation" id="Animation_rh75q"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 11, 13]
+}
+
+[sub_resource type="Animation" id="Animation_qjpog"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_p1q5d"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t36p8"]
+_data = {
+&"WalkDown": SubResource("Animation_rh75q"),
+&"WalkLeft": SubResource("Animation_qjpog"),
+&"WalkRight": SubResource("Animation_p1q5d")
+}
+
+[node name="Bolt" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="DialogueComponent" type="Node" parent="."]
+script = ExtResource("1_rh75q")
+_dialogueTree = SubResource("Resource_idoat")
+metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+
+[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("3_p1q5d")
+characterID = SubResource("Resource_qjpog")
+animationPlayer = NodePath("../AnimationPlayer")
+
+[node name="NPC Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+texture = SubResource("PortableCompressedTexture2D_m47wj")
+hframes = 4
+vframes = 4
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Demo/NPCs/Sprites/man01.ase",
+"source_uid": 8329021707417752823
+}
+metadata/_aseprite_wizard_source_file_hash_ = "ca200473aeaffd4a001cc360c4ff7a53"
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_8p0k2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t36p8")
+}

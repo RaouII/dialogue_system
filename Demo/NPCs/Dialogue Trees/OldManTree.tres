@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="DialogueTree" load_steps=27 format=3 uid="uid://clkfyv5xsaao2"]
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=28 format=3 uid="uid://clkfyv5xsaao2"]
 
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_pen5b"]
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="2_788cv"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="3_8psop"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_cgyt1"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_ynr26"]
-[ext_resource type="Resource" uid="uid://c633wolx21jwq" path="res://Demo/NPCs/Tom/quest_for_fruit.tres" id="6_cgyt1"]
+[ext_resource type="Resource" uid="uid://c633wolx21jwq" path="res://Demo/NPCs/Biggs/quest_for_fruit.tres" id="6_cgyt1"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_f1vq0"]
 [ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="8_f1vq0"]
 [ext_resource type="Script" uid="uid://beuxf1qqtjhqn" path="res://addons/raou_event_tracker/event_stage_list.gd" id="9_6m4e0"]
@@ -115,15 +115,25 @@ script = ExtResource("1_pen5b")
 _topics = Array[ExtResource("2_788cv")]([SubResource("Resource_hu308"), SubResource("Resource_2fdqo")])
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
-[sub_resource type="Resource" id="Resource_cgyt1"]
+[sub_resource type="Resource" id="Resource_nxkj1"]
 script = ExtResource("5_ynr26")
 _responseText = "What do you want?!"
 _idleAnimation = ""
 _conditions = Array[ExtResource("3_8psop")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
+[sub_resource type="Resource" id="Resource_f7mmv"]
+script = ExtResource("2_788cv")
+_topicText = ""
+_responses = Array[ExtResource("5_ynr26")]([SubResource("Resource_nxkj1")])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("4_cgyt1")]([])
+_conditions = Array[ExtResource("3_8psop")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
 [resource]
 script = ExtResource("6_f1vq0")
 _branches = Array[ExtResource("1_pen5b")]([SubResource("Resource_8psop"), SubResource("Resource_hqgv6")])
-_greeting = SubResource("Resource_cgyt1")
+_greeting = SubResource("Resource_f7mmv")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
