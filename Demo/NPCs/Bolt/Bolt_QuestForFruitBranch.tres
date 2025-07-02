@@ -14,7 +14,7 @@ _conditions = Array[ExtResource("2_r2om6")]([])
 
 [sub_resource type="Resource" id="Resource_khj1b"]
 script = ExtResource("1_j5v63")
-_topicText = "Alright"
+_topicText = "Oh! Hey there"
 _responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_b3abu")])
 _goodbye = true
 _random = false
@@ -29,16 +29,36 @@ _conditions = Array[ExtResource("2_r2om6")]([])
 
 [sub_resource type="Resource" id="Resource_exrr1"]
 script = ExtResource("1_j5v63")
-_topicText = "Sorry I changed my mind"
+_topicText = "Yeah, I'm just..."
 _responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_sv3nc")])
 _goodbye = true
 _random = false
 _functions = Array[ExtResource("3_xveq8")]([])
 _conditions = Array[ExtResource("2_r2om6")]([])
 
+[sub_resource type="Resource" id="Resource_j5v63"]
+script = ExtResource("1_j5v63")
+_topicText = "Actually..."
+_responses = Array[ExtResource("4_w8ml0")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_xveq8")]([])
+_conditions = Array[ExtResource("2_r2om6")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
+[sub_resource type="Resource" id="Resource_r2om6"]
+script = ExtResource("1_j5v63")
+_topicText = "Can you help me out?"
+_responses = Array[ExtResource("4_w8ml0")]([])
+_goodbye = false
+_random = false
+_functions = Array[ExtResource("3_xveq8")]([])
+_conditions = Array[ExtResource("2_r2om6")]([])
+metadata/_custom_type_script = "uid://wgnly555mcgi"
+
 [sub_resource type="Resource" id="Resource_tvykv"]
 script = ExtResource("5_l8dcy")
-_topics = Array[ExtResource("1_j5v63")]([SubResource("Resource_khj1b"), SubResource("Resource_exrr1")])
+_topics = Array[ExtResource("1_j5v63")]([SubResource("Resource_khj1b"), SubResource("Resource_exrr1"), SubResource("Resource_j5v63"), SubResource("Resource_r2om6")])
 
 [sub_resource type="Resource" id="Resource_fobrx"]
 script = ExtResource("4_w8ml0")
@@ -78,7 +98,7 @@ _conditions = Array[ExtResource("2_r2om6")]([])
 
 [sub_resource type="Resource" id="Resource_sdg8w"]
 script = ExtResource("1_j5v63")
-_topicText = "Sure"
+_topicText = "Is everything ok?"
 _responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_fobrx"), SubResource("Resource_q4xor"), SubResource("Resource_p53if"), SubResource("Resource_o16lh"), SubResource("Resource_0pgd6"), SubResource("Resource_siwp8")])
 _nextBranch = SubResource("Resource_tvykv")
 _goodbye = false
@@ -86,21 +106,6 @@ _random = false
 _functions = Array[ExtResource("3_xveq8")]([])
 _conditions = Array[ExtResource("2_r2om6")]([])
 
-[sub_resource type="Resource" id="Resource_su5j6"]
-script = ExtResource("4_w8ml0")
-_responseText = "I see... thanks anyway"
-_idleAnimation = ""
-_conditions = Array[ExtResource("2_r2om6")]([])
-
-[sub_resource type="Resource" id="Resource_svi20"]
-script = ExtResource("1_j5v63")
-_topicText = "I'm sorry, I don't have the time right now"
-_responses = Array[ExtResource("4_w8ml0")]([SubResource("Resource_su5j6")])
-_goodbye = true
-_random = false
-_functions = Array[ExtResource("3_xveq8")]([])
-_conditions = Array[ExtResource("2_r2om6")]([])
-
 [resource]
 script = ExtResource("5_l8dcy")
-_topics = Array[ExtResource("1_j5v63")]([SubResource("Resource_sdg8w"), SubResource("Resource_svi20")])
+_topics = Array[ExtResource("1_j5v63")]([SubResource("Resource_sdg8w")])

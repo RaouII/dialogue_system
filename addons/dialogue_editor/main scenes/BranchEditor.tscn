@@ -24,14 +24,14 @@ connection_lines_thickness = 3.0
 position = Vector2i(100, 100)
 filters = PackedStringArray("*.tres")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 108.0
-offset_right = 171.0
-offset_bottom = 209.0
+offset_left = 10.0
+offset_top = 100.0
+offset_right = 414.0
+offset_bottom = 131.0
 scale = Vector2(0.8, 0.8)
-theme_override_constants/separation = 6
+theme_override_constants/separation = 16
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -83,7 +83,11 @@ layout_mode = 2
 
 [node name="Save Branch" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Save As..."
+text = "Save Branch As..."
+
+[node name="Save as Topic" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save as [DialogueTopic]"
 
 [node name="Load Branch" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -116,6 +120,7 @@ dialog_text = "You must connect at least one [StartingTopic] to a [Response] nod
 [connection signal="button_up" from="VBoxContainer/Button3" to="." method="_on_button_3_button_up"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Save Branch" to="." method="_on_save_branch_button_up"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Save as Topic" to="." method="_on_save_as_topic_pressed"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch" to="." method="_on_load_branch_button_up"]
 [connection signal="file_selected" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch/LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Clear Graph" to="." method="_on_clear_graph_button_up"]

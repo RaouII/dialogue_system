@@ -352,3 +352,7 @@ func _on_reload_branch_pressed():
 	if current_branch_path:
 		_on_load_file_dialog_file_selected(current_branch_path)
 	pass # Replace with function body.
+
+
+func _on_save_as_topic_pressed():
+	pass # Replace with function body.

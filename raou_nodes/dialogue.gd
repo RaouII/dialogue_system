@@ -37,20 +37,29 @@ func start_dialogue(position: Vector2, _tree: DialogueTree):
 
 
 
-func choose_greeting(greeting: DialogueTopic):
-	print("run choose greeting")
-	current_greeting = greeting
-	if current_tree._greeting != null:
-		print("greeting isnt null")
-		if greeting._conditions.is_empty():
-			show_responses(greeting)
+func choose_greeting(greeting: DialogueBranch):
+	for topic in greeting._topics:
+		print("There are topics in the Greeting Branch")
+		if topic._conditions.is_empty():
+			print("Topic", topic._topicText," Conditions is empty")
+			current_greeting = topic
+			show_responses(topic)
 			return
-		for condition in greeting._conditions:
-			print(condition)
-			if condition.check() != true:
-				push_warning("Topic skipped: conditions not met")
-				return
-		show_responses(greeting)
+		else:
+			print("Topic", topic._topicText," Conditions is not empty")
+			var last_entry = topic._conditions.size()-1
+			for condition in topic._conditions:
+				if condition.check() != true:
+					print("Conditions from ", topic._topicText, " wasnt met")
+					push_warning("Topic skipped: conditions not met")
+					break
+				print("Conditions from ", topic._topicText, " was met")
+				print(topic._responses[0]._responseText)
+				current_greeting = topic
+				if condition == topic._conditions[last_entry]:
+					show_responses(topic)
+					return
+			
 #### SECOND STEP:	SHOW THE FIRST DIALOGUE WINDOW, IT'LL SHOW:
 #################	1) A GREETING TEXT,
 #################	2) A LIST OF AVAILABLE TOPICS TO TALK ABOUT,
@@ -64,7 +73,7 @@ func show_greeting():
 		#init_responseContainer() ### IF THERE IS A GREETING TO BE DISPLAYED, INSTANTIATE THE TEXT COMPONENT OF THE DIALOGUE BOX
 		#text_box.display_text(_greeting._responseText) #### THIS FUNCTION WILL DISPLAY THE TEXT ON THE DIALOGUE BOX
 		#Global.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation)
-	if current_tree._greeting._responses.size() < 1:
+	if current_greeting._responses.size() < 1:
 		if current_tree._branches != null: ## this will check if there are branches set
 			display_maintree_topics()
 		#text_box.position = text_box_position
@@ -210,7 +219,8 @@ func cutscene_close_dialogue():
 	
 func close_dialogue():
 	Global.closed_dialogue.emit()
-	text_box.queue_free()
+	if text_box:
+		text_box.queue_free()
 	reset_vars()
 	
 func reset_vars():

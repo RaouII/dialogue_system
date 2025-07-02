@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://ijv84t0ewfit"]
 
-[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_faued"]
-[ext_resource type="Resource" uid="uid://ctmm3rrrwgnem" path="res://Demo/NPCs/Dialogue Trees/TomTree.tres" id="2_vylfd"]
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="1_xxv1r"]
+[ext_resource type="Resource" uid="uid://dult7nipws3cu" path="res://Demo/NPCs/Biggs/biggs_DialogueTree.tres" id="2_1q34f"]
 [ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_vylfd"]
 [ext_resource type="Resource" uid="uid://ee5j6euh6g2h" path="res://Demo/NPCs/Biggs/biggs_ID.tres" id="4_qy482"]
 
@@ -51,10 +51,9 @@ _data = {
 
 [node name="Biggs" type="Node2D"]
 
-[node name="DialogueComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
-script = ExtResource("1_faued")
-_dialogueTree = ExtResource("2_vylfd")
-entity = NodePath("../Entity")
+[node name="DialogueComponent" type="Node" parent="."]
+script = ExtResource("1_xxv1r")
+_dialogueTree = ExtResource("2_1q34f")
 metadata/_custom_type_script = "uid://dqfcqdux7dbap"
 
 [node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]

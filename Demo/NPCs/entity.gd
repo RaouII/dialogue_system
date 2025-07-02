@@ -16,7 +16,7 @@ func _ready():
 func _on_set_new_greeting(_char: CharacterID,_greeting: DialogueTopic):
 	if _char == characterID:
 		print("FOUND CHARACTER")
-		Global.DialogueTreeDictionary[characterID.name]._greeting = _greeting
+		#Global.DialogueTreeDictionary[characterID.name]._greeting = _greeting
 		#dialogueComponent._dialogueTree._greeting = _greeting
 	
 func _on_idle_animation(_char: CharacterID,_anim: String):

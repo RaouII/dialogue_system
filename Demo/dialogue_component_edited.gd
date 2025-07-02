@@ -1,9 +1,6 @@
 extends DialogueComponent
 
-### This is an edited version of the Dialogue Component
-### I created it specifically for this demo to handle the interaction between player and NPCs
-### Your project will probably handle interactions differently
-### in that case, you can ignore this and just call the _start() function through there
+
 
 
 #

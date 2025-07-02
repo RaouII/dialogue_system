@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueBranch" load_steps=23 format=3 uid="uid://dpos4j7kddnxs"]
+[gd_resource type="Resource" script_class="DialogueBranch" load_steps=18 format=3 uid="uid://dpos4j7kddnxs"]
 
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_fj1u3"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_2mo0p"]
@@ -10,103 +10,70 @@
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="8_h3vw1"]
 
 [sub_resource type="Resource" id="Resource_fj1u3"]
-script = ExtResource("4_i8s5q")
-_responseText = "We can't leave before finding out what happened to Miss Maren"
-_idleAnimation = ""
-_conditions = Array[ExtResource("2_2mo0p")]([])
+script = ExtResource("7_c60tl")
+event = ExtResource("5_0bea6")
+metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
 
 [sub_resource type="Resource" id="Resource_2mo0p"]
-script = ExtResource("1_fj1u3")
-_topicText = "Leave Island"
-_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_fj1u3")])
-_goodbye = true
-_random = false
-_functions = Array[ExtResource("3_4n18c")]([])
-_conditions = Array[ExtResource("2_2mo0p")]([])
-
-[sub_resource type="Resource" id="Resource_4n18c"]
 script = ExtResource("4_i8s5q")
-_responseText = "Lets look around some more"
+_responseText = "We can't leave until we find what happened to miss Maren"
 _idleAnimation = ""
 _conditions = Array[ExtResource("2_2mo0p")]([])
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
 
-[sub_resource type="Resource" id="Resource_i8s5q"]
+[sub_resource type="Resource" id="Resource_4n18c"]
 script = ExtResource("1_fj1u3")
-_topicText = "Stay"
-_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_4n18c")])
+_topicText = "Leave the Island"
+_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_2mo0p")])
 _goodbye = true
 _random = false
 _functions = Array[ExtResource("3_4n18c")]([])
+_conditions = Array[ExtResource("2_2mo0p")]([SubResource("Resource_fj1u3")])
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_i8s5q"]
+script = ExtResource("4_i8s5q")
+_responseText = "What should we do?"
+_idleAnimation = ""
 _conditions = Array[ExtResource("2_2mo0p")]([])
 
 [sub_resource type="Resource" id="Resource_0bea6"]
+script = ExtResource("1_fj1u3")
+_topicText = "Stay"
+_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_i8s5q")])
+_goodbye = true
+_random = false
+_functions = Array[ExtResource("3_4n18c")]([])
+_conditions = Array[ExtResource("2_2mo0p")]([])
+
+[sub_resource type="Resource" id="Resource_nnfxh"]
 script = ExtResource("6_nnfxh")
 selected_option = ""
 selected_index = 1
-
-[sub_resource type="Resource" id="Resource_nnfxh"]
-script = ExtResource("7_c60tl")
-event = ExtResource("5_0bea6")
-eventStage = SubResource("Resource_0bea6")
 metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
 
 [sub_resource type="Resource" id="Resource_c60tl"]
-script = ExtResource("4_i8s5q")
-_responseText = "Lets look around some more then"
-_idleAnimation = ""
-_conditions = Array[ExtResource("2_2mo0p")]([])
+script = ExtResource("7_c60tl")
+event = ExtResource("5_0bea6")
+eventStage = SubResource("Resource_nnfxh")
+metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
 
 [sub_resource type="Resource" id="Resource_h3vw1"]
-script = ExtResource("1_fj1u3")
-_topicText = "Yes"
-_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_c60tl")])
-_goodbye = true
-_random = false
-_functions = Array[ExtResource("3_4n18c")]([])
+script = ExtResource("4_i8s5q")
+_responseText = "I guess we did find out enough"
+_idleAnimation = ""
 _conditions = Array[ExtResource("2_2mo0p")]([])
 
 [sub_resource type="Resource" id="Resource_kelxw"]
-script = ExtResource("4_i8s5q")
-_responseText = "I guess we did complete our mission."
-_idleAnimation = ""
-_conditions = Array[ExtResource("2_2mo0p")]([])
-
-[sub_resource type="Resource" id="Resource_jxc07"]
-script = ExtResource("4_i8s5q")
-_responseText = "Alright. Lets go then"
-_idleAnimation = ""
-_conditions = Array[ExtResource("2_2mo0p")]([])
-
-[sub_resource type="Resource" id="Resource_1tp76"]
 script = ExtResource("1_fj1u3")
-_topicText = "No"
-_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_kelxw"), SubResource("Resource_jxc07")])
+_topicText = "Leave the Island"
+_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_h3vw1")])
 _goodbye = true
 _random = false
 _functions = Array[ExtResource("3_4n18c")]([])
-_conditions = Array[ExtResource("2_2mo0p")]([])
-
-[sub_resource type="Resource" id="Resource_oc41g"]
-script = ExtResource("8_h3vw1")
-_topics = Array[ExtResource("1_fj1u3")]([SubResource("Resource_h3vw1"), SubResource("Resource_1tp76")])
-
-[sub_resource type="Resource" id="Resource_b68eb"]
-script = ExtResource("4_i8s5q")
-_responseText = "Are you sure you wanna leave? "
-_idleAnimation = ""
-_conditions = Array[ExtResource("2_2mo0p")]([])
-
-[sub_resource type="Resource" id="Resource_ohrwm"]
-script = ExtResource("1_fj1u3")
-_topicText = "Leave Island"
-_responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_b68eb")])
-_nextBranch = SubResource("Resource_oc41g")
-_goodbye = false
-_random = false
-_functions = Array[ExtResource("3_4n18c")]([])
-_conditions = Array[ExtResource("2_2mo0p")]([SubResource("Resource_nnfxh")])
+_conditions = Array[ExtResource("2_2mo0p")]([SubResource("Resource_c60tl")])
 
 [resource]
 script = ExtResource("8_h3vw1")
-_topics = Array[ExtResource("1_fj1u3")]([SubResource("Resource_2mo0p"), SubResource("Resource_i8s5q"), SubResource("Resource_ohrwm")])
+_topics = Array[ExtResource("1_fj1u3")]([SubResource("Resource_4n18c"), SubResource("Resource_0bea6"), SubResource("Resource_kelxw")])
 metadata/_custom_type_script = "uid://bphmgatjcmttf"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://8gxa0a61ai2y"]
 
-[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_j4w0p"]
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="1_ahjyo"]
 [ext_resource type="Resource" uid="uid://k0qits6bk3y8" path="res://Demo/NPCs/scilla_DialogueTree.tres" id="2_t2rbe"]
 [ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_cer6u"]
 [ext_resource type="Resource" uid="uid://jowtdecfqek8" path="res://Demo/NPCs/scilla_ID.tres" id="4_t2rbe"]
@@ -88,10 +88,9 @@ _data = {
 z_index = 1
 y_sort_enabled = true
 
-[node name="DialogueComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
-script = ExtResource("1_j4w0p")
+[node name="DialogueComponent" type="Node" parent="."]
+script = ExtResource("1_ahjyo")
 _dialogueTree = ExtResource("2_t2rbe")
-entity = NodePath("../Entity")
 metadata/_custom_type_script = "uid://dqfcqdux7dbap"
 
 [node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer", "dialogueComponent")]
