@@ -17,7 +17,9 @@ Although the project features a simple CutscenePlayer node, which is an extensio
 The Visual Editor is pretty much done. The only missing feature is the ability to delete individual nodes. However, unconnected nodes will be discarded when saving the branch, so you can just put them aside and it'll be fine.
 
 
-============================================================
+==================================================================
+
+
 The main dialogue system files are inside the "raou_nodes" folder and the visual plugin is inside the "addons" folder. You do not need the visual editor plugin in order to use the dialogue system itself, its completely *possible* to make your trees just using godots default inspector, but any tree of moderate size can get overwhelming *(so its not recommended approach)*. The rest is just a sample project I'm working on to demonstrate some of its functionalities, its also currently a work in progress but you can play it and check out *some* of it.
 *(there is also some Event Tracker stuff I'm trying out and using this same project as test-grounds for it, but feel free to ignore it)*
 
