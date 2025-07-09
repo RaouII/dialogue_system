@@ -15,6 +15,19 @@ func setQuestStageIndex(_index: int):
 		current_stage = EventStageList.new()
 	current_stage.selected_index = _index
 	current_index = _index
+	
+	
+func stage_reached(_stage: EventStage):
+	if stages.has(_stage):
+		if !_stage.completed:
+			var index = stages.find(_stage)
+			for i in stages.size():
+				if i <= index:
+					stages[i].completed = true
+			current_stage.selected_index = stages.find(_stage)
+			current_index = stages.find(_stage)
+	else:
+		printerr("Tried to set '%s' stage to a Event that doesnt have it in its stages list" % [_stage])
 
 
 func setQuestStage(_stage: EventStage):

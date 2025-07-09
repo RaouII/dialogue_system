@@ -24,6 +24,8 @@ _topicText = "No-nothing!"
 _responses = Array[ExtResource("5_ynr26")]([SubResource("Resource_pen5b")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("4_cgyt1")]([])
 _conditions = Array[ExtResource("3_8psop")]([])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -31,6 +33,7 @@ metadata/_custom_type_script = "uid://wgnly555mcgi"
 [sub_resource type="Resource" id="Resource_8psop"]
 script = ExtResource("1_pen5b")
 _topics = Array[ExtResource("2_788cv")]([SubResource("Resource_788cv")])
+_random = false
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
 [sub_resource type="Resource" id="Resource_6m4e0"]
@@ -58,6 +61,8 @@ _topicText = "Can I have some of your fruits?"
 _responses = Array[ExtResource("5_ynr26")]([SubResource("Resource_ynr26")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("4_cgyt1")]([])
 _conditions = Array[ExtResource("3_8psop")]([SubResource("Resource_f1vq0")])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -105,6 +110,8 @@ _topicText = "I can help you with Granny"
 _responses = Array[ExtResource("5_ynr26")]([SubResource("Resource_ku475"), SubResource("Resource_tpqqt")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("4_cgyt1")]([])
 _conditions = Array[ExtResource("3_8psop")]([SubResource("Resource_sd6ec"), SubResource("Resource_sxtry")])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -113,6 +120,7 @@ metadata/_custom_type_script = "uid://wgnly555mcgi"
 resource_name = "Get Fruits Branch"
 script = ExtResource("1_pen5b")
 _topics = Array[ExtResource("2_788cv")]([SubResource("Resource_hu308"), SubResource("Resource_2fdqo")])
+_random = false
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
 [sub_resource type="Resource" id="Resource_nxkj1"]
@@ -128,6 +136,8 @@ _topicText = ""
 _responses = Array[ExtResource("5_ynr26")]([SubResource("Resource_nxkj1")])
 _goodbye = false
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("4_cgyt1")]([])
 _conditions = Array[ExtResource("3_8psop")]([])
 metadata/_custom_type_script = "uid://wgnly555mcgi"

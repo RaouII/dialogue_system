@@ -27,13 +27,15 @@ _topicText = "Leave the Island"
 _responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_2mo0p")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("3_4n18c")]([])
 _conditions = Array[ExtResource("2_2mo0p")]([SubResource("Resource_fj1u3")])
 metadata/_custom_type_script = "uid://chbqwoxqpo048"
 
 [sub_resource type="Resource" id="Resource_i8s5q"]
 script = ExtResource("4_i8s5q")
-_responseText = "What should we do?"
+_responseText = "I guess we should look around some more"
 _idleAnimation = ""
 _conditions = Array[ExtResource("2_2mo0p")]([])
 
@@ -43,6 +45,8 @@ _topicText = "Stay"
 _responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_i8s5q")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("3_4n18c")]([])
 _conditions = Array[ExtResource("2_2mo0p")]([])
 
@@ -70,10 +74,13 @@ _topicText = "Leave the Island"
 _responses = Array[ExtResource("4_i8s5q")]([SubResource("Resource_h3vw1")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("3_4n18c")]([])
 _conditions = Array[ExtResource("2_2mo0p")]([SubResource("Resource_c60tl")])
 
 [resource]
 script = ExtResource("8_h3vw1")
 _topics = Array[ExtResource("1_fj1u3")]([SubResource("Resource_4n18c"), SubResource("Resource_0bea6"), SubResource("Resource_kelxw")])
+_random = false
 metadata/_custom_type_script = "uid://bphmgatjcmttf"

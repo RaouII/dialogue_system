@@ -42,6 +42,8 @@ _topicText = ""
 _responses = Array[ExtResource("8_ha6fi")]([SubResource("Resource_310di"), SubResource("Resource_0e6aq")])
 _goodbye = false
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("6_f3esk")]([SubResource("Resource_dfcci")])
 _conditions = Array[ExtResource("4_4y5nh")]([SubResource("Resource_6j3le")])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -65,6 +67,8 @@ _topicText = ""
 _responses = Array[ExtResource("8_ha6fi")]([SubResource("Resource_1husk")])
 _goodbye = false
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("6_f3esk")]([])
 _conditions = Array[ExtResource("4_4y5nh")]([SubResource("Resource_rmjci")])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -72,6 +76,7 @@ metadata/_custom_type_script = "uid://wgnly555mcgi"
 [sub_resource type="Resource" id="Resource_bbska"]
 script = ExtResource("1_a70r1")
 _topics = Array[ExtResource("3_abruh")]([SubResource("Resource_gqf7r"), SubResource("Resource_g05f3")])
+_random = false
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
 [resource]

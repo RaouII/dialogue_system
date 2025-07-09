@@ -86,6 +86,7 @@ layout_mode = 2
 text = "Save Branch As..."
 
 [node name="Save as Topic" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Save as [DialogueTopic]"
 

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b3ctapr8ct2sh"
+path="res://.godot/imported/barman01.ase-e0cc3b5a60f22bf24861d96a68d1d3f4.res"
+
+[deps]
+
+source_file="res://Demo/NPCs/Sprites/barman01.ase"
+dest_files=["res://.godot/imported/barman01.ase-e0cc3b5a60f22bf24861d96a68d1d3f4.res"]
+
+[params]
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://butj2l6xhngsg"]
+[gd_scene load_steps=37 format=4 uid="uid://butj2l6xhngsg"]
 
 [ext_resource type="TileSet" uid="uid://dt873lhy1lbwa" path="res://Demo/Tileset/ts_base.tres" id="1_dupha"]
 [ext_resource type="Script" uid="uid://rrrxrqqwjgj" path="res://Demo/Scenes/level.gd" id="1_kj37x"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://q4c5haj3704m" path="res://Demo/NPCs/gunner.tscn" id="11_cwn5c"]
 [ext_resource type="PackedScene" uid="uid://dresscd6hker5" path="res://Demo/NPCs/maria.tscn" id="11_x68jp"]
 [ext_resource type="Resource" uid="uid://d2norlbbag3ow" path="res://Demo/NPCs/Gunner/gunner_ID.tres" id="12_nyras"]
+[ext_resource type="PackedScene" uid="uid://c887sfboy4ti1" path="res://Demo/NPCs/barman.tscn" id="14_nyras"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4aue"]
 
@@ -31,6 +32,8 @@ _topicText = "Search"
 _responses = Array[ExtResource("9_nyras")]([SubResource("Resource_d4qr4")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("8_2bc1i")]([])
 _conditions = Array[ExtResource("7_cwn5c")]([])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -38,6 +41,7 @@ metadata/_custom_type_script = "uid://wgnly555mcgi"
 [sub_resource type="Resource" id="Resource_wtocl"]
 script = ExtResource("5_mvumq")
 _topics = Array[ExtResource("6_x68jp")]([SubResource("Resource_1yyp4")])
+_random = false
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
 [sub_resource type="Resource" id="Resource_5vppd"]
@@ -79,6 +83,8 @@ _topicText = ""
 _responses = Array[ExtResource("9_nyras")]([SubResource("Resource_6dkbv")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("8_2bc1i")]([])
 _conditions = Array[ExtResource("7_cwn5c")]([])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -86,6 +92,7 @@ metadata/_custom_type_script = "uid://wgnly555mcgi"
 [sub_resource type="Resource" id="Resource_enj4c"]
 script = ExtResource("5_mvumq")
 _topics = Array[ExtResource("6_x68jp")]([SubResource("Resource_aage6")])
+_random = false
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
 [sub_resource type="Resource" id="Resource_l2j30"]
@@ -442,6 +449,9 @@ shape = SubResource("RectangleShape2D_tq0nv")
 position = Vector2(23, 1)
 
 [node name="Pub" type="Node2D" parent="."]
+
+[node name="Barman" parent="Pub" instance=ExtResource("14_nyras")]
+position = Vector2(1608, 456)
 
 [node name="Teleport12" type="Area2D" parent="Pub" node_paths=PackedStringArray("spawnPoint")]
 position = Vector2(1464, 541)

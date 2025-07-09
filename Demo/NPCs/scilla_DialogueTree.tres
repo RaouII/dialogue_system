@@ -21,6 +21,8 @@ _topicText = ""
 _responses = Array[ExtResource("4_nbcjw")]([SubResource("Resource_8sgqd")])
 _goodbye = false
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("4_8sgqd")]([])
 _conditions = Array[ExtResource("3_8sgqd")]([])
 metadata/_custom_type_script = "uid://wgnly555mcgi"
@@ -28,6 +30,7 @@ metadata/_custom_type_script = "uid://wgnly555mcgi"
 [sub_resource type="Resource" id="Resource_7mp2g"]
 script = ExtResource("1_a56e5")
 _topics = Array[ExtResource("6_nbcjw")]([SubResource("Resource_nbcjw")])
+_random = false
 metadata/_custom_type_script = "uid://bphmgatjcmttf"
 
 [resource]

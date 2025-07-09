@@ -8,6 +8,29 @@
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_bhgfk"]
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_3ta83"]
 
+[sub_resource type="Resource" id="Resource_c60tl"]
+script = ExtResource("3_ulpfb")
+_name = "inspected_the_boat"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_bjmsh"]
+script = ExtResource("6_bhgfk")
+_responseText = "What should we do?"
+_idleAnimation = ""
+_conditions = Array[ExtResource("2_afhnb")]([])
+
+[sub_resource type="Resource" id="Resource_einnu"]
+script = ExtResource("1_i2yvw")
+_topicText = "Second Observation"
+_responses = Array[ExtResource("6_bhgfk")]([SubResource("Resource_bjmsh")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_vgj3i")]([])
+_conditions = Array[ExtResource("2_afhnb")]([SubResource("Resource_c60tl")])
+
 [sub_resource type="Resource" id="Resource_2mo0p"]
 script = ExtResource("3_ulpfb")
 _name = "inspected_the_boat"
@@ -38,30 +61,12 @@ _topicText = "First Observation"
 _responses = Array[ExtResource("6_bhgfk")]([SubResource("Resource_od8c1"), SubResource("Resource_7muto")])
 _goodbye = false
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("4_vgj3i")]([SubResource("Resource_4n18c")])
 _conditions = Array[ExtResource("2_afhnb")]([SubResource("Resource_2mo0p")])
 
-[sub_resource type="Resource" id="Resource_c60tl"]
-script = ExtResource("3_ulpfb")
-_name = "inspected_the_boat"
-_value = true
-metadata/_custom_type_script = "uid://bbobh0woojdsj"
-
-[sub_resource type="Resource" id="Resource_bjmsh"]
-script = ExtResource("6_bhgfk")
-_responseText = "What should we do?"
-_idleAnimation = ""
-_conditions = Array[ExtResource("2_afhnb")]([])
-
-[sub_resource type="Resource" id="Resource_einnu"]
-script = ExtResource("1_i2yvw")
-_topicText = "Second Observation"
-_responses = Array[ExtResource("6_bhgfk")]([SubResource("Resource_bjmsh")])
-_goodbye = false
-_random = false
-_functions = Array[ExtResource("4_vgj3i")]([])
-_conditions = Array[ExtResource("2_afhnb")]([SubResource("Resource_c60tl")])
-
 [resource]
 script = ExtResource("7_3ta83")
-_topics = Array[ExtResource("1_i2yvw")]([SubResource("Resource_ratws"), SubResource("Resource_einnu")])
+_topics = Array[ExtResource("1_i2yvw")]([SubResource("Resource_einnu"), SubResource("Resource_ratws")])
+_random = false

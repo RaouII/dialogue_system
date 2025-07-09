@@ -7,7 +7,7 @@ class_name CutsceneDialogueTopic extends DialogueResource
 var already_said: bool = false
 @export var _goodbye: bool 
 @export var _random: bool 
-
+@export var _exclusive: bool
 
 @export var _setVar: Array[VariableSetter]
 

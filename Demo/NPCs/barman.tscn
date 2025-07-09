@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=4 uid="uid://c887sfboy4ti1"]
+
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="1_uornt"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="2_yxokb"]
+[ext_resource type="Resource" uid="uid://bipra0j06gmo3" path="res://Demo/NPCs/Barman_GreetingBranch.tres" id="4_es17f"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="9_o88j3"]
+[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="10_rh8xi"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_glfmn"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAAEAAAACOAQAAUklGRoYBAABXRUJQVlA4THoBAAAvH8APEH+gJpKk6H4ZF19IESEXZxQO/hRsqI1tUzIyqYY0pkMdaMHI/r4qDQCkYTcOoNK8xh+9zG7a1fkPAPBtfPiVrFKQIcZ5iZdwmUzFLaFrU/dk/rTv1ugAt9n2xs03wXEExxXUOrc+RXoBwzMoS+1VHuFaAX/DCbyB4MpdztmEAp2Ufpikcywj+q/IbduGPnUm7TPwC+ZA68BpMQtnRspjp070AOBgdUUmAqDVICoJa+2ZdIiIHCnfkpUy8aowsjl5bTq8iC/XnQfVq7vBdHy5EFhjqte29JKNtpJERuDg0okDqF7SqB7iy3B56yS+bBHn80wivtQb2/o1B3pT6xsdgJPMhoGDk2YzDIAWLy2xsCKtIyfPnLegvRHAAONfkBazeL1Anejh1QKtBlFJvFqAiOgTC7xr+kH16q8WSI6pXttxBYyVJDJOkshYLU4a5fSSxvsYzudVD1C9fJ7xLklmf5rZeP+ZTwqvgMkLH8MLewDGizC+QQA=")
+size_override = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0k2"]
+size = Vector2(22, 22)
+
+[sub_resource type="Animation" id="Animation_uornt"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yxokb"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPC Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t36p8"]
+_data = {
+&"Idle": SubResource("Animation_uornt"),
+&"Walk": SubResource("Animation_yxokb")
+}
+
+[sub_resource type="Resource" id="Resource_fka32"]
+script = ExtResource("9_o88j3")
+_branches = Array[ExtResource("2_yxokb")]([])
+_greeting = ExtResource("4_es17f")
+metadata/_custom_type_script = "uid://tfh1etiytb5"
+
+[node name="Barman" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer", "dialogueComponent")]
+script = ExtResource("10_rh8xi")
+animationPlayer = NodePath("../AnimationPlayer")
+dialogueComponent = NodePath("../Marker2D/DialogueComponent")
+
+[node name="NPC Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+texture = SubResource("PortableCompressedTexture2D_glfmn")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Demo/NPCs/Sprites/barman01.ase",
+"source_uid": 4356991499543437679
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b33a3f8737e4b613bb6b40a9515b26a8"
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_8p0k2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t36p8")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="DialogueComponent" type="Node" parent="Marker2D"]
+script = ExtResource("1_uornt")
+_dialogueTree = SubResource("Resource_fka32")
+metadata/_custom_type_script = "uid://dqfcqdux7dbap"

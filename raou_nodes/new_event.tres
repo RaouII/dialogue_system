@@ -6,6 +6,5 @@
 [resource]
 script = ExtResource("1_fo6jj")
 name = &""
-current_index = 0
 stages = Array[ExtResource("2_0sf0p")]([])
 metadata/_custom_type_script = "uid://5gnvf308skfu"

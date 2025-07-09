@@ -38,27 +38,47 @@ func start_dialogue(position: Vector2, _tree: DialogueTree):
 
 
 func choose_greeting(greeting: DialogueBranch):
+	var best_pick: DialogueTopic # This variable is used to store the highest priority greeting topic
+	var available_greetings: Array[DialogueTopic] # This holds all greeting topics that met their conditions
+	var best_pick_array: Array[DialogueTopic] # If the greetings are randomized, this will hold the ones with the highest priority
+	
 	for topic in greeting._topics:
 		print("There are topics in the Greeting Branch")
 		if topic._conditions.is_empty():
 			print("Topic", topic._topicText," Conditions is empty")
-			current_greeting = topic
-			show_responses(topic)
-			return
+			available_greetings.append(topic)
 		else:
 			print("Topic", topic._topicText," Conditions is not empty")
 			var last_entry = topic._conditions.size()-1
+			var check = false
 			for condition in topic._conditions:
+				print("loop start")
 				if condition.check() != true:
 					print("Conditions from ", topic._topicText, " wasnt met")
 					push_warning("Topic skipped: conditions not met")
+					print("loop break")
 					break
+				print("loop continue")
+				check = true
 				print("Conditions from ", topic._topicText, " was met")
 				print(topic._responses[0]._responseText)
 				current_greeting = topic
 				if condition == topic._conditions[last_entry]:
-					show_responses(topic)
-					return
+					print("Show Responses")
+					available_greetings.append(topic)
+	for i in available_greetings:
+		if !best_pick:
+			best_pick = i # If "best pick" wasnt set yet, i.e. this is the first loop, set it to [i]
+			best_pick_array.append(best_pick) # append to the array to be used with the "random" flag
+		elif best_pick._priority < i._priority:
+				best_pick = i # if the current [i] has higher priority than the current best_pick, set best_pick to [i]
+		elif best_pick._priority == i._priority:
+				best_pick_array.append(i) # if [i] has the same priority as the current best_pick, add them to the array
+	if greeting._random:
+		var picked = randi_range(0,best_pick_array.size()-1)
+		best_pick = best_pick_array[picked] # if the "random" flag is on, this will choose one of the entries here at random. Otherwise, it'll keep the first pick. Theres probably room for improving this code, maybe checking this *before* looping through all of the entries, but I'll do that later if I feel like it.
+	show_responses(best_pick)
+
 			
 #### SECOND STEP:	SHOW THE FIRST DIALOGUE WINDOW, IT'LL SHOW:
 #################	1) A GREETING TEXT,
@@ -73,14 +93,16 @@ func show_greeting():
 		#init_responseContainer() ### IF THERE IS A GREETING TO BE DISPLAYED, INSTANTIATE THE TEXT COMPONENT OF THE DIALOGUE BOX
 		#text_box.display_text(_greeting._responseText) #### THIS FUNCTION WILL DISPLAY THE TEXT ON THE DIALOGUE BOX
 		#Global.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation)
-	if current_greeting._responses.size() < 1:
-		if current_tree._branches != null: ## this will check if there are branches set
-			display_maintree_topics()
-		#text_box.position = text_box_position
-		can_advance_line = false
+
+	#if current_greeting._nextBranch == null:
+		#if current_tree._branches != null: ## this will check if there are branches set
+			#display_maintree_topics()
+		##text_box.position = text_box_position
+		#can_advance_line = false
 
 func display_maintree_topics():
 	for branch in current_tree._branches:
+		print("Display MainTree Topics")
 		for topic in branch._topics: 
 			### IF THERE ARE TOPICS TO BE DISPLAYED, INSTANTIATE THE TOPIC COMPONENT OF THE DIALOGUE BOX
 			display_topic(topic) 
@@ -125,7 +147,7 @@ func show_responses(_topic: DialogueTopic):
 			display_topic(topic)
 			current_line_index = 0
 			
-	if current_line_index == _responses.size()-1 and current_topic == current_greeting:
+	if current_line_index == _responses.size()-1 and current_topic == current_greeting and current_greeting._exclusive == false:
 		display_maintree_topics()
 		current_line_index = 0
 	can_advance_line = false

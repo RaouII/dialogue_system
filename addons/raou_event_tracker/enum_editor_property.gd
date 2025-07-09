@@ -26,6 +26,14 @@ func _init(obj):
 	if obj is EventStageCondition:
 		if obj.event != null:
 			array = _create_array(obj.event.stages)
+	if obj is StageBetweenCondition:
+		if obj.eventStage1 == null:
+			if obj.event1 != null:
+				array = _create_array(obj.event1.stages)
+		else:
+			if obj.event2 != null:
+				array = _create_array(obj.event2.stages)
+				
 
 	property_control.feed_items(array)
 	# Add the control as a direct child of EditorProperty node.

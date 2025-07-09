@@ -30,6 +30,8 @@ _topicText = "Ask about the Village"
 _responses = Array[ExtResource("4_lpwh4")]([SubResource("Resource_2bvhw"), SubResource("Resource_a71tg"), SubResource("Resource_l1dmp")])
 _goodbye = true
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("3_l1dmp")]([])
 _conditions = Array[ExtResource("2_a71tg")]([])
 
@@ -51,9 +53,12 @@ _topicText = "Ask About Maren Valor"
 _responses = Array[ExtResource("4_lpwh4")]([SubResource("Resource_5wy82"), SubResource("Resource_yk53f")])
 _goodbye = false
 _random = false
+_exclusive = false
+_priority = 10
 _functions = Array[ExtResource("3_l1dmp")]([])
 _conditions = Array[ExtResource("2_a71tg")]([])
 
 [resource]
 script = ExtResource("5_5wy82")
 _topics = Array[ExtResource("1_2bvhw")]([SubResource("Resource_lpwh4"), SubResource("Resource_4i176")])
+_random = false

@@ -11,6 +11,8 @@ func _can_handle(object):
 		return true
 	elif object is Event:
 		return true 
+	elif object is StageBetweenCondition:
+		return true 
 
 
 

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StageBetweenCondition" load_steps=3 format=3 uid="uid://dfbqlxwh2xbni"]
+
+[ext_resource type="Resource" uid="uid://bbgq7elrsrnbl" path="res://Demo/NPCs/Ardley/Rumors_Event.tres" id="1_38au2"]
+[ext_resource type="Script" uid="uid://yyviagoi83ty" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_StageBetween_RES.gd" id="1_vxi01"]
+
+[resource]
+script = ExtResource("1_vxi01")
+event2 = ExtResource("1_38au2")
+metadata/_custom_type_script = "uid://yyviagoi83ty"
