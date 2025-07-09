@@ -23,6 +23,7 @@ func _on_body_entered(_body: Node2D):
 		if _body is CharacterBody2D:
 			if auto_play:
 				play(scene)
+				finished = true
 				if !parallel_process:
 					Global.cutscene_started.emit()
 	pass
@@ -55,6 +56,5 @@ func _unhandled_input(event):
 #endregion
 
 func _on_animation_finished(anim_name: StringName) -> void:
-	finished = true
 	Global.cutscene_ended.emit()
 	pass # Replace with function body.

@@ -62,7 +62,6 @@ func choose_greeting(greeting: DialogueBranch):
 				check = true
 				print("Conditions from ", topic._topicText, " was met")
 				print(topic._responses[0]._responseText)
-				current_greeting = topic
 				if condition == topic._conditions[last_entry]:
 					print("Show Responses")
 					available_greetings.append(topic)
@@ -77,7 +76,9 @@ func choose_greeting(greeting: DialogueBranch):
 	if greeting._random:
 		var picked = randi_range(0,best_pick_array.size()-1)
 		best_pick = best_pick_array[picked] # if the "random" flag is on, this will choose one of the entries here at random. Otherwise, it'll keep the first pick. Theres probably room for improving this code, maybe checking this *before* looping through all of the entries, but I'll do that later if I feel like it.
+	current_greeting = best_pick
 	show_responses(best_pick)
+	
 
 			
 #### SECOND STEP:	SHOW THE FIRST DIALOGUE WINDOW, IT'LL SHOW:
