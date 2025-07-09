@@ -10,6 +10,8 @@ signal closed_dialogue()
 ## set idle animation signal: it sends a signal with a variety of useful information to animate characters during dialogue.
 signal set_character_idle_animation(_char: CharacterID,_anim: String)
 signal add_character_to_level_array(CharacterID)
+signal cutscene_started
+signal cutscene_ended
 
 var main: Main
 var level: Level
@@ -39,6 +41,19 @@ func get_variable(name: String) -> int:
 		return variable.get(name)
 	else:
 		return -1
+
+func check_all_conditions(_condition_array: Array[Condition]):
+	if _condition_array.is_empty():
+		return true
+	else:
+		var last_entry = _condition_array.size()-1
+		for condition in _condition_array:
+			if condition.check() != true:
+				break
+			if condition == _condition_array[last_entry]:
+				print("Show Responses")
+				return true
+		return false
 
 func add_to_variable(name: String, amount: int) -> void:
 	variable[name] = get_variable(name) + amount

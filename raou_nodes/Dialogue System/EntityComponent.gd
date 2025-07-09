@@ -10,9 +10,6 @@ func _ready() -> void:
 	Global.set_character_idle_animation.connect(_on_set_idle_animation)
 
 
-func _on_set_idle_animation(_char: CharacterID,_anim: String,_emotion: String) -> void:
+func _on_set_idle_animation(_char: CharacterID,_anim: String) -> void:
 	if _char == characterID:
 		animation_player.play(_anim)
-		print(_char)
-		print(_anim)
-		print(_emotion)

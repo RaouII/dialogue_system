@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://cxl512mjswrrt"]
+[gd_scene load_steps=9 format=4 uid="uid://cxl512mjswrrt"]
 
 [ext_resource type="Script" uid="uid://codfkgw34kf3x" path="res://Demo/player/player_movement.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://b4cnv1cdogvrf" path="res://raou_nodes/Dialogue System/EntityComponent.gd" id="2_1dwvg"]
+[ext_resource type="Resource" uid="uid://chd11hmfw6ugl" path="res://Demo/player/player_id.tres" id="3_xb871"]
 
 [sub_resource type="Animation" id="Animation_oul6g"]
 length = 0.1
@@ -90,3 +92,9 @@ metadata/_aseprite_wizard_source_file_hash_ = "e29faf478f21151ae80078ebbca0f010"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_kqu6x")
+
+[node name="EntityComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player")]
+script = ExtResource("2_1dwvg")
+characterID = ExtResource("3_xb871")
+animation_player = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://b4cnv1cdogvrf"
