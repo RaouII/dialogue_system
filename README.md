@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=BQT7F73EWRY&t
 
 About the project:
 
-The system uses custom Godot's resources as building blocks to create dialogue trees, and it dynamically chooses what dialogue is displayed through the use of conditions. It is designed for games where NPCs' conversations can change dynamically, reacting to the world or the player through the use of conditions(an approach similar to Storylets).
+The system is designed for games where NPCs' conversations can change dynamically, reacting to the world or the player through the use of conditions(an approach similar to Storylets). It uses custom Godot's resources as building blocks to create the dialogue trees, and it dynamically chooses what dialogue is displayed through the use of conditions.
 
 Although the project features a simple CutscenePlayer node, which is an extension of the default AnimationPlayer with extra functions to allow the use of Responses to display dialogue during cutscenes, the focus isn't on cinematics. It works well enough if you're doing a simple game, with basic sprite or 3D animations during cutscenes, but anything fancier than that is not in my current plans(but then again, Godot's default AnimationPlayer is already pretty powerful so its probably possible to do some cool stuff).
 
