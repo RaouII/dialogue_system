@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="EventObjective" load_steps=2 format=3 uid="uid://bvss64t5q2xvo"]
-
-[ext_resource type="Script" uid="uid://drjk6r8x4dibu" path="res://raou_nodes/EventTracker System/event_stageObjective_rscript.gd" id="1_10lnd"]
-
-[resource]
-script = ExtResource("1_10lnd")
-objective_text = ""
-metadata/_custom_type_script = "uid://drjk6r8x4dibu"

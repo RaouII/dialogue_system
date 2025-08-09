@@ -7,7 +7,7 @@ class_name EntityComponent extends Node
 
 
 func _ready() -> void:
-	Dialogue.set_character_idle_animation.connect(_on_set_idle_animation)
+	DialogueController.set_character_idle_animation.connect(_on_set_idle_animation)
 
 
 func _on_set_idle_animation(_char: CharacterID,_anim: String) -> void:

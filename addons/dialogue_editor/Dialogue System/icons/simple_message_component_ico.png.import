@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wg1qboo21dbf"
-path="res://.godot/imported/dialogue_component_ico.png-76bc563d25d6bdb4e0a29d1cc0f44a3c.ctex"
+uid="uid://c688tq47vlke4"
+path="res://.godot/imported/simple_message_component_ico.png-27acc1109859dc3765d68819b3e47050.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://raou_nodes/icons/dialogue_component_ico.png"
-dest_files=["res://.godot/imported/dialogue_component_ico.png-76bc563d25d6bdb4e0a29d1cc0f44a3c.ctex"]
+source_file="res://addons/dialogue_editor/Dialogue System/icons/simple_message_component_ico.png"
+dest_files=["res://.godot/imported/simple_message_component_ico.png-27acc1109859dc3765d68819b3e47050.ctex"]
 
 [params]
 

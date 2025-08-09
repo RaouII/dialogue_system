@@ -18,5 +18,5 @@ func _process(delta):
 
 func _start():
 	var v2 = Vector2.ZERO ## This isn't currently being used in this script so I just set it to VectorZERO for now
-	Dialogue.start_dialogue(v2, _dialogueTree)
+	DialogueController.start_dialogue(_dialogueTree)
 	pass

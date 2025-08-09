@@ -24,5 +24,5 @@ func _start():
 	_tree._greeting = _branch
 	_tree._greeting._topics.append(_topic)
 	var v2 = Vector2.ZERO ## This isn't currently being used in this script so I just set it to VectorZERO for now
-	Dialogue.start_dialogue(v2, _tree)
+	DialogueController.start_dialogue(_tree)
 	pass

@@ -1,16 +1,16 @@
 extends Node
 
-## started dialogue signal: sends a signal saying a dialogue has started
-signal started_dialogue()
-## close dialogue signal: sends a signal saying a dialogue has ended
-signal closed_dialogue()
-## set idle animation signal: it sends a signal with a variety of useful information to animate characters during dialogue.
-signal set_character_idle_animation(_char: CharacterID,_anim: String)
+signal started_dialogue() ## started dialogue signal: sends a signal saying a dialogue has started
+signal closed_dialogue() ## close dialogue signal: sends a signal saying a dialogue has ended
+signal cutscene_dialogue_closed()
+signal set_character_idle_animation(_char: CharacterID,_anim: String) ## set idle animation signal: it sends a signal with a variety of useful information to animate characters during dialogue.
+signal dialogue_active(_b: bool)
+signal display_text(string: String)
+signal advance_line()
+signal show_topic(topic: DialogueTopic)
+signal select_topic(topic: DialogueTopic)
+signal can_advance_line_signal(bool)
 
-const textbox_prefab = preload("uid://ciworq5pvrgnj")
-const RESPONSE_CONTAINER = preload("uid://8v136rihlugn")
-const TOPIC_CONTAINER = preload("uid://diejsi3sdvvcw")
-const CHOICE_BUTTON = preload("uid://dbxh37k37eypu")
 
 var dialogue_lines: Array[DialogueResponse] = []
 var current_line_index = 0
@@ -18,36 +18,45 @@ var current_line_index = 0
 var current_branch: DialogueSegment
 var current_topic: DialogueTopic
 var current_greeting: DialogueTopic
-
-var text_box
-var text_box_position: Vector2
 var current_tree: DialogueTree
 
 var is_dialogue_active = false
 var can_advance_line = false
+var option_available = false
 
+func _ready():
+	closed_dialogue.connect(reset_vars)
+	show_topic.connect(_on_create_topic)
+	select_topic.connect(_on_topic_selected)
+	can_advance_line_signal.connect(_on_can_advance_line)
 
-
-
+func _on_can_advance_line(_b: bool):
+	can_advance_line = _b
+func _on_topic_selected(_topic: DialogueTopic):
+	if option_available == true:
+		option_available = false
+	show_responses(_topic)
 	
+func _on_create_topic(_topic: DialogueTopic):
+	if !option_available:
+		option_available = true
 
 #### FIRST STEP: START THE DIALOGUE
-func start_dialogue(position: Vector2, _tree: DialogueTree):
+func start_dialogue(_tree: DialogueTree):
 	if is_dialogue_active:
 		return
 	started_dialogue.emit()
 	current_tree = _tree
-	text_box_position = position
-	print(position)
-	show_greeting() ### THIS FUNCTION WILL CALL THE FIRST DIALOGUE WINDOW
+	choose_greeting(current_tree._greeting)
+	#show_greeting() ### THIS FUNCTION WILL CALL THE FIRST DIALOGUE WINDOW
 	is_dialogue_active = true
 
 
 
 func choose_greeting(greeting: DialogueSegment):
 	var best_pick: DialogueTopic # This variable is used to store the highest priority greeting topic
-	var available_greetings: Array[DialogueTopic] # This holds all greeting topics that met their conditions
-	var best_pick_array: Array[DialogueTopic] # If the greetings are randomized, this will hold the ones with the highest priority
+	var available_greetings: Array[DialogueTopic] = [] # This holds all greeting topics that met their conditions
+	var best_pick_array: Array[DialogueTopic] = [] # If the greetings are randomized, this will hold the ones with the highest priority
 	
 	for topic in greeting._topics:
 		print("There are topics in the Greeting Branch")
@@ -113,102 +122,62 @@ func display_maintree_topics():
 		print("Display MainTree Topics")
 		for topic in segment._topics: 
 			### IF THERE ARE TOPICS TO BE DISPLAYED, INSTANTIATE THE TOPIC COMPONENT OF THE DIALOGUE BOX
-			display_topic(topic) 
+			check_topic_availability(topic) 
 
 
 
-#### THIRD STEP:	HANDLES EVERY TEXT MESSAGE AFTER THE INITIAL GREETING 
 func show_responses(_topic: DialogueTopic):
 	if _topic._responses.is_empty(): ### IF THERE ARE NO DIALOGUE RESPONSES IN THE CURRENT TOPIC, CLOSE IT
 		close_dialogue()
 		return
 	
-	current_topic = _topic	
-	instantiate_text_box()
-	init_responseContainer()
-	#text_box.global_position = text_box_position
+	current_topic = _topic
 	
 	var _responses = _topic._responses
 	if _topic._random:
 		var i = randi_range(0, _responses.size()-1)
 		var _response = _responses[i]
 		#print(i)
-		text_box.display_text(_response._responseText)
-		Dialogue.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
+		display_text.emit(_response._responseText)
+		DialogueController.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 		
-		if current_topic._nextBranch != null:
+		if current_topic._nextBranch != null and !current_topic._nextBranch._topics.is_empty():
 			for topic in current_topic._nextBranch._topics:
-				display_topic(topic)
+				check_topic_availability(topic)
 				current_line_index = 0
-		can_advance_line = false
+		can_advance_line_signal.emit(false)
 		return
 
 	if _responses[current_line_index] != null:
 		var _response = _responses[current_line_index]
-		text_box.display_text(_response._responseText)
-		Dialogue.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
+		display_text.emit(_response._responseText)
+		DialogueController.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 	else:
 		push_error("No response found at current_line_index")
 
-	if current_line_index == _responses.size()-1 and current_topic._nextBranch != null:
+	if current_line_index == _responses.size()-1 and current_topic._nextBranch != null and !current_topic._nextBranch._topics.is_empty():
 		for topic in current_topic._nextBranch._topics:
-			display_topic(topic)
+			check_topic_availability(topic)
 			current_line_index = 0
 			
 	if current_line_index == _responses.size()-1 and current_topic == current_greeting and current_greeting._exclusive == false:
 		display_maintree_topics()
 		current_line_index = 0
-	can_advance_line = false
+	can_advance_line_signal.emit(false)
 	for f in current_topic._functions:
 		f.run() ## Runs the function if there is one
 
-func create_topic(topic: DialogueTopic):
-	if text_box.choice_container == null:
-		init_topicContainer()
-	var choice = CHOICE_BUTTON.instantiate()
-	choice.text = topic._topicText
-	choice._dialogueTopic = topic
-	text_box.choice_container.v_box_container.add_child(choice)
 
-func display_topic(topic: DialogueTopic):
-	if text_box == null:
-		return
+func check_topic_availability(topic: DialogueTopic):
 	if topic._conditions.is_empty():
-		create_topic(topic)
+		show_topic.emit(topic)
 		return
 	for condition in topic._conditions:
 		print(condition)
 		if condition.check() != true:
 			push_warning("Topic skipped: conditions not met")
 			return
-	create_topic(topic)
-
-
-func init_topicContainer():
-	if text_box.choice_container == null:
-		text_box.choice_container = TOPIC_CONTAINER.instantiate()
-		text_box.container.add_child(text_box.choice_container)
-		
-func init_responseContainer():
-	if text_box.response_container == null:
-		text_box.response_container = RESPONSE_CONTAINER.instantiate()
-		text_box.container.add_child(text_box.response_container)
-		#text_box.label = text_box.response_container.label
-
-func clear_topicContainer():
-	if text_box.choice_container != null:
-		text_box.choice_container.queue_free()
-
-func clear_responseContainer():
-	if text_box.response_container != null:
-		text_box.response_container.queue_free()
-
-func instantiate_text_box():
-	if text_box != null:
-		text_box.queue_free()
-	text_box = textbox_prefab.instantiate()
-	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
-	Global.canvas.add_child(text_box)
+	show_topic.emit(topic)
 
 
 
@@ -218,43 +187,36 @@ func _unhandled_input(event):
 	if event.is_action_pressed("escape"):
 		close_dialogue()
 		return
-	if 	event.is_action_pressed("mouse_left") && can_advance_line && text_box.choice_container == null:
+	if 	event.is_action_pressed("mouse_left") && can_advance_line && option_available == false:
 		advance_dialogue()
 		
 
 func advance_dialogue():
 	print("Dialogue advanced")
-	text_box.queue_free()
+	advance_line.emit()
 	current_line_index += 1
-
 	if current_topic != null and !current_topic._random:
 		if current_line_index >= current_topic._responses.size():
 			if current_topic._goodbye:
 				close_dialogue()
 			else:
 				current_line_index = 0
-				show_greeting()
+				choose_greeting(current_tree._greeting)
 		else:
 			show_responses(current_topic)
 	else:
 		close_dialogue()
 
-func _on_text_box_finished_displaying():
-	print("finished displaying text")
-	can_advance_line = true
 
 func cutscene_close_dialogue():
-	text_box.queue_free()
+	cutscene_dialogue_closed.emit()
 	reset_vars()
 	
 func close_dialogue():
 	closed_dialogue.emit()
-	if text_box:
-		text_box.queue_free()
 	reset_vars()
 	
 func reset_vars():
-	text_box = null
 	is_dialogue_active = false
 	current_line_index = 0
 	current_topic = null

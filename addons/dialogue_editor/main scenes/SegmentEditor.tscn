@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqvtmeutiskpk"]
 
-[ext_resource type="Script" uid="uid://7wcg5pbupeqv" path="res://addons/dialogue_editor/branch_editor.gd" id="1_8yhsm"]
+[ext_resource type="Script" uid="uid://7wcg5pbupeqv" path="res://addons/dialogue_editor/segment_editor.gd" id="1_8yhsm"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vjpfh"]
 color = Color(0.299547, 0.299547, 0.299547, 0.509804)
@@ -9,20 +9,24 @@ grow_end = -5.0
 thickness = 3
 vertical = true
 
-[node name="BranchEditor" type="Control"]
+[node name="SegmentEditor" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_8yhsm")
 
 [node name="GraphEdit" type="GraphEdit" parent="."]
-layout_mode = 0
-offset_right = 1600.0
-offset_bottom = 900.0
-scroll_offset = Vector2(-467, -257)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 snapping_distance = 30
 right_disconnects = true
 connection_lines_thickness = 3.0

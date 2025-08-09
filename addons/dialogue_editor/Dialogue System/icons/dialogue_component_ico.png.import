@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5i3geehh8n6e"
-path="res://.godot/imported/ICO_QuestStage.png-984a707df62f7b1655d3debf79ea4004.ctex"
+uid="uid://wg1qboo21dbf"
+path="res://.godot/imported/dialogue_component_ico.png-325c852cc4711cf69888a1328f706384.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://raou_nodes/EventTracker System/ICO_QuestStage.png"
-dest_files=["res://.godot/imported/ICO_QuestStage.png-984a707df62f7b1655d3debf79ea4004.ctex"]
+source_file="res://addons/dialogue_editor/Dialogue System/icons/dialogue_component_ico.png"
+dest_files=["res://.godot/imported/dialogue_component_ico.png-325c852cc4711cf69888a1328f706384.ctex"]
 
 [params]
 

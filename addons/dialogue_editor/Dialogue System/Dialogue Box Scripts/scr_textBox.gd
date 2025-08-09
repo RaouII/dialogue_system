@@ -73,8 +73,7 @@ func display_letter():
 			timer.start(letter_time)
 
 func _ready() -> void:
-	#Dialogue.text_box = self ### ONLY FOR TESTING, DELETE LATER
-	#Dialogue.display_topic(TOPIC_TEST)
+
 	pass
 
 

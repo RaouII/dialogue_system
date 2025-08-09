@@ -10,7 +10,7 @@ class_name Entity extends Node
 @export var animationPlayer: AnimationPlayer
 @export var dialogueComponent: DialogueComponent
 func _ready():
-	Dialogue.set_character_idle_animation.connect(_on_idle_animation)
+	DialogueController.set_character_idle_animation.connect(_on_idle_animation)
 
 	
 func _on_set_new_greeting(_char: CharacterID,_greeting: DialogueTopic):

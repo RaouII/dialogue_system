@@ -17,14 +17,6 @@ var switch := {}   # For booleans
 
 var events: Dictionary
 
-func create_event_info(_event: Event):
-	if !events.has(_event):
-		events[_event] = Event.new()
-		events[_event] = _event.duplicate()
-		events[_event].current_stage = EventStageList.new()
-		events[_event].current_stage.selected_option = events[_event].stages[0].resource_name
-		events[_event].current_index = 0
-		events[_event].current_stage.selected_index = 0
 
 func set_variable(name: String, value: int) -> void:
 	variable[name] = value

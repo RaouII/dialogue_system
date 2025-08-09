@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://raou_nodes/global.gd"
-Dialogue="*res://raou_nodes/dialogue.gd"
+Global="*res://addons/dialogue_editor/Dialogue System/global.gd"
+DialogueController="*res://addons/dialogue_editor/Dialogue System/dialogue_controller.gd"
+DialogueUI="*res://addons/dialogue_editor/Dialogue System/dialogue_ui.gd"
 
 [display]
 
@@ -27,7 +28,7 @@ window/size/viewport_height=600
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_editor/plugin.cfg", "res://addons/raou_event_tracker/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_editor/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [input]
 
