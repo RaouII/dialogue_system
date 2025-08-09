@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://cxl512mjswrrt"]
 
 [ext_resource type="Script" uid="uid://codfkgw34kf3x" path="res://Demo/player/player_movement.gd" id="1_oul6g"]
-[ext_resource type="Script" uid="uid://b4cnv1cdogvrf" path="res://raou_nodes/Dialogue System/EntityComponent.gd" id="2_1dwvg"]
+[ext_resource type="Script" uid="uid://b4cnv1cdogvrf" path="res://addons/dialogue_editor/Dialogue System/EntityComponent.gd" id="2_1dwvg"]
 [ext_resource type="Resource" uid="uid://chd11hmfw6ugl" path="res://Demo/player/player_id.tres" id="3_xb871"]
 
 [sub_resource type="Animation" id="Animation_oul6g"]

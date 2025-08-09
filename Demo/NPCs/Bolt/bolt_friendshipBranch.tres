@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="DialogueBranch" load_steps=18 format=3 uid="uid://bsr7flxdaj3vs"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_178d8"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_m0b2o"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_jlo32"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_11io5"]
+[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="5_jw845"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_r5ugk"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_pjyw5"]
+
+[sub_resource type="Resource" id="Resource_d7d3y"]
+script = ExtResource("3_jlo32")
+_name = "talked_to_scilla_about_flowers"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_iba3b"]
+script = ExtResource("3_jlo32")
+_name = "talked_to_bolt_about_flowers"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_178d8"]
+script = ExtResource("3_jlo32")
+_name = "met_bolt"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_rwjlk"]
+script = ExtResource("5_jw845")
+_value = true
+_name = "talked_to_bolt_about_flowers"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_m0b2o"]
+script = ExtResource("6_r5ugk")
+_responseText = "Oh, she did?"
+_conditions = Array[ExtResource("2_m0b2o")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_jlo32"]
+script = ExtResource("6_r5ugk")
+_responseText = "It actually started with our dad, and I took over after he passed away."
+_conditions = Array[ExtResource("2_m0b2o")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_11io5"]
+script = ExtResource("6_r5ugk")
+_responseText = "He was really proud of those flowers, you know?"
+_conditions = Array[ExtResource("2_m0b2o")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_jw845"]
+script = ExtResource("6_r5ugk")
+_responseText = "It sucks that she's been sick, but I'm glad she can find some comfort in the garden."
+_conditions = Array[ExtResource("2_m0b2o")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_r5ugk"]
+script = ExtResource("6_r5ugk")
+_responseText = "At least she's not wasting her life in that... \"job\""
+_conditions = Array[ExtResource("2_m0b2o")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_pjyw5"]
+script = ExtResource("1_178d8")
+_topicText = "Your sister told me you're the responsible for the garden"
+_responses = Array[ExtResource("6_r5ugk")]([SubResource("Resource_m0b2o"), SubResource("Resource_jlo32"), SubResource("Resource_11io5"), SubResource("Resource_jw845"), SubResource("Resource_r5ugk")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_11io5")]([SubResource("Resource_rwjlk")])
+_conditions = Array[ExtResource("2_m0b2o")]([SubResource("Resource_d7d3y"), SubResource("Resource_iba3b"), SubResource("Resource_178d8")])
+
+[resource]
+script = ExtResource("7_pjyw5")
+_topics = Array[ExtResource("1_178d8")]([SubResource("Resource_pjyw5")])
+_random = false

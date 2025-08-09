@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=12 format=3 uid="uid://cjghbgrr8jhe3"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_wsk8a"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_kjqyw"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="2_xfcca"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_b8eu3"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_cllwp"]
+
+[sub_resource type="Resource" id="Resource_kjqyw"]
+script = ExtResource("4_cllwp")
+_responseText = "test"
+_conditions = Array[ExtResource("2_kjqyw")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_b8eu3"]
+script = ExtResource("1_wsk8a")
+_topicText = "test"
+_responses = Array[ExtResource("4_cllwp")]([SubResource("Resource_kjqyw")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_b8eu3")]([])
+_conditions = Array[ExtResource("2_kjqyw")]([])
+is_greeting = true
+
+[sub_resource type="Resource" id="Resource_cllwp"]
+script = ExtResource("4_cllwp")
+_responseText = "est"
+_conditions = Array[ExtResource("2_kjqyw")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_gaj7l"]
+script = ExtResource("1_wsk8a")
+_topicText = "test"
+_responses = Array[ExtResource("4_cllwp")]([SubResource("Resource_cllwp")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_b8eu3")]([])
+_conditions = Array[ExtResource("2_kjqyw")]([])
+is_greeting = true
+
+[sub_resource type="Resource" id="Resource_56cnb"]
+script = ExtResource("4_cllwp")
+_responseText = "Test"
+_conditions = Array[ExtResource("2_kjqyw")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_qm6ur"]
+script = ExtResource("1_wsk8a")
+_topicText = ""
+_responses = Array[ExtResource("4_cllwp")]([SubResource("Resource_56cnb")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_b8eu3")]([])
+_conditions = Array[ExtResource("2_kjqyw")]([])
+is_greeting = true
+
+[resource]
+script = ExtResource("2_xfcca")
+_topics = Array[ExtResource("1_wsk8a")]([SubResource("Resource_b8eu3"), SubResource("Resource_gaj7l"), SubResource("Resource_qm6ur")])
+_random = false

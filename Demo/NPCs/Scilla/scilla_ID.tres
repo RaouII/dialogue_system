@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterID" load_steps=2 format=3 uid="uid://jowtdecfqek8"]
+
+[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="1_j830g"]
+
+[resource]
+resource_name = "scilla_ID"
+script = ExtResource("1_j830g")
+name = "Scilla"
+color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://d3qwl0rfl1cas"

@@ -1,15 +1,13 @@
 [gd_scene load_steps=10 format=4 uid="uid://dresscd6hker5"]
 
-[ext_resource type="Script" uid="uid://bj743ws4r05qd" path="res://Demo/dialogue_component_edited.gd" id="1_fvye3"]
-[ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_esigh"]
-[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="4_fvye3"]
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://addons/dialogue_editor/Dialogue System/DialogueComponent.gd" id="1_gwq34"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="3_esigh"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="5_qytgq"]
 
-[sub_resource type="Resource" id="Resource_yc26a"]
-resource_name = "Maria Dahlwind"
-script = ExtResource("4_fvye3")
-name = "Maria Dahlwind"
-color = Color(0, 0, 0, 1)
-metadata/_custom_type_script = "uid://d3qwl0rfl1cas"
+[sub_resource type="Resource" id="Resource_w58ml"]
+script = ExtResource("5_qytgq")
+_segments = Array[ExtResource("3_esigh")]([])
+metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0k2"]
 size = Vector2(22, 22)
@@ -60,13 +58,9 @@ _data = {
 y_sort_enabled = true
 
 [node name="DialogueComponent" type="Node" parent="."]
-script = ExtResource("1_fvye3")
+script = ExtResource("1_gwq34")
+_dialogueTree = SubResource("Resource_w58ml")
 metadata/_custom_type_script = "uid://dqfcqdux7dbap"
-
-[node name="Entity" type="Node" parent="." node_paths=PackedStringArray("animationPlayer")]
-script = ExtResource("3_esigh")
-characterID = SubResource("Resource_yc26a")
-animationPlayer = NodePath("../AnimationPlayer")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 

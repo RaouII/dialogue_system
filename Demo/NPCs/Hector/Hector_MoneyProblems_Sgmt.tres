@@ -1,0 +1,175 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=30 format=3 uid="uid://c45auqj7s7lyy"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_vg5xs"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_wtxk8"]
+[ext_resource type="Script" uid="uid://dlkrxq3j1efes" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Variable_RES.gd" id="3_m53oe"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_0ii7x"]
+[ext_resource type="Script" uid="uid://c03tjkaexh7ef" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/floatSetter_RES.gd" id="5_vg5xs"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_m6h04"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_oi515"]
+
+[sub_resource type="Resource" id="Resource_wtxk8"]
+script = ExtResource("3_m53oe")
+_name = "money_problem"
+_value = 10.0
+comparison = "=="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_i1f27"]
+script = ExtResource("5_vg5xs")
+_value = 20.0
+_name = "money_problem"
+metadata/_custom_type_script = "uid://c03tjkaexh7ef"
+
+[sub_resource type="Resource" id="Resource_0ii7x"]
+script = ExtResource("6_m6h04")
+_responseText = "Nothing a customer needs to be worried about."
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_4y34h"]
+script = ExtResource("6_m6h04")
+_responseText = "I appreciate the concern, though"
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_m6h04"]
+script = ExtResource("1_vg5xs")
+_topicText = "What was that argument about?"
+_responses = Array[ExtResource("6_m6h04")]([SubResource("Resource_0ii7x"), SubResource("Resource_4y34h")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 15
+_functions = Array[ExtResource("4_0ii7x")]([SubResource("Resource_i1f27")])
+_conditions = Array[ExtResource("2_wtxk8")]([SubResource("Resource_wtxk8")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_oi515"]
+script = ExtResource("3_m53oe")
+_name = "money_problem"
+_value = 30.0
+comparison = "=="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_yu1ce"]
+script = ExtResource("5_vg5xs")
+_value = 35.0
+_name = "money_problem"
+metadata/_custom_type_script = "uid://c03tjkaexh7ef"
+
+[sub_resource type="Resource" id="Resource_p4syt"]
+script = ExtResource("7_oi515")
+_topics = Array[ExtResource("1_vg5xs")]([null, null])
+_random = false
+
+[sub_resource type="Resource" id="Resource_mghcd"]
+script = ExtResource("6_m6h04")
+_responseText = "..."
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_vumem"]
+script = ExtResource("6_m6h04")
+_responseText = "I borrowed some money from them "
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_x8ied"]
+script = ExtResource("6_m6h04")
+_responseText = "and now they wanna collect it"
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_wkkaw"]
+script = ExtResource("6_m6h04")
+_responseText = "But I dont have it."
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_8ndl3"]
+script = ExtResource("1_vg5xs")
+_topicText = "Come on, who are those guys?"
+_responses = Array[ExtResource("6_m6h04")]([SubResource("Resource_mghcd"), SubResource("Resource_vumem"), SubResource("Resource_x8ied"), SubResource("Resource_wkkaw")])
+_nextBranch = SubResource("Resource_p4syt")
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_0ii7x")]([SubResource("Resource_yu1ce")])
+_conditions = Array[ExtResource("2_wtxk8")]([SubResource("Resource_oi515")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_4xbgq"]
+script = ExtResource("3_m53oe")
+_name = "money_problem"
+_value = 35.0
+comparison = "=="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_rvbt3"]
+script = ExtResource("5_vg5xs")
+_value = 40.0
+_name = "money_problem"
+metadata/_custom_type_script = "uid://c03tjkaexh7ef"
+
+[sub_resource type="Resource" id="Resource_64n2w"]
+script = ExtResource("6_m6h04")
+_responseText = "Really? Thank you!"
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_e4qma"]
+script = ExtResource("1_vg5xs")
+_topicText = "I can help you with your problem"
+_responses = Array[ExtResource("6_m6h04")]([SubResource("Resource_64n2w")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_0ii7x")]([SubResource("Resource_rvbt3")])
+_conditions = Array[ExtResource("2_wtxk8")]([SubResource("Resource_4xbgq")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_6vfx0"]
+script = ExtResource("3_m53oe")
+_name = "money_problem"
+_value = 40.0
+comparison = "=="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_q5lxs"]
+script = ExtResource("3_m53oe")
+_name = "Money "
+_value = 100.0
+comparison = ">="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_jjvxa"]
+script = ExtResource("5_vg5xs")
+_value = 50.0
+_name = "money_problem"
+metadata/_custom_type_script = "uid://c03tjkaexh7ef"
+
+[sub_resource type="Resource" id="Resource_41xwa"]
+script = ExtResource("6_m6h04")
+_responseText = "Thank you!"
+_conditions = Array[ExtResource("2_wtxk8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_28b6s"]
+script = ExtResource("1_vg5xs")
+_topicText = "Heres your money"
+_responses = Array[ExtResource("6_m6h04")]([SubResource("Resource_41xwa")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_0ii7x")]([SubResource("Resource_jjvxa")])
+_conditions = Array[ExtResource("2_wtxk8")]([SubResource("Resource_6vfx0"), SubResource("Resource_q5lxs")])
+is_greeting = false
+
+[resource]
+script = ExtResource("7_oi515")
+_topics = Array[ExtResource("1_vg5xs")]([SubResource("Resource_m6h04"), SubResource("Resource_8ndl3"), SubResource("Resource_e4qma"), SubResource("Resource_28b6s")])
+_random = false

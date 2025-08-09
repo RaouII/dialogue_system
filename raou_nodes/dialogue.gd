@@ -1,5 +1,12 @@
 extends Node
 
+## started dialogue signal: sends a signal saying a dialogue has started
+signal started_dialogue()
+## close dialogue signal: sends a signal saying a dialogue has ended
+signal closed_dialogue()
+## set idle animation signal: it sends a signal with a variety of useful information to animate characters during dialogue.
+signal set_character_idle_animation(_char: CharacterID,_anim: String)
+
 const textbox_prefab = preload("uid://ciworq5pvrgnj")
 const RESPONSE_CONTAINER = preload("uid://8v136rihlugn")
 const TOPIC_CONTAINER = preload("uid://diejsi3sdvvcw")
@@ -8,7 +15,7 @@ const CHOICE_BUTTON = preload("uid://dbxh37k37eypu")
 var dialogue_lines: Array[DialogueResponse] = []
 var current_line_index = 0
 
-var current_branch: DialogueBranch
+var current_branch: DialogueSegment
 var current_topic: DialogueTopic
 var current_greeting: DialogueTopic
 
@@ -28,7 +35,7 @@ var can_advance_line = false
 func start_dialogue(position: Vector2, _tree: DialogueTree):
 	if is_dialogue_active:
 		return
-	Global.started_dialogue.emit()
+	started_dialogue.emit()
 	current_tree = _tree
 	text_box_position = position
 	print(position)
@@ -37,7 +44,7 @@ func start_dialogue(position: Vector2, _tree: DialogueTree):
 
 
 
-func choose_greeting(greeting: DialogueBranch):
+func choose_greeting(greeting: DialogueSegment):
 	var best_pick: DialogueTopic # This variable is used to store the highest priority greeting topic
 	var available_greetings: Array[DialogueTopic] # This holds all greeting topics that met their conditions
 	var best_pick_array: Array[DialogueTopic] # If the greetings are randomized, this will hold the ones with the highest priority
@@ -93,18 +100,18 @@ func show_greeting():
 		#var _greeting = current_tree._greeting
 		#init_responseContainer() ### IF THERE IS A GREETING TO BE DISPLAYED, INSTANTIATE THE TEXT COMPONENT OF THE DIALOGUE BOX
 		#text_box.display_text(_greeting._responseText) #### THIS FUNCTION WILL DISPLAY THE TEXT ON THE DIALOGUE BOX
-		#Global.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation)
+		#Dialogue.set_character_idle_animation.emit(_greeting.character_id, _greeting._idleAnimation)
 
 	#if current_greeting._nextBranch == null:
-		#if current_tree._branches != null: ## this will check if there are branches set
+		#if current_tree._segments != null: ## this will check if there are branches set
 			#display_maintree_topics()
 		##text_box.position = text_box_position
 		#can_advance_line = false
 
 func display_maintree_topics():
-	for branch in current_tree._branches:
+	for segment in current_tree._segments:
 		print("Display MainTree Topics")
-		for topic in branch._topics: 
+		for topic in segment._topics: 
 			### IF THERE ARE TOPICS TO BE DISPLAYED, INSTANTIATE THE TOPIC COMPONENT OF THE DIALOGUE BOX
 			display_topic(topic) 
 
@@ -127,7 +134,7 @@ func show_responses(_topic: DialogueTopic):
 		var _response = _responses[i]
 		#print(i)
 		text_box.display_text(_response._responseText)
-		Global.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
+		Dialogue.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 		
 		if current_topic._nextBranch != null:
 			for topic in current_topic._nextBranch._topics:
@@ -139,7 +146,7 @@ func show_responses(_topic: DialogueTopic):
 	if _responses[current_line_index] != null:
 		var _response = _responses[current_line_index]
 		text_box.display_text(_response._responseText)
-		Global.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
+		Dialogue.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 	else:
 		push_error("No response found at current_line_index")
 
@@ -241,7 +248,7 @@ func cutscene_close_dialogue():
 	reset_vars()
 	
 func close_dialogue():
-	Global.closed_dialogue.emit()
+	closed_dialogue.emit()
 	if text_box:
 		text_box.queue_free()
 	reset_vars()

@@ -6,6 +6,7 @@ extends Control
 @onready var file_dialog = $FileDialog
 @onready var graph_edit: GraphEdit = $GraphEdit
 const TOPIC_GRAPH_NODE = preload("uid://jsd763hsqsc6")
+const GREETING_GN = preload("uid://ed6h8j2sv65p")
 const STARTING_TOPIC_GN = preload("uid://bryusw2h5ihym")
 const RESPONSE_GN = preload("uid://bb7hdwu515h3r")
 var init_pos = Vector2(100,100)
@@ -17,6 +18,7 @@ var current_branch_path: String
 var topic_to_node = {}
 var response_to_node = {}
 
+var v_padding: int = 165
 
 func _add_topic_node() -> void:
 	print_debug("adding new node")
@@ -43,6 +45,15 @@ func _add_starting_topic_node():
 	node_index += 1
 	return(node)
 
+func _add_greeting_node():
+	var node = GREETING_GN.instantiate()
+	node.position_offset = init_pos + (node_index * Vector2(40, 40))
+	graph_edit.add_child(node)
+	print(node.topic_prompt)
+	starting_topics.append(node)
+	node_index += 1
+	return(node)
+
 func _on_button_pressed() -> void:
 	print_debug("pressing button new node")
 	call_deferred("_add_topic_node")
@@ -50,8 +61,8 @@ func _on_button_pressed() -> void:
 
 
 	
-func create_new_branch(_response: ResponseGraphNode,_topic: DialogueTopic) -> DialogueBranch:
-	var new_branch := DialogueBranch.new()
+func create_new_branch(_response: ResponseGraphNode,_topic: DialogueTopic) -> DialogueSegment:
+	var new_branch := DialogueSegment.new()
 	new_branch._topics.clear()
 	var connected:= []
 	var connection_list = graph_edit.get_connection_list()
@@ -110,7 +121,7 @@ func reconnect_loaded_nodes():
 func _on_file_dialog_file_selected(path):  ### SAVE FILE DIALOG
 	current_branch_path = path
 	branch_name.text = path.get_file()
-	var new_branch := DialogueBranch.new()
+	var new_branch := DialogueSegment.new()
 	new_branch._topics.clear()
 	#new_branch.take_over_path(path)
 	var connection_list = graph_edit.get_connection_list()
@@ -134,6 +145,10 @@ func create_topic_resource(_node: TopicGraphNode) -> DialogueTopic:
 	new_topic._topicText = _node.topic_prompt.text
 	new_topic._goodbye = _node.goodbye.button_pressed
 	new_topic._random = _node.random.button_pressed
+	if _node.starting:
+		new_topic._priority = _node.spin_box.value
+		new_topic._exclusive = _node.exclusive.button_pressed
+		new_topic.is_greeting = _node.is_greeting_toggle.button_pressed
 	for condition:ConditionContainer in _node.condition_list:
 		new_topic._conditions.append(condition.current_resource)
 	for function:FunctionContainer in _node.function_list:
@@ -210,7 +225,7 @@ func _on_load_branch_button_up():
 func _create_response_node_from_file(_init_pos, _index):
 	print_debug("adding new node. rows:", rows)
 	var node = RESPONSE_GN.instantiate()
-	var padding = 50
+	var padding = v_padding
 	var width = node.size.x+padding
 	var height = node.size.y+padding
 	var y_offset = height*rows
@@ -227,7 +242,7 @@ func _load_topic_node_from_file(_init_pos, _index,_startingTopic: bool):
 		node = STARTING_TOPIC_GN.instantiate()
 	else: 
 		node = TOPIC_GRAPH_NODE.instantiate()
-	var height = node.size.y+50
+	var height = node.size.y+v_padding
 	var y_offset = height*rows
 	node.position_offset = _init_pos + Vector2(0,y_offset)
 	graph_edit.add_child(node)
@@ -286,7 +301,7 @@ func load_starting_topics(path):
 	topic_to_node = {}
 	response_to_node = {}
 	rows = 1
-	var branch_data: DialogueBranch = load(path)
+	var branch_data: DialogueSegment = load(path)
 	branch_name.text = path.get_file()
 	var i = 0
 	for topic in branch_data._topics:
@@ -295,6 +310,11 @@ func load_starting_topics(path):
 		new_topic.topic_prompt.text = topic._topicText
 		new_topic.goodbye.set_pressed_no_signal(topic._goodbye)
 		new_topic.random.set_pressed_no_signal(topic._random)
+		new_topic.exclusive.set_pressed_no_signal(topic._exclusive)
+		new_topic.spin_box.value = topic._priority
+		new_topic.is_greeting_toggle.set_pressed_no_signal(topic.is_greeting)
+		new_topic.is_greeting = topic.is_greeting
+		new_topic._reload_info()
 		for condition : Condition in topic._conditions:
 			new_topic._on_add_condition_pressed()
 			new_topic.condition_container.current_resource = condition
@@ -355,4 +375,10 @@ func _on_reload_branch_pressed():
 
 
 func _on_save_as_topic_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_4_button_up():
+	call_deferred("_add_greeting_node")
+	print_debug("add new greeting")	
 	pass # Replace with function body.

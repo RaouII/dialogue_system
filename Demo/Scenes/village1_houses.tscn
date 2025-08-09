@@ -1,164 +1,280 @@
-[gd_scene load_steps=50 format=4 uid="uid://butj2l6xhngsg"]
+[gd_scene load_steps=63 format=4 uid="uid://butj2l6xhngsg"]
 
 [ext_resource type="TileSet" uid="uid://dt873lhy1lbwa" path="res://Demo/Tileset/ts_base.tres" id="1_dupha"]
 [ext_resource type="Script" uid="uid://rrrxrqqwjgj" path="res://Demo/Scenes/level.gd" id="1_kj37x"]
 [ext_resource type="Script" uid="uid://b4o8wcqnu75bc" path="res://Demo/System/SimpleSceneManager/teleport.gd" id="3_tq0nv"]
-[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="4_e4aue"]
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_mvumq"]
-[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="6_x68jp"]
-[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="7_cwn5c"]
-[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="8_2bc1i"]
-[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="9_nyras"]
-[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="10_myl32"]
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://addons/dialogue_editor/Dialogue System/DialogueComponent.gd" id="4_e4aue"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_mvumq"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="7_cwn5c"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="8_2bc1i"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="9_nyras"]
+[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="10_6dkbv"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="10_myl32"]
 [ext_resource type="PackedScene" uid="uid://q4c5haj3704m" path="res://Demo/NPCs/gunner.tscn" id="11_cwn5c"]
+[ext_resource type="Script" uid="uid://uwrnrfiu62ki" path="res://addons/dialogue_editor/Dialogue System/simple_message_component.gd" id="11_qvvwy"]
 [ext_resource type="PackedScene" uid="uid://dresscd6hker5" path="res://Demo/NPCs/maria.tscn" id="11_x68jp"]
 [ext_resource type="Resource" uid="uid://d2norlbbag3ow" path="res://Demo/NPCs/Gunner/gunner_ID.tres" id="12_nyras"]
+[ext_resource type="Script" uid="uid://c81l0isthin33" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/intAdd_RES.gd" id="12_pqfbl"]
+[ext_resource type="Script" uid="uid://b8v15g31g313y" path="res://addons/dialogue_editor/Dialogue System/condition_component.gd" id="13_n4hyk"]
 [ext_resource type="PackedScene" uid="uid://c887sfboy4ti1" path="res://Demo/NPCs/barman.tscn" id="14_nyras"]
-[ext_resource type="Script" uid="uid://bacgehb8cyvn6" path="res://raou_nodes/Dialogue System/Cinematic/scr_CutscenePlayer.gd" id="15_myl32"]
+[ext_resource type="Script" uid="uid://cpoqbalfaejo6" path="res://Demo/System/SimpleSceneManager/run_function_on_teleport.gd" id="15_ljrny"]
+[ext_resource type="Script" uid="uid://bacgehb8cyvn6" path="res://addons/dialogue_editor/Dialogue System/Cinematic/scr_CutscenePlayer.gd" id="15_myl32"]
 [ext_resource type="Resource" uid="uid://chd11hmfw6ugl" path="res://Demo/player/player_id.tres" id="15_wtocl"]
-[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="16_1yyp4"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="16_1yyp4"]
+[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="16_5vppd"]
 [ext_resource type="Texture2D" uid="uid://ryfuggt2styr" path="res://Demo/NPCs/spr_npc_1.png" id="16_d4qr4"]
+[ext_resource type="Script" uid="uid://c03tjkaexh7ef" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/floatSetter_RES.gd" id="20_n4hyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4aue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7s1x"]
 
-[sub_resource type="Resource" id="Resource_d4qr4"]
-script = ExtResource("9_nyras")
-_responseText = "You found nothing of interest in here"
-_idleAnimation = ""
-_conditions = Array[ExtResource("7_cwn5c")]([])
-metadata/_custom_type_script = "uid://d2xpiewoltoba"
-
-[sub_resource type="Resource" id="Resource_1yyp4"]
-script = ExtResource("6_x68jp")
-_topicText = "Search"
-_responses = Array[ExtResource("9_nyras")]([SubResource("Resource_d4qr4")])
-_goodbye = true
-_random = false
-_exclusive = false
-_priority = 10
-_functions = Array[ExtResource("8_2bc1i")]([])
-_conditions = Array[ExtResource("7_cwn5c")]([])
-metadata/_custom_type_script = "uid://wgnly555mcgi"
-
-[sub_resource type="Resource" id="Resource_wtocl"]
-script = ExtResource("5_mvumq")
-_topics = Array[ExtResource("6_x68jp")]([SubResource("Resource_1yyp4")])
-_random = false
-metadata/_custom_type_script = "uid://bphmgatjcmttf"
-
 [sub_resource type="Resource" id="Resource_5vppd"]
 script = ExtResource("9_nyras")
 _responseText = "A bunch of books"
-_idleAnimation = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_ljrny"]
 script = ExtResource("10_myl32")
-_branches = Array[ExtResource("5_mvumq")]([SubResource("Resource_wtocl")])
+_segments = Array[ExtResource("5_mvumq")]([])
 _greeting = SubResource("Resource_5vppd")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [sub_resource type="Resource" id="Resource_mvumq"]
 script = ExtResource("9_nyras")
 _responseText = "A simple furnace"
-_idleAnimation = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_x68jp"]
 script = ExtResource("10_myl32")
-_branches = Array[ExtResource("5_mvumq")]([])
+_segments = Array[ExtResource("5_mvumq")]([])
 _greeting = SubResource("Resource_mvumq")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 
-[sub_resource type="Resource" id="Resource_6dkbv"]
+[sub_resource type="Resource" id="Resource_enj4c"]
+script = ExtResource("10_6dkbv")
+name = ""
+color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://d3qwl0rfl1cas"
+
+[sub_resource type="Resource" id="Resource_cgjll"]
 script = ExtResource("9_nyras")
 _responseText = "You found 1 [Mana Potion]"
-_idleAnimation = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+character_id = SubResource("Resource_enj4c")
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
-[sub_resource type="Resource" id="Resource_aage6"]
-script = ExtResource("6_x68jp")
-_topicText = ""
-_responses = Array[ExtResource("9_nyras")]([SubResource("Resource_6dkbv")])
-_goodbye = true
-_random = false
-_exclusive = false
-_priority = 10
-_functions = Array[ExtResource("8_2bc1i")]([])
-_conditions = Array[ExtResource("7_cwn5c")]([])
-metadata/_custom_type_script = "uid://wgnly555mcgi"
-
-[sub_resource type="Resource" id="Resource_enj4c"]
-script = ExtResource("5_mvumq")
-_topics = Array[ExtResource("6_x68jp")]([SubResource("Resource_aage6")])
-_random = false
-metadata/_custom_type_script = "uid://bphmgatjcmttf"
-
 [sub_resource type="Resource" id="Resource_l2j30"]
-script = ExtResource("10_myl32")
-_branches = Array[ExtResource("5_mvumq")]([])
-_greeting = SubResource("Resource_enj4c")
-metadata/_custom_type_script = "uid://tfh1etiytb5"
+script = ExtResource("9_nyras")
+_responseText = "The owner wont like that"
+_conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_6dkbv"]
+script = ExtResource("12_pqfbl")
+_value = 1
+_name = "potions"
+metadata/_custom_type_script = "uid://c81l0isthin33"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq0nv"]
 
 [sub_resource type="Resource" id="Resource_2bc1i"]
 script = ExtResource("9_nyras")
 _responseText = "You found 1 [Apple]"
-_idleAnimation = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_nyras"]
 script = ExtResource("10_myl32")
-_branches = Array[ExtResource("5_mvumq")]([])
+_segments = Array[ExtResource("5_mvumq")]([])
 _greeting = SubResource("Resource_2bc1i")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [sub_resource type="Resource" id="Resource_myl32"]
 script = ExtResource("9_nyras")
 _responseText = "You found 1 [Health Potion]"
-_idleAnimation = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_qvvwy"]
 script = ExtResource("10_myl32")
-_branches = Array[ExtResource("5_mvumq")]([])
+_segments = Array[ExtResource("5_mvumq")]([])
 _greeting = SubResource("Resource_myl32")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [sub_resource type="Resource" id="Resource_pqfbl"]
 script = ExtResource("9_nyras")
 _responseText = "Gunner: Stop going through my stuff!!"
+_conditions = Array[ExtResource("7_cwn5c")]([])
 character_id = ExtResource("12_nyras")
 _idleAnimation = "Protest"
-_conditions = Array[ExtResource("7_cwn5c")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_n4hyk"]
 script = ExtResource("10_myl32")
-_branches = Array[ExtResource("5_mvumq")]([])
+_segments = Array[ExtResource("5_mvumq")]([])
 _greeting = SubResource("Resource_pqfbl")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [sub_resource type="Resource" id="Resource_7ra0b"]
 script = ExtResource("9_nyras")
 _responseText = "There are a bunch of toys in there"
-_idleAnimation = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_27qx3"]
 script = ExtResource("10_myl32")
-_branches = Array[ExtResource("5_mvumq")]([])
+_segments = Array[ExtResource("5_mvumq")]([])
 _greeting = SubResource("Resource_7ra0b")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
+
+[sub_resource type="Resource" id="Resource_1e6y3"]
+script = ExtResource("16_5vppd")
+_value = false
+_name = "just_saw_the_fight"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_75nc0"]
+script = ExtResource("16_1yyp4")
+_name = "just_saw_the_fight"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_aage6"]
+script = ExtResource("20_n4hyk")
+_value = 10.0
+_name = "money_problem"
+metadata/_custom_type_script = "uid://c03tjkaexh7ef"
+
+[sub_resource type="Resource" id="Resource_fl0so"]
+script = ExtResource("9_nyras")
+_responseText = "????: I hope you have it by now..."
+_conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_1qq0q"]
+script = ExtResource("9_nyras")
+_responseText = "Barman: I told you guys I needed more time."
+_conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_bq1b5"]
+script = ExtResource("9_nyras")
+_responseText = "????: Its been months, Hector"
+_conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_awhrv"]
+script = ExtResource("9_nyras")
+_responseText = "Hector: And I told you that wasnt enough..."
+_conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_3utjf"]
+script = ExtResource("9_nyras")
+_responseText = "????: ...."
+_conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_32maa"]
+script = ExtResource("9_nyras")
+_responseText = "????: You have one more week..."
+_conditions = Array[ExtResource("7_cwn5c")]([])
+_idleAnimation = ""
+metadata/_custom_type_script = "uid://d2xpiewoltoba"
+
+[sub_resource type="Resource" id="Resource_0c06v"]
+script = ExtResource("16_5vppd")
+_value = true
+_name = "just_saw_the_fight"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_e4mqj"]
+script = ExtResource("16_5vppd")
+_value = true
+_name = "saw_the_fight"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Animation" id="Animation_5vppd"]
+resource_name = "Confrontation"
+length = 10.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutscenePlayer/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.3, 3.3, 4.8, 5.1, 5.8, 6.3, 6.8, 7.4, 8, 8.5, 9, 9.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1520, 480), Vector2(1576, 480), Vector2(1576, 452), Vector2(1576, 452), Vector2(1584, 452), Vector2(1584, 452), Vector2(1576, 452), Vector2(1576, 452), Vector2(1576, 480), Vector2(1480, 480), Vector2(1480, 504), Vector2(1464, 504), Vector2(1464, 534)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutscenePlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 3.4, 3.7, 4, 4.3, 5.4, 6.5, 8.2, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [SubResource("Resource_aage6")],
+"method": &"run_function"
+}, {
+"args": [SubResource("Resource_fl0so")],
+"method": &"show_message"
+}, {
+"args": [SubResource("Resource_1qq0q")],
+"method": &"show_message"
+}, {
+"args": [SubResource("Resource_bq1b5")],
+"method": &"show_message"
+}, {
+"args": [SubResource("Resource_awhrv")],
+"method": &"show_message"
+}, {
+"args": [SubResource("Resource_3utjf")],
+"method": &"show_message"
+}, {
+"args": [SubResource("Resource_32maa")],
+"method": &"show_message"
+}, {
+"args": [SubResource("Resource_0c06v")],
+"method": &"run_function"
+}, {
+"args": [SubResource("Resource_e4mqj")],
+"method": &"run_function"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutscenePlayer/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0999999, 9.5, 9.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wtocl"]
 length = 0.001
@@ -174,28 +290,33 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1480, 480)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutscenePlayer/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Resource" id="Resource_5es62"]
 script = ExtResource("9_nyras")
 _responseText = ""
+_conditions = Array[ExtResource("7_cwn5c")]([])
 character_id = ExtResource("15_wtocl")
 _idleAnimation = "Walk"
-_conditions = Array[ExtResource("7_cwn5c")]([])
-metadata/_custom_type_script = "uid://d2xpiewoltoba"
-
-[sub_resource type="Resource" id="Resource_bq1b5"]
-script = ExtResource("9_nyras")
-_responseText = "BARMAN!"
-_idleAnimation = ""
-_conditions = Array[ExtResource("7_cwn5c")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_b131f"]
 script = ExtResource("9_nyras")
 _responseText = ""
+_conditions = Array[ExtResource("7_cwn5c")]([])
 character_id = ExtResource("15_wtocl")
 _idleAnimation = "Idle"
-_conditions = Array[ExtResource("7_cwn5c")]([])
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Animation" id="Animation_1yyp4"]
@@ -227,7 +348,7 @@ tracks/1/keys = {
 "args": [SubResource("Resource_5es62")],
 "method": &"set_character_animation"
 }, {
-"args": [SubResource("Resource_bq1b5"), Vector2(0, 0)],
+"args": [SubResource("Resource_bq1b5")],
 "method": &"show_message"
 }, {
 "args": [SubResource("Resource_b131f")],
@@ -237,19 +358,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vppd"]
 _data = {
+&"Confrontation": SubResource("Animation_5vppd"),
 &"RESET": SubResource("Animation_wtocl"),
 &"Test Scene": SubResource("Animation_1yyp4")
 }
 
-[sub_resource type="Resource" id="Resource_fl0so"]
-script = ExtResource("16_1yyp4")
-_name = "met_bolt"
-_value = true
-metadata/_custom_type_script = "uid://bbobh0woojdsj"
-
 [sub_resource type="Resource" id="Resource_fju44"]
 script = ExtResource("16_1yyp4")
-_name = "test_scene_played"
+_name = "saw_the_fight"
 _value = false
 metadata/_custom_type_script = "uid://bbobh0woojdsj"
 
@@ -319,11 +435,13 @@ metadata/_custom_type_script = "uid://dqfcqdux7dbap"
 [node name="Chest" type="Marker2D" parent="House1"]
 position = Vector2(152, 48)
 
-[node name="DialogueComponent" type="Node" parent="House1/Chest"]
-script = ExtResource("4_e4aue")
-_dialogueTree = SubResource("Resource_l2j30")
-range = 10.0
-metadata/_custom_type_script = "uid://dqfcqdux7dbap"
+[node name="SimpleMessageComponent" type="Node" parent="House1/Chest"]
+script = ExtResource("11_qvvwy")
+_responses = Array[ExtResource("9_nyras")]([SubResource("Resource_cgjll"), SubResource("Resource_l2j30")])
+_functions = Array[ExtResource("8_2bc1i")]([SubResource("Resource_6dkbv")])
+
+[node name="ConditionComponent" type="Node" parent="House1/Chest/SimpleMessageComponent"]
+script = ExtResource("13_n4hyk")
 
 [node name="House 2" type="Node2D" parent="."]
 
@@ -568,19 +686,24 @@ shape = SubResource("RectangleShape2D_tq0nv")
 [node name="Marker2D" type="Marker2D" parent="Pub/Teleport12"]
 position = Vector2(0, -20)
 
+[node name="FunctionOnTeleport" type="Node" parent="Pub/Teleport12"]
+script = ExtResource("15_ljrny")
+function = SubResource("Resource_1e6y3")
+conditions = Array[ExtResource("7_cwn5c")]([SubResource("Resource_75nc0")])
+
 [node name="CutscenePlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("auto_play_range")]
 libraries = {
 &"": SubResource("AnimationLibrary_5vppd")
 }
 script = ExtResource("15_myl32")
-scene = "Test Scene"
+scene = "Confrontation"
 auto_play = true
 auto_play_range = NodePath("Area2D")
-conditions = Array[ExtResource("7_cwn5c")]([SubResource("Resource_fl0so"), SubResource("Resource_fju44")])
+conditions = Array[ExtResource("7_cwn5c")]([SubResource("Resource_fju44")])
 metadata/_custom_type_script = "uid://bacgehb8cyvn6"
 
 [node name="Area2D" type="Area2D" parent="CutscenePlayer"]
-position = Vector2(1496, 496)
+position = Vector2(1464, 520)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CutscenePlayer/Area2D"]
 shape = SubResource("CircleShape2D_myl32")

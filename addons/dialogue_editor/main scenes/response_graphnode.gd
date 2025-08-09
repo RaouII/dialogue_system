@@ -9,7 +9,7 @@ var animation: String
 
 
 func _on_text_edit_text_changed():
-	title = topic_prompt.text
+	#title = topic_prompt.text
 	pass # Replace with function body.
 
 

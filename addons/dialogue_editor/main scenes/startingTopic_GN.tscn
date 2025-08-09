@@ -104,18 +104,28 @@ starting = true
 [node name="Topic Container" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="HFlowContainer" type="VBoxContainer" parent="Topic Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Topic Container"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Topic Container/HFlowContainer"]
+[node name="IsGreeting" type="CheckBox" parent="Topic Container/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "is_greeting"
+
+[node name="TopicPromptContainer" type="VBoxContainer" parent="Topic Container/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Topic Container/VBoxContainer/TopicPromptContainer"]
 layout_mode = 2
 theme_override_constants/margin_right = 115
 
-[node name="Label" type="Label" parent="Topic Container/HFlowContainer/MarginContainer"]
+[node name="Label" type="Label" parent="Topic Container/VBoxContainer/TopicPromptContainer/MarginContainer"]
 layout_mode = 2
 text = "Prompt"
 
-[node name="Topic Prompt" type="TextEdit" parent="Topic Container/HFlowContainer"]
+[node name="TopicPrompt" type="TextEdit" parent="Topic Container/VBoxContainer/TopicPromptContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(256, 48)
 layout_mode = 2
 
@@ -148,16 +158,54 @@ theme_override_constants/margin_right = 115
 [node name="Panel" type="Panel" parent="Flag Container/MarginContainer2"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Flag Container/MarginContainer2"]
+[node name="Flag Container" type="VBoxContainer" parent="Flag Container/MarginContainer2"]
 layout_mode = 2
 
-[node name="Goodbye" type="CheckBox" parent="Flag Container/MarginContainer2/VBoxContainer"]
+[node name="StartingTopic_Flags" type="VBoxContainer" parent="Flag Container/MarginContainer2/Flag Container"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Goodbye" type="CheckBox" parent="Flag Container/MarginContainer2/Flag Container/StartingTopic_Flags"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Goodbye"
 
-[node name="Random" type="CheckBox" parent="Flag Container/MarginContainer2/VBoxContainer"]
+[node name="Random" type="CheckBox" parent="Flag Container/MarginContainer2/Flag Container/StartingTopic_Flags"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Random"
+
+[node name="Greeting_Flags" type="VBoxContainer" parent="Flag Container/MarginContainer2/Flag Container"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Exclusive" type="CheckBox" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Checking this as true will prevent the greeting from showing the main tree topics."
+text = "Exclusive"
+
+[node name="MarginContainer" type="MarginContainer" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags/MarginContainer"]
+layout_mode = 2
+
+[node name="PriorityNumber" type="SpinBox" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/field_and_buttons_separation = -15
+value = 10.0
+rounded = true
+allow_greater = true
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="Label" type="Label" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Priority"
 
 [node name="HSeparator2" type="HSeparator" parent="."]
 visible = false
@@ -235,7 +283,8 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "delete"
 
-[connection signal="text_changed" from="Topic Container/HFlowContainer/Topic Prompt" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="Topic Container/VBoxContainer/IsGreeting" to="." method="_on_is_greeting_pressed"]
+[connection signal="text_changed" from="Topic Container/VBoxContainer/TopicPromptContainer/TopicPrompt" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="Conditions Container/MarginContainer/ConditionsLabelHBox/AddCondition" to="." method="_on_add_condition_pressed"]
 [connection signal="pressed" from="Functions Container/MarginContainer/FunctionsLabelHBox/AddFunction" to="." method="_on_add_function_pressed"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

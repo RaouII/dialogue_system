@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://ijv84t0ewfit"]
 
-[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="1_xxv1r"]
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://addons/dialogue_editor/Dialogue System/DialogueComponent.gd" id="1_xxv1r"]
 [ext_resource type="Resource" uid="uid://dult7nipws3cu" path="res://Demo/NPCs/Biggs/biggs_DialogueTree.tres" id="2_1q34f"]
 [ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_vylfd"]
 [ext_resource type="Resource" uid="uid://ee5j6euh6g2h" path="res://Demo/NPCs/Biggs/biggs_ID.tres" id="4_qy482"]

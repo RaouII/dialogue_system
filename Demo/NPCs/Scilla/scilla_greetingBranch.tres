@@ -1,0 +1,185 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=33 format=3 uid="uid://c3y6lglt5c14v"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_4ix10"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_cn6p0"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_avaqx"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_jwrdn"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_a0noq"]
+[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="5_cn6p0"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="6_l2in7"]
+[ext_resource type="Script" uid="uid://c03tjkaexh7ef" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/floatSetter_RES.gd" id="7_jwrdn"]
+[ext_resource type="Script" uid="uid://dlkrxq3j1efes" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Variable_RES.gd" id="9_a0noq"]
+
+[sub_resource type="Resource" id="Resource_siy48"]
+script = ExtResource("3_avaqx")
+_name = "met_scilla"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_avaqx"]
+script = ExtResource("5_cn6p0")
+_value = true
+_name = "met_scilla"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_jwrdn"]
+script = ExtResource("5_a0noq")
+_responseText = "My sight isnt the best but I dont think I recognize you. "
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_a0noq"]
+script = ExtResource("1_4ix10")
+_topicText = "Good morning"
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_jwrdn")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_jwrdn")]([SubResource("Resource_avaqx")])
+_conditions = Array[ExtResource("2_cn6p0")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_l2in7"]
+script = ExtResource("5_cn6p0")
+_value = true
+_name = "met_scilla"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_nwuvy"]
+script = ExtResource("7_jwrdn")
+_value = 1.0
+_name = "scilla_friendship"
+metadata/_custom_type_script = "uid://c03tjkaexh7ef"
+
+[sub_resource type="Resource" id="Resource_a3guo"]
+script = ExtResource("5_cn6p0")
+_value = true
+_name = "talked_to_scilla_about_flowers"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_q76g6"]
+script = ExtResource("5_a0noq")
+_responseText = "Thank you!"
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_yu65o"]
+script = ExtResource("5_a0noq")
+_responseText = "My brother is the one that usually takes care of them, I'm always too busy working"
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_3ent7"]
+script = ExtResource("5_a0noq")
+_responseText = "But lately I've been too sick to work, so I thought I'd tend to them to pass the time."
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_yosm1"]
+script = ExtResource("5_a0noq")
+_responseText = "You aren't from around here, right?"
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_hxx8j"]
+script = ExtResource("5_a0noq")
+_responseText = "Let me know if you need anything!"
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_yndp6"]
+script = ExtResource("1_4ix10")
+_topicText = "These flowers are beautiful."
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_q76g6"), SubResource("Resource_yu65o"), SubResource("Resource_3ent7"), SubResource("Resource_yosm1"), SubResource("Resource_hxx8j")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_jwrdn")]([SubResource("Resource_l2in7"), SubResource("Resource_nwuvy"), SubResource("Resource_a3guo")])
+_conditions = Array[ExtResource("2_cn6p0")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_x3wxh"]
+script = ExtResource("6_l2in7")
+_topics = Array[ExtResource("1_4ix10")]([SubResource("Resource_a0noq"), SubResource("Resource_yndp6")])
+_random = false
+
+[sub_resource type="Resource" id="Resource_707qj"]
+script = ExtResource("5_a0noq")
+_responseText = "Good morning!"
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_axvk0"]
+script = ExtResource("1_4ix10")
+_topicText = ""
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_707qj")])
+_nextBranch = SubResource("Resource_x3wxh")
+_goodbye = false
+_random = false
+_exclusive = true
+_priority = 10
+_functions = Array[ExtResource("4_jwrdn")]([])
+_conditions = Array[ExtResource("2_cn6p0")]([SubResource("Resource_siy48")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_uweg8"]
+script = ExtResource("3_avaqx")
+_name = "met_scilla"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_t1nku"]
+script = ExtResource("9_a0noq")
+_name = "scilla_friendship"
+_value = 1.0
+comparison = ">="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_n40of"]
+script = ExtResource("5_a0noq")
+_responseText = "Hi handsome!"
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_k4kd5"]
+script = ExtResource("1_4ix10")
+_topicText = ""
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_n40of")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_jwrdn")]([])
+_conditions = Array[ExtResource("2_cn6p0")]([SubResource("Resource_uweg8"), SubResource("Resource_t1nku")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_pd12h"]
+script = ExtResource("3_avaqx")
+_name = "met_scilla"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_awas8"]
+script = ExtResource("5_a0noq")
+_responseText = "Can I help you with anything?"
+_conditions = Array[ExtResource("2_cn6p0")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_k6uy6"]
+script = ExtResource("1_4ix10")
+_topicText = ""
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_awas8")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_jwrdn")]([])
+_conditions = Array[ExtResource("2_cn6p0")]([SubResource("Resource_pd12h")])
+is_greeting = false
+
+[resource]
+script = ExtResource("6_l2in7")
+_topics = Array[ExtResource("1_4ix10")]([SubResource("Resource_axvk0"), SubResource("Resource_k4kd5"), SubResource("Resource_k6uy6")])
+_random = false

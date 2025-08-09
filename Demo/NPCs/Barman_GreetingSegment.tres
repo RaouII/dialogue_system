@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=23 format=3 uid="uid://bipra0j06gmo3"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_b3ccp"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_b2h0w"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_f624j"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_afnoh"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="5_a0gfo"]
+[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="6_mkkt6"]
+[ext_resource type="Script" uid="uid://dlkrxq3j1efes" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Variable_RES.gd" id="7_b2h0w"]
+[ext_resource type="Script" uid="uid://c03tjkaexh7ef" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/floatSetter_RES.gd" id="7_x1xe5"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="8_0q7lk"]
+
+[sub_resource type="Resource" id="Resource_b2h0w"]
+script = ExtResource("4_afnoh")
+_responseText = "Want a drink? Food? A place to stay the night?"
+_conditions = Array[ExtResource("2_b2h0w")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_f624j"]
+script = ExtResource("1_b3ccp")
+_topicText = "I want to rent a room"
+_responses = Array[ExtResource("4_afnoh")]([SubResource("Resource_b2h0w")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_f624j")]([])
+_conditions = Array[ExtResource("2_b2h0w")]([])
+is_greeting = true
+
+[sub_resource type="Resource" id="Resource_day15"]
+script = ExtResource("5_a0gfo")
+_name = "just_saw_the_fight"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_ub75s"]
+script = ExtResource("6_mkkt6")
+_value = false
+_name = "just_saw_the_fight"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_afnoh"]
+script = ExtResource("4_afnoh")
+_responseText = "Sorry you had to see that"
+_conditions = Array[ExtResource("2_b2h0w")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_a0gfo"]
+script = ExtResource("4_afnoh")
+_responseText = "how can I help you?"
+_conditions = Array[ExtResource("2_b2h0w")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_mkkt6"]
+script = ExtResource("1_b3ccp")
+_topicText = ""
+_responses = Array[ExtResource("4_afnoh")]([SubResource("Resource_afnoh"), SubResource("Resource_a0gfo")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 15
+_functions = Array[ExtResource("3_f624j")]([SubResource("Resource_ub75s")])
+_conditions = Array[ExtResource("2_b2h0w")]([SubResource("Resource_day15")])
+is_greeting = true
+
+[sub_resource type="Resource" id="Resource_x1xe5"]
+script = ExtResource("7_b2h0w")
+_name = "money_problem"
+_value = 50.0
+comparison = "=="
+metadata/_custom_type_script = "uid://dlkrxq3j1efes"
+
+[sub_resource type="Resource" id="Resource_0q7lk"]
+script = ExtResource("7_x1xe5")
+_value = 60.0
+_name = "money_problem"
+metadata/_custom_type_script = "uid://c03tjkaexh7ef"
+
+[sub_resource type="Resource" id="Resource_2auny"]
+script = ExtResource("4_afnoh")
+_responseText = "Hey, thank you for helping me out "
+_conditions = Array[ExtResource("2_b2h0w")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_qixfb"]
+script = ExtResource("4_afnoh")
+_responseText = "I really appreciate it, seriously."
+_conditions = Array[ExtResource("2_b2h0w")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_f1csd"]
+script = ExtResource("4_afnoh")
+_responseText = "If you ever need anything, dont hesitate to ask"
+_conditions = Array[ExtResource("2_b2h0w")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_afgbh"]
+script = ExtResource("1_b3ccp")
+_topicText = ""
+_responses = Array[ExtResource("4_afnoh")]([SubResource("Resource_2auny"), SubResource("Resource_qixfb"), SubResource("Resource_f1csd")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_f624j")]([SubResource("Resource_0q7lk")])
+_conditions = Array[ExtResource("2_b2h0w")]([SubResource("Resource_x1xe5")])
+is_greeting = true
+
+[resource]
+script = ExtResource("8_0q7lk")
+_topics = Array[ExtResource("1_b3ccp")]([SubResource("Resource_f624j"), SubResource("Resource_mkkt6"), SubResource("Resource_afgbh")])
+_random = false

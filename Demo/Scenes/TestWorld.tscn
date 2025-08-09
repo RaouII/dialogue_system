@@ -4,11 +4,11 @@
 [ext_resource type="TileSet" uid="uid://dt873lhy1lbwa" path="res://Demo/Tileset/ts_base.tres" id="1_pxnob"]
 [ext_resource type="PackedScene" uid="uid://ijv84t0ewfit" path="res://Demo/NPCs/Biggs/biggs.tscn" id="2_8p0k2"]
 [ext_resource type="PackedScene" uid="uid://px1fygb0l1al" path="res://Demo/NPCs/bolt.tscn" id="5_5y3u2"]
-[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="5_ywa68"]
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://addons/dialogue_editor/Dialogue System/DialogueComponent.gd" id="5_ywa68"]
 [ext_resource type="Resource" uid="uid://bnws8x3h06gh1" path="res://Demo/Boat_DialogueTree.tres" id="7_4ykap"]
 [ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="8_73ek6"]
 [ext_resource type="Resource" uid="uid://ch28ldjsifmmt" path="res://Demo/NPCs/boat_ID.tres" id="9_iw2aa"]
-[ext_resource type="PackedScene" uid="uid://8gxa0a61ai2y" path="res://Demo/NPCs/scilla.tscn" id="10_iw2aa"]
+[ext_resource type="PackedScene" uid="uid://8gxa0a61ai2y" path="res://Demo/NPCs/Scilla/scilla.tscn" id="10_iw2aa"]
 [ext_resource type="Script" uid="uid://b4o8wcqnu75bc" path="res://Demo/System/SimpleSceneManager/teleport.gd" id="22_f2i3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2i3v"]
@@ -204,5 +204,3 @@ metadata/_custom_type_script = "uid://7aaar335xgew"
 
 [node name="Scilla" parent="." instance=ExtResource("10_iw2aa")]
 position = Vector2(224, 64)
-
-[editable path="Scilla"]

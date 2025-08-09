@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://c887sfboy4ti1"]
+[gd_scene load_steps=14 format=4 uid="uid://c887sfboy4ti1"]
 
-[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://raou_nodes/Dialogue System/DialogueComponent.gd" id="1_uornt"]
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="2_yxokb"]
-[ext_resource type="Resource" uid="uid://bipra0j06gmo3" path="res://Demo/NPCs/Barman_GreetingBranch.tres" id="4_es17f"]
-[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="9_o88j3"]
+[ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://addons/dialogue_editor/Dialogue System/DialogueComponent.gd" id="1_uornt"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="2_yxokb"]
+[ext_resource type="Resource" uid="uid://bipra0j06gmo3" path="res://Demo/NPCs/Barman_GreetingSegment.tres" id="4_es17f"]
+[ext_resource type="Resource" uid="uid://kmoh74k1s2d3" path="res://Demo/NPCs/Barman_dialogueSegment.tres" id="5_kmsmf"]
+[ext_resource type="Resource" uid="uid://c45auqj7s7lyy" path="res://Demo/NPCs/Hector/Hector_MoneyProblems_Sgmt.tres" id="6_cnaug"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="9_o88j3"]
 [ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="10_rh8xi"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_glfmn"]
@@ -53,7 +55,7 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_fka32"]
 script = ExtResource("9_o88j3")
-_branches = Array[ExtResource("2_yxokb")]([])
+_segments = Array[ExtResource("2_yxokb")]([ExtResource("6_cnaug"), ExtResource("5_kmsmf")])
 _greeting = ExtResource("4_es17f")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 

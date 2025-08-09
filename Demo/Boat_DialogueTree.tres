@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="DialogueTree" load_steps=5 format=3 uid="uid://bnws8x3h06gh1"]
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=4 format=3 uid="uid://bnws8x3h06gh1"]
 
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_l8w5a"]
-[ext_resource type="Resource" uid="uid://dpos4j7kddnxs" path="res://Demo/boat_dialogueBranch.tres" id="2_yu1x3"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_l8w5a"]
 [ext_resource type="Resource" uid="uid://c5kohaq0vgwok" path="res://Demo/boat_greetingBranch.tres" id="3_ax77t"]
-[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="8_oywji"]
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="8_oywji"]
 
 [resource]
 script = ExtResource("8_oywji")
-_branches = Array[ExtResource("1_l8w5a")]([ExtResource("2_yu1x3")])
+_segments = Array[ExtResource("1_l8w5a")]([])
 _greeting = ExtResource("3_ax77t")
 metadata/_custom_type_script = "uid://tfh1etiytb5"

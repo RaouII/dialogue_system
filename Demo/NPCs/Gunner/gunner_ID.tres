@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterID" load_steps=2 format=3 uid="uid://d2norlbbag3ow"]
 
-[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="1_fd1yu"]
+[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="1_fd1yu"]
 
 [resource]
 script = ExtResource("1_fd1yu")

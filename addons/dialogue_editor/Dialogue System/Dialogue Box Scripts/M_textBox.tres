@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7aqjwhtuio1t"]
+
+[ext_resource type="Shader" uid="uid://8l3ebltw4blw" path="res://addons/dialogue_editor/Dialogue System/Dialogue Box Scripts/textBox.gdshader" id="1_5hxsa"]
+
+[resource]
+shader = ExtResource("1_5hxsa")
+shader_parameter/target_color = Color(1, 0.00392157, 0.921569, 1)
+shader_parameter/replace_color = Color(0.166538, 0.363716, 0.527865, 0.807843)
+shader_parameter/tolerance = 0.01

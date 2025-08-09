@@ -1,28 +1,28 @@
-[gd_resource type="Resource" script_class="DialogueBranch" load_steps=13 format=3 uid="uid://c1nm3ha3q220n"]
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=13 format=3 uid="uid://c1nm3ha3q220n"]
 
-[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_2bvhw"]
-[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_a71tg"]
-[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_l1dmp"]
-[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_lpwh4"]
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_5wy82"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_2bvhw"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_a71tg"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_l1dmp"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_lpwh4"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_5wy82"]
 
 [sub_resource type="Resource" id="Resource_2bvhw"]
 script = ExtResource("4_lpwh4")
 _responseText = "There's not much to tell"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_a71tg")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_a71tg"]
 script = ExtResource("4_lpwh4")
 _responseText = "We have a lot of passersby, and they usually stay by the Inn near the east bridge."
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_a71tg")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_l1dmp"]
 script = ExtResource("4_lpwh4")
 _responseText = "There's an Alchemist that also lives near that. You can talk to her if you need any medicine"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_a71tg")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_lpwh4"]
 script = ExtResource("1_2bvhw")
@@ -38,14 +38,14 @@ _conditions = Array[ExtResource("2_a71tg")]([])
 [sub_resource type="Resource" id="Resource_5wy82"]
 script = ExtResource("4_lpwh4")
 _responseText = "I can't say I've met anyone by that name"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_a71tg")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_yk53f"]
 script = ExtResource("4_lpwh4")
 _responseText = "But then again, a lot of people come and go, so I dont memorize their names unless they stay around"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_a71tg")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_4i176"]
 script = ExtResource("1_2bvhw")

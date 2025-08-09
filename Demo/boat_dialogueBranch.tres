@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueBranch" load_steps=18 format=3 uid="uid://dpos4j7kddnxs"]
 
-[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_fj1u3"]
-[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_2mo0p"]
-[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_4n18c"]
-[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_i8s5q"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_fj1u3"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_2mo0p"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_4n18c"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_i8s5q"]
 [ext_resource type="Resource" uid="uid://cgmu5m2dagbg3" path="res://Demo/Quests/Maren Valor/WhatHappenedToMissMaren_Quest.tres" id="5_0bea6"]
 [ext_resource type="Script" uid="uid://beuxf1qqtjhqn" path="res://addons/raou_event_tracker/event_stage_list.gd" id="6_nnfxh"]
-[ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="7_c60tl"]
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="8_h3vw1"]
+[ext_resource type="Script" uid="uid://bdp3t4y0ttqh8" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_QuestStage_RES.gd.gd" id="7_c60tl"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="8_h3vw1"]
 
 [sub_resource type="Resource" id="Resource_fj1u3"]
 script = ExtResource("7_c60tl")
@@ -17,8 +17,8 @@ metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
 [sub_resource type="Resource" id="Resource_2mo0p"]
 script = ExtResource("4_i8s5q")
 _responseText = "We can't leave until we find what happened to miss Maren"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_2mo0p")]([])
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://bbobh0woojdsj"
 
 [sub_resource type="Resource" id="Resource_4n18c"]
@@ -36,8 +36,8 @@ metadata/_custom_type_script = "uid://chbqwoxqpo048"
 [sub_resource type="Resource" id="Resource_i8s5q"]
 script = ExtResource("4_i8s5q")
 _responseText = "I guess we should look around some more"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_2mo0p")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_0bea6"]
 script = ExtResource("1_fj1u3")
@@ -65,8 +65,8 @@ metadata/_custom_type_script = "uid://bdp3t4y0ttqh8"
 [sub_resource type="Resource" id="Resource_h3vw1"]
 script = ExtResource("4_i8s5q")
 _responseText = "I guess we did find out enough"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_2mo0p")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_kelxw"]
 script = ExtResource("1_fj1u3")

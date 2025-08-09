@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueBranch" load_steps=20 format=3 uid="uid://cbhpephg04dcd"]
 
-[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_j5v63"]
-[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_r2om6"]
-[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_xveq8"]
-[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_w8ml0"]
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_l8dcy"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_j5v63"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_r2om6"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_xveq8"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_w8ml0"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_l8dcy"]
 
 [sub_resource type="Resource" id="Resource_b3abu"]
 script = ExtResource("4_w8ml0")

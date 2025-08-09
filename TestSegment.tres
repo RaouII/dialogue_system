@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=10 format=3 uid="uid://ditr6e5u1hhh2"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_8pt32"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="2_4dgwf"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_wh7tr"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_o1rk1"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_lromm"]
+
+[sub_resource type="Resource" id="Resource_7gg1i"]
+script = ExtResource("4_lromm")
+_responseText = "test"
+_conditions = Array[ExtResource("2_wh7tr")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_mtgvo"]
+script = ExtResource("1_8pt32")
+_topicText = "test"
+_responses = Array[ExtResource("4_lromm")]([SubResource("Resource_7gg1i")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_o1rk1")]([])
+_conditions = Array[ExtResource("2_wh7tr")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_3xivf"]
+script = ExtResource("4_lromm")
+_responseText = "est"
+_conditions = Array[ExtResource("2_wh7tr")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_7cfxg"]
+script = ExtResource("1_8pt32")
+_topicText = "test"
+_responses = Array[ExtResource("4_lromm")]([SubResource("Resource_3xivf")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_o1rk1")]([])
+_conditions = Array[ExtResource("2_wh7tr")]([])
+is_greeting = false
+
+[resource]
+script = ExtResource("2_4dgwf")
+_topics = Array[ExtResource("1_8pt32")]([SubResource("Resource_mtgvo"), SubResource("Resource_7cfxg")])
+_random = false

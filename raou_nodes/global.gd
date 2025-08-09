@@ -1,14 +1,8 @@
 extends Node
 
-signal set_new_character_greeting(_id: CharacterID,_greeting: DialogueTopic)
+
 signal play_sfx(sound: AudioStream)
 signal door_sfx(type: int)
-## started dialogue signal: sends a signal saying a dialogue has started
-signal started_dialogue()
-## close dialogue signal: sends a signal saying a dialogue has ended
-signal closed_dialogue()
-## set idle animation signal: it sends a signal with a variety of useful information to animate characters during dialogue.
-signal set_character_idle_animation(_char: CharacterID,_anim: String)
 signal add_character_to_level_array(CharacterID)
 signal cutscene_started
 signal cutscene_ended
@@ -17,7 +11,6 @@ var main: Main
 var level: Level
 var player: CharacterBody2D
 var canvas: CanvasLayer
-var DialogueTreeDictionary : Dictionary[String,DialogueTree]
 var variable := {}  # For numbers (ints or floats)
 var switch := {}   # For booleans
 
@@ -40,7 +33,7 @@ func get_variable(name: String) -> int:
 	if variable.has(name):
 		return variable.get(name)
 	else:
-		return -1
+		return 0
 
 func check_all_conditions(_condition_array: Array[Condition]):
 	if _condition_array.is_empty():

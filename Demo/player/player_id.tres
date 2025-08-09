@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterID" load_steps=2 format=3 uid="uid://chd11hmfw6ugl"]
 
-[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="1_puygw"]
+[ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="1_puygw"]
 
 [resource]
 resource_name = "player_id"

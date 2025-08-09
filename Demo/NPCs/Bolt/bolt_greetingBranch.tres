@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="DialogueBranch" load_steps=45 format=3 uid="uid://doctdamb0pybx"]
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=45 format=3 uid="uid://doctdamb0pybx"]
 
-[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_8lmbo"]
-[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_fnnuf"]
-[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://raou_nodes/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_hpsxr"]
-[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_7k183"]
-[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_1fkiq"]
-[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://raou_nodes/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="5_fnnuf"]
-[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://raou_nodes/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="6_gtgrr"]
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_8lmbo"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_fnnuf"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_hpsxr"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_7k183"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_1fkiq"]
+[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="5_fnnuf"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="6_gtgrr"]
 
 [sub_resource type="Resource" id="Resource_f2nrr"]
 script = ExtResource("3_hpsxr")
@@ -29,8 +29,8 @@ metadata/_custom_type_script = "uid://chbqwoxqpo048"
 [sub_resource type="Resource" id="Resource_fnnuf"]
 script = ExtResource("5_1fkiq")
 _responseText = "Thank you!"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_1fkiq"]
 script = ExtResource("1_8lmbo")
@@ -42,12 +42,13 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([SubResource("Resource_7k183")])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_8veqo"]
 script = ExtResource("5_1fkiq")
 _responseText = "Oh... ok"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_5kvve"]
 script = ExtResource("1_8lmbo")
@@ -59,6 +60,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_wd8ax"]
 script = ExtResource("6_gtgrr")
@@ -68,14 +70,14 @@ _random = false
 [sub_resource type="Resource" id="Resource_pj5fx"]
 script = ExtResource("5_1fkiq")
 _responseText = "....oh!"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_umvym"]
 script = ExtResource("5_1fkiq")
 _responseText = "Can you help me?"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_ewc0y"]
 script = ExtResource("1_8lmbo")
@@ -88,6 +90,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([SubResource("Resource_hpsxr")])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_wl1i7"]
 script = ExtResource("6_gtgrr")
@@ -97,14 +100,14 @@ _random = false
 [sub_resource type="Resource" id="Resource_leuip"]
 script = ExtResource("5_1fkiq")
 _responseText = "Ahh..."
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_stu5g"]
 script = ExtResource("5_1fkiq")
 _responseText = "What am I gonna do now..."
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_pniky"]
 script = ExtResource("1_8lmbo")
@@ -117,6 +120,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([SubResource("Resource_f2nrr")])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_gtgrr"]
 script = ExtResource("3_hpsxr")
@@ -133,8 +137,8 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 [sub_resource type="Resource" id="Resource_my46b"]
 script = ExtResource("5_1fkiq")
 _responseText = "Oh... ok"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_iet45"]
 script = ExtResource("1_8lmbo")
@@ -146,12 +150,13 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_2u4ic"]
 script = ExtResource("5_1fkiq")
 _responseText = "bye"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_2htx0"]
 script = ExtResource("1_8lmbo")
@@ -163,12 +168,13 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_g851b"]
 script = ExtResource("5_1fkiq")
 _responseText = "bye"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_u17fs"]
 script = ExtResource("1_8lmbo")
@@ -180,6 +186,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_i6tgq"]
 script = ExtResource("6_gtgrr")
@@ -189,14 +196,14 @@ _random = false
 [sub_resource type="Resource" id="Resource_tmugr"]
 script = ExtResource("5_1fkiq")
 _responseText = "Thank you!"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_1tx8j"]
 script = ExtResource("5_1fkiq")
 _responseText = "test"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_qds6o"]
 script = ExtResource("1_8lmbo")
@@ -209,6 +216,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([SubResource("Resource_7k183")])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_sk0na"]
 script = ExtResource("6_gtgrr")
@@ -218,8 +226,8 @@ _random = false
 [sub_resource type="Resource" id="Resource_yvc2b"]
 script = ExtResource("5_1fkiq")
 _responseText = "Did you change your mind?"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_wxxuq"]
 script = ExtResource("1_8lmbo")
@@ -232,6 +240,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([SubResource("Resource_gtgrr"), SubResource("Resource_vm3s8")])
+is_greeting = false
 metadata/_custom_type_script = "uid://wgnly555mcgi"
 
 [sub_resource type="Resource" id="Resource_i5j3v"]
@@ -249,8 +258,8 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 [sub_resource type="Resource" id="Resource_lhcw4"]
 script = ExtResource("5_1fkiq")
 _responseText = "Oh... ok"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
 [sub_resource type="Resource" id="Resource_o58xi"]
@@ -263,6 +272,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([])
+is_greeting = false
 
 [sub_resource type="Resource" id="Resource_r8cao"]
 script = ExtResource("6_gtgrr")
@@ -272,8 +282,8 @@ _random = false
 [sub_resource type="Resource" id="Resource_c3ep8"]
 script = ExtResource("5_1fkiq")
 _responseText = "Any Updates?"
-_idleAnimation = ""
 _conditions = Array[ExtResource("2_fnnuf")]([])
+_idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_4lnwc"]
 script = ExtResource("1_8lmbo")
@@ -286,6 +296,7 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_7k183")]([])
 _conditions = Array[ExtResource("2_fnnuf")]([SubResource("Resource_i5j3v"), SubResource("Resource_tav4o")])
+is_greeting = false
 
 [resource]
 script = ExtResource("6_gtgrr")
