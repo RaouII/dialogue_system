@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=23 format=3 uid="uid://devc028g4ulkq"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_sx3qf"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_g7dr8"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_650l6"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_p036e"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_rbgau"]
+[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="6_c3uub"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_twp57"]
+
+[sub_resource type="Resource" id="Resource_tb7wh"]
+script = ExtResource("3_650l6")
+_name = "visited_forest"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_sx3qf"]
+script = ExtResource("3_650l6")
+_name = "talked_about_forest"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_g7dr8"]
+script = ExtResource("6_c3uub")
+_value = true
+_name = "talked_about_forest"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_650l6"]
+script = ExtResource("5_rbgau")
+_responseText = "The forest ahead is dangerous"
+_conditions = Array[ExtResource("2_g7dr8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_p036e"]
+script = ExtResource("1_sx3qf")
+_topicText = ""
+_responses = Array[ExtResource("5_rbgau")]([SubResource("Resource_650l6")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_p036e")]([SubResource("Resource_g7dr8")])
+_conditions = Array[ExtResource("2_g7dr8")]([SubResource("Resource_tb7wh"), SubResource("Resource_sx3qf")])
+is_greeting = true
+
+[sub_resource type="Resource" id="Resource_8ql3b"]
+script = ExtResource("3_650l6")
+_name = "visited_forest"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_8htuh"]
+script = ExtResource("3_650l6")
+_name = "npc_mentioned_your_return"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_1bllr"]
+script = ExtResource("6_c3uub")
+_value = true
+_name = "npc_mentioned_your_return"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_rbgau"]
+script = ExtResource("5_rbgau")
+_responseText = "You actually managed to come back alive?! Impressive"
+_conditions = Array[ExtResource("2_g7dr8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_c3uub"]
+script = ExtResource("1_sx3qf")
+_topicText = ""
+_responses = Array[ExtResource("5_rbgau")]([SubResource("Resource_rbgau")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 15
+_functions = Array[ExtResource("4_p036e")]([SubResource("Resource_1bllr")])
+_conditions = Array[ExtResource("2_g7dr8")]([SubResource("Resource_8ql3b"), SubResource("Resource_8htuh")])
+is_greeting = true
+
+[sub_resource type="Resource" id="Resource_0q4kn"]
+script = ExtResource("3_650l6")
+_name = "visited_forest"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_twp57"]
+script = ExtResource("5_rbgau")
+_responseText = "I still cant believe you did it"
+_conditions = Array[ExtResource("2_g7dr8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_mn2fc"]
+script = ExtResource("1_sx3qf")
+_topicText = ""
+_responses = Array[ExtResource("5_rbgau")]([SubResource("Resource_twp57")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_p036e")]([])
+_conditions = Array[ExtResource("2_g7dr8")]([SubResource("Resource_0q4kn")])
+is_greeting = true
+
+[sub_resource type="Resource" id="Resource_r6ypb"]
+script = ExtResource("5_rbgau")
+_responseText = "You should stay away."
+_conditions = Array[ExtResource("2_g7dr8")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_1rhh5"]
+script = ExtResource("1_sx3qf")
+_topicText = ""
+_responses = Array[ExtResource("5_rbgau")]([SubResource("Resource_r6ypb")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 5
+_functions = Array[ExtResource("4_p036e")]([])
+_conditions = Array[ExtResource("2_g7dr8")]([])
+is_greeting = true
+
+[resource]
+script = ExtResource("7_twp57")
+_topics = Array[ExtResource("1_sx3qf")]([SubResource("Resource_p036e"), SubResource("Resource_c3uub"), SubResource("Resource_mn2fc"), SubResource("Resource_1rhh5")])
+_random = false

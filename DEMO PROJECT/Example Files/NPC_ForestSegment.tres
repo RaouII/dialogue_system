@@ -1,0 +1,146 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=25 format=3 uid="uid://ddrgb5cymyyik"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_1gsp8"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_si1q6"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_e5iwo"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_wcq2t"]
+[ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="5_ifgj8"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_11rph"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_g8vva"]
+
+[sub_resource type="Resource" id="Resource_c1bni"]
+script = ExtResource("3_e5iwo")
+_name = "knows_about_forest"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_522x1"]
+script = ExtResource("5_ifgj8")
+_value = true
+_name = "knows_about_forest"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_3kjyf"]
+script = ExtResource("6_11rph")
+_responseText = "Good luck, buddy"
+_conditions = Array[ExtResource("2_si1q6")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_brso5"]
+script = ExtResource("1_1gsp8")
+_topicText = "I'm gonna enter it"
+_responses = Array[ExtResource("6_11rph")]([SubResource("Resource_3kjyf")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_wcq2t")]([])
+_conditions = Array[ExtResource("2_si1q6")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_l5fdt"]
+script = ExtResource("6_11rph")
+_responseText = "Thats probably for the better"
+_conditions = Array[ExtResource("2_si1q6")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_jq2wn"]
+script = ExtResource("1_1gsp8")
+_topicText = "I should probably stay out of there, then"
+_responses = Array[ExtResource("6_11rph")]([SubResource("Resource_l5fdt")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_wcq2t")]([])
+_conditions = Array[ExtResource("2_si1q6")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_38qyi"]
+script = ExtResource("7_g8vva")
+_topics = Array[ExtResource("1_1gsp8")]([SubResource("Resource_brso5"), SubResource("Resource_jq2wn")])
+_random = false
+
+[sub_resource type="Resource" id="Resource_iyjf5"]
+script = ExtResource("6_11rph")
+_responseText = "Nobody knows."
+_conditions = Array[ExtResource("2_si1q6")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_c5bbm"]
+script = ExtResource("6_11rph")
+_responseText = "All we know is that nobody comes back."
+_conditions = Array[ExtResource("2_si1q6")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_sa8d2"]
+script = ExtResource("1_1gsp8")
+_topicText = "Why is that?"
+_responses = Array[ExtResource("6_11rph")]([SubResource("Resource_iyjf5"), SubResource("Resource_c5bbm")])
+_nextBranch = SubResource("Resource_38qyi")
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_wcq2t")]([SubResource("Resource_522x1")])
+_conditions = Array[ExtResource("2_si1q6")]([SubResource("Resource_c1bni")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_6u2ok"]
+script = ExtResource("3_e5iwo")
+_name = "knows_about_forest"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_nhf6h"]
+script = ExtResource("5_ifgj8")
+_value = true
+_name = "knows_about_forest"
+metadata/_custom_type_script = "uid://chbqwoxqpo048"
+
+[sub_resource type="Resource" id="Resource_drn8a"]
+script = ExtResource("6_11rph")
+_responseText = "Wow, arent you brave?"
+_conditions = Array[ExtResource("2_si1q6")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_pmr6x"]
+script = ExtResource("1_1gsp8")
+_topicText = "I dont care"
+_responses = Array[ExtResource("6_11rph")]([SubResource("Resource_drn8a")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_wcq2t")]([SubResource("Resource_nhf6h")])
+_conditions = Array[ExtResource("2_si1q6")]([SubResource("Resource_6u2ok")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_v3eg3"]
+script = ExtResource("3_e5iwo")
+_name = "visited_forest"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_sxkp3"]
+script = ExtResource("6_11rph")
+_responseText = "Really? Weird"
+_conditions = Array[ExtResource("2_si1q6")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_2stq0"]
+script = ExtResource("1_1gsp8")
+_topicText = "The forest was fine."
+_responses = Array[ExtResource("6_11rph")]([SubResource("Resource_sxkp3")])
+_goodbye = false
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_wcq2t")]([])
+_conditions = Array[ExtResource("2_si1q6")]([SubResource("Resource_v3eg3")])
+is_greeting = false
+
+[resource]
+script = ExtResource("7_g8vva")
+_topics = Array[ExtResource("1_1gsp8")]([SubResource("Resource_sa8d2"), SubResource("Resource_pmr6x"), SubResource("Resource_2stq0")])
+_random = false
