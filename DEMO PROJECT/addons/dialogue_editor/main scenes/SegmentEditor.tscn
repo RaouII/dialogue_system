@@ -1,0 +1,180 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqvtmeutiskpk"]
+
+[ext_resource type="Script" uid="uid://7wcg5pbupeqv" path="res://addons/dialogue_editor/segment_editor.gd" id="1_8yhsm"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vjpfh"]
+color = Color(0.299547, 0.299547, 0.299547, 0.509804)
+grow_begin = -5.0
+grow_end = -5.0
+thickness = 3
+vertical = true
+
+[node name="SegmentEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8yhsm")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+snapping_distance = 30
+right_disconnects = true
+connection_lines_thickness = 3.0
+
+[node name="FileDialog" type="FileDialog" parent="."]
+position = Vector2i(100, 100)
+filters = PackedStringArray("*.tres")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 100.0
+offset_right = 418.0
+offset_bottom = 166.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "+ Add Greeting
+"
+alignment = 0
+
+[node name="Button2" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "+ Add Starting Topic
+"
+alignment = 0
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "+ Add Topic
+"
+alignment = 0
+
+[node name="Button3" type="Button" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "+ Add Response"
+alignment = 0
+icon_alignment = 2
+
+[node name="CharacterIDLabel" type="Label" parent="."]
+layout_mode = 0
+
+[node name="CharacterIDLabel" type="Label" parent="CharacterIDLabel"]
+layout_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 45.0
+offset_right = 327.0
+offset_bottom = 103.0
+scale = Vector2(0.8, 0.8)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "File:"
+
+[node name="BranchName" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save Branch" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save Segment As..."
+
+[node name="Load Branch" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Load  Segment"
+
+[node name="LoadFileDialog" type="FileDialog" parent="PanelContainer/VBoxContainer/HBoxContainer/Load Branch"]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.tres")
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_vjpfh")
+
+[node name="Save Branch2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Save as [Topic]"
+
+[node name="Load Branch2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Load Topic"
+
+[node name="LoadFileDialog" type="FileDialog" parent="PanelContainer/VBoxContainer/HBoxContainer/Load Branch2"]
+auto_translate_mode = 1
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.tres")
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_vjpfh")
+
+[node name="Clear Graph" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Clear Graph"
+
+[node name="Reload Branch" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Reload Info"
+
+[node name="WarningDialog" type="AcceptDialog" parent="."]
+initial_position = 4
+size = Vector2i(532, 106)
+dialog_text = "You must connect at least one [StartingTopic] to a [Response] node"
+
+[connection signal="connection_drag_started" from="GraphEdit" to="." method="_on_graph_edit_connection_drag_started"]
+[connection signal="connection_request" from="GraphEdit" to="." method="_on_graph_edit_connection_request"]
+[connection signal="disconnection_request" from="GraphEdit" to="." method="_on_graph_edit_disconnection_request"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="button_up" from="VBoxContainer/VBoxContainer/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="VBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="button_up" from="VBoxContainer/VBoxContainer2/Button3" to="." method="_on_button_3_button_up"]
+[connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Save Branch" to="." method="_on_save_branch_button_up"]
+[connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch" to="." method="_on_load_branch_button_up"]
+[connection signal="file_selected" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch/LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]
+[connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Save Branch2" to="." method="_on_save_branch_button_up"]
+[connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch2" to="." method="_on_load_branch_button_up"]
+[connection signal="file_selected" from="PanelContainer/VBoxContainer/HBoxContainer/Load Branch2/LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]
+[connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/Clear Graph" to="." method="_on_clear_graph_button_up"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Reload Branch" to="." method="_on_reload_branch_pressed"]
+[connection signal="confirmed" from="WarningDialog" to="." method="_on_warning_dialog_confirmed"]

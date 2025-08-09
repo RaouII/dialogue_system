@@ -1,32 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bryusw2h5ihym"]
+[gd_scene load_steps=2 format=3 uid="uid://ed6h8j2sv65p"]
 
-[ext_resource type="Script" uid="uid://dy6j4n0k5di73" path="res://addons/dialogue_editor/topic_graphnode.gd" id="1_5cxuq"]
-[ext_resource type="StyleBox" uid="uid://doi4s6e1sypgg" path="res://addons/dialogue_editor/main scenes/styles/panel.tres" id="1_t4bdh"]
-[ext_resource type="StyleBox" uid="uid://b86h2xldbokue" path="res://addons/dialogue_editor/main scenes/styles/panel_selected.tres" id="2_0t1l3"]
+[ext_resource type="Script" uid="uid://dy6j4n0k5di73" path="res://addons/dialogue_editor/topic_graphnode.gd" id="1_jbdeh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go8cc"]
-bg_color = Color(0.298566, 0.166252, 0.303328, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp2bw"]
-bg_color = Color(0.363154, 0.207157, 0.366821, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-
-[node name="Topic GraphNode" type="GraphNode"]
+[node name="Greeting GraphNode" type="GraphNode"]
 offset_right = 470.0
 offset_bottom = 223.0
 rotation = 0.000167007
-theme_override_styles/panel = ExtResource("1_t4bdh")
-theme_override_styles/panel_selected = ExtResource("2_0t1l3")
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_go8cc")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_cp2bw")
 resizable = true
-title = "Starting Topic"
+title = "Greeting"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
@@ -99,69 +80,18 @@ slot/7/right_type = 0
 slot/7/right_color = Color(1, 1, 1, 1)
 slot/7/right_icon = null
 slot/7/draw_stylebox = true
-slot/8/left_enabled = false
-slot/8/left_type = 0
-slot/8/left_color = Color(1, 1, 1, 1)
-slot/8/left_icon = null
-slot/8/right_enabled = false
-slot/8/right_type = 0
-slot/8/right_color = Color(1, 1, 1, 1)
-slot/8/right_icon = null
-slot/8/draw_stylebox = true
-slot/9/left_enabled = false
-slot/9/left_type = 0
-slot/9/left_color = Color(1, 1, 1, 1)
-slot/9/left_icon = null
-slot/9/right_enabled = false
-slot/9/right_type = 0
-slot/9/right_color = Color(1, 1, 1, 1)
-slot/9/right_icon = null
-slot/9/draw_stylebox = true
-script = ExtResource("1_5cxuq")
+script = ExtResource("1_jbdeh")
 starting = true
 
-[node name="Topic Container" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Topic Container"]
-layout_mode = 2
-
-[node name="IsGreeting" type="CheckBox" parent="Topic Container/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "is_greeting"
-
-[node name="TopicPromptContainer" type="VBoxContainer" parent="Topic Container/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Topic Container/VBoxContainer/TopicPromptContainer"]
-layout_mode = 2
-theme_override_constants/margin_right = 115
-
-[node name="Label" type="Label" parent="Topic Container/VBoxContainer/TopicPromptContainer/MarginContainer"]
-layout_mode = 2
-text = "Prompt"
-
-[node name="TopicPrompt" type="TextEdit" parent="Topic Container/VBoxContainer/TopicPromptContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 48)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Topic Container"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="Responses" type="Label" parent="Topic Container/MarginContainer"]
+[node name="Responses" type="Label" parent="MarginContainer"]
 layout_mode = 2
 text = "Responses"
-
-[node name="HSeparator" type="HSeparator" parent="."]
-modulate = Color(0.105882, 0.0980392, 0.121569, 0.0980392)
-layout_mode = 2
-theme_override_constants/separation = 10
 
 [node name="Flag Container" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -177,63 +107,40 @@ theme_override_constants/margin_right = 115
 [node name="Panel" type="Panel" parent="Flag Container/MarginContainer2"]
 layout_mode = 2
 
-[node name="Flag Container" type="VBoxContainer" parent="Flag Container/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Flag Container/MarginContainer2"]
 layout_mode = 2
 
-[node name="StartingTopic_Flags" type="VBoxContainer" parent="Flag Container/MarginContainer2/Flag Container"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Goodbye" type="CheckBox" parent="Flag Container/MarginContainer2/Flag Container/StartingTopic_Flags"]
-unique_name_in_owner = true
+[node name="Goodbye" type="CheckBox" parent="Flag Container/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Goodbye"
 
-[node name="Random" type="CheckBox" parent="Flag Container/MarginContainer2/Flag Container/StartingTopic_Flags"]
-unique_name_in_owner = true
+[node name="Random" type="CheckBox" parent="Flag Container/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Random"
 
-[node name="Greeting_Flags" type="VBoxContainer" parent="Flag Container/MarginContainer2/Flag Container"]
-unique_name_in_owner = true
-visible = false
+[node name="Exclusive" type="CheckBox" parent="Flag Container/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-
-[node name="Exclusive" type="CheckBox" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags"]
-unique_name_in_owner = true
-layout_mode = 2
-tooltip_text = "Checking this as true will prevent the greeting from showing the main tree topics."
 text = "Exclusive"
 
-[node name="MarginContainer" type="MarginContainer" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags"]
+[node name="HSeparator" type="HSeparator" parent="Flag Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Flag Container/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Flag Container/MarginContainer2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="PriorityNumber" type="SpinBox" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/field_and_buttons_separation = -15
-value = 10.0
-rounded = true
-allow_greater = true
-alignment = 1
-custom_arrow_step = 1.0
-
-[node name="Label" type="Label" parent="Flag Container/MarginContainer2/Flag Container/Greeting_Flags/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Flag Container/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Priority"
 
-[node name="HSeparator2" type="HSeparator" parent="."]
-visible = false
-modulate = Color(0.105882, 0.0980392, 0.121569, 0.0980392)
+[node name="LineEdit" type="LineEdit" parent="Flag Container/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
 
 [node name="HSeparator5" type="HSeparator" parent="."]
-modulate = Color(0.105882, 0.0980392, 0.121569, 0.0980392)
+modulate = Color(1, 1, 1, 0.0862745)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -262,7 +169,7 @@ text = " + "
 layout_mode = 2
 
 [node name="HSeparator3" type="HSeparator" parent="."]
-modulate = Color(0.105882, 0.0980392, 0.121569, 0.0980392)
+modulate = Color(1, 1, 1, 0.0862745)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -291,7 +198,7 @@ text = " + "
 layout_mode = 2
 
 [node name="HSeparator4" type="HSeparator" parent="."]
-modulate = Color(0.105882, 0.0980392, 0.121569, 0.0980392)
+modulate = Color(1, 1, 1, 0.0862745)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -302,8 +209,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "delete"
 
-[connection signal="pressed" from="Topic Container/VBoxContainer/IsGreeting" to="." method="_on_is_greeting_pressed"]
-[connection signal="text_changed" from="Topic Container/VBoxContainer/TopicPromptContainer/TopicPrompt" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="Conditions Container/MarginContainer/ConditionsLabelHBox/AddCondition" to="." method="_on_add_condition_pressed"]
 [connection signal="pressed" from="Functions Container/MarginContainer/FunctionsLabelHBox/AddFunction" to="." method="_on_add_function_pressed"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

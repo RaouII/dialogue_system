@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=2 format=3 uid="uid://vnltfh8qkxfr"]
+
+[ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="1_yrgkl"]
+
+[resource]
+script = ExtResource("1_yrgkl")
+metadata/_custom_type_script = "uid://tfh1etiytb5"

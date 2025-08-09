@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueResponse" load_steps=3 format=3 uid="uid://bt7l612oi0ltv"]
+
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="1_j0mv5"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="2_xgw3a"]
+
+[resource]
+script = ExtResource("2_xgw3a")
+_responseText = ""
+_idleAnimation = ""
+_conditions = Array[ExtResource("1_j0mv5")]([])
+metadata/_custom_type_script = "uid://d2xpiewoltoba"

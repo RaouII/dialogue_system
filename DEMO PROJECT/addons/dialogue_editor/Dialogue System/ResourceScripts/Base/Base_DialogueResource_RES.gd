@@ -1,0 +1,1 @@
+class_name DialogueResource extends Resource

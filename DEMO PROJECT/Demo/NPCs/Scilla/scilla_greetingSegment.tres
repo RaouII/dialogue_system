@@ -22,16 +22,16 @@ _value = true
 _name = "met_scilla"
 metadata/_custom_type_script = "uid://chbqwoxqpo048"
 
-[sub_resource type="Resource" id="Resource_jwrdn"]
+[sub_resource type="Resource" id="Resource_xlt1o"]
 script = ExtResource("5_a0noq")
 _responseText = "My sight isnt the best but I dont think I recognize you. "
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_a0noq"]
+[sub_resource type="Resource" id="Resource_d5yyu"]
 script = ExtResource("1_4ix10")
 _topicText = "Good morning"
-_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_jwrdn")])
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_xlt1o")])
 _goodbye = false
 _random = false
 _exclusive = false
@@ -58,40 +58,40 @@ _value = true
 _name = "talked_to_scilla_about_flowers"
 metadata/_custom_type_script = "uid://chbqwoxqpo048"
 
-[sub_resource type="Resource" id="Resource_q76g6"]
+[sub_resource type="Resource" id="Resource_m07lw"]
 script = ExtResource("5_a0noq")
 _responseText = "Thank you!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_yu65o"]
+[sub_resource type="Resource" id="Resource_5e401"]
 script = ExtResource("5_a0noq")
 _responseText = "My brother is the one that usually takes care of them, I'm always too busy working"
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_3ent7"]
+[sub_resource type="Resource" id="Resource_8266e"]
 script = ExtResource("5_a0noq")
 _responseText = "But lately I've been too sick to work, so I thought I'd tend to them to pass the time."
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_yosm1"]
+[sub_resource type="Resource" id="Resource_l8ijp"]
 script = ExtResource("5_a0noq")
 _responseText = "You aren't from around here, right?"
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_hxx8j"]
+[sub_resource type="Resource" id="Resource_xja4r"]
 script = ExtResource("5_a0noq")
 _responseText = "Let me know if you need anything!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_yndp6"]
+[sub_resource type="Resource" id="Resource_urrqb"]
 script = ExtResource("1_4ix10")
 _topicText = "These flowers are beautiful."
-_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_q76g6"), SubResource("Resource_yu65o"), SubResource("Resource_3ent7"), SubResource("Resource_yosm1"), SubResource("Resource_hxx8j")])
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_m07lw"), SubResource("Resource_5e401"), SubResource("Resource_8266e"), SubResource("Resource_l8ijp"), SubResource("Resource_xja4r")])
 _goodbye = true
 _random = false
 _exclusive = false
@@ -100,29 +100,29 @@ _functions = Array[ExtResource("4_jwrdn")]([SubResource("Resource_l2in7"), SubRe
 _conditions = Array[ExtResource("2_cn6p0")]([])
 is_greeting = false
 
-[sub_resource type="Resource" id="Resource_x3wxh"]
+[sub_resource type="Resource" id="Resource_ma3ac"]
 script = ExtResource("6_l2in7")
-_topics = Array[ExtResource("1_4ix10")]([SubResource("Resource_a0noq"), SubResource("Resource_yndp6")])
+_topics = Array[ExtResource("1_4ix10")]([SubResource("Resource_d5yyu"), SubResource("Resource_urrqb")])
 _random = false
 
-[sub_resource type="Resource" id="Resource_707qj"]
+[sub_resource type="Resource" id="Resource_acwea"]
 script = ExtResource("5_a0noq")
 _responseText = "Good morning!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_axvk0"]
+[sub_resource type="Resource" id="Resource_53h6n"]
 script = ExtResource("1_4ix10")
 _topicText = ""
-_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_707qj")])
-_nextBranch = SubResource("Resource_x3wxh")
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_acwea")])
+_nextBranch = SubResource("Resource_ma3ac")
 _goodbye = false
 _random = false
 _exclusive = true
 _priority = 10
 _functions = Array[ExtResource("4_jwrdn")]([])
 _conditions = Array[ExtResource("2_cn6p0")]([SubResource("Resource_siy48")])
-is_greeting = false
+is_greeting = true
 
 [sub_resource type="Resource" id="Resource_uweg8"]
 script = ExtResource("3_avaqx")
@@ -137,23 +137,23 @@ _value = 1.0
 comparison = ">="
 metadata/_custom_type_script = "uid://dlkrxq3j1efes"
 
-[sub_resource type="Resource" id="Resource_n40of"]
+[sub_resource type="Resource" id="Resource_70fyr"]
 script = ExtResource("5_a0noq")
 _responseText = "Hi handsome!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_k4kd5"]
+[sub_resource type="Resource" id="Resource_b5jin"]
 script = ExtResource("1_4ix10")
 _topicText = ""
-_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_n40of")])
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_70fyr")])
 _goodbye = false
 _random = false
 _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_jwrdn")]([])
 _conditions = Array[ExtResource("2_cn6p0")]([SubResource("Resource_uweg8"), SubResource("Resource_t1nku")])
-is_greeting = false
+is_greeting = true
 
 [sub_resource type="Resource" id="Resource_pd12h"]
 script = ExtResource("3_avaqx")
@@ -161,25 +161,25 @@ _name = "met_scilla"
 _value = true
 metadata/_custom_type_script = "uid://bbobh0woojdsj"
 
-[sub_resource type="Resource" id="Resource_awas8"]
+[sub_resource type="Resource" id="Resource_6bwe8"]
 script = ExtResource("5_a0noq")
 _responseText = "Can I help you with anything?"
 _conditions = Array[ExtResource("2_cn6p0")]([])
 _idleAnimation = ""
 
-[sub_resource type="Resource" id="Resource_k6uy6"]
+[sub_resource type="Resource" id="Resource_nix1t"]
 script = ExtResource("1_4ix10")
 _topicText = ""
-_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_awas8")])
+_responses = Array[ExtResource("5_a0noq")]([SubResource("Resource_6bwe8")])
 _goodbye = false
 _random = false
 _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("4_jwrdn")]([])
 _conditions = Array[ExtResource("2_cn6p0")]([SubResource("Resource_pd12h")])
-is_greeting = false
+is_greeting = true
 
 [resource]
 script = ExtResource("6_l2in7")
-_topics = Array[ExtResource("1_4ix10")]([SubResource("Resource_axvk0"), SubResource("Resource_k4kd5"), SubResource("Resource_k6uy6")])
+_topics = Array[ExtResource("1_4ix10")]([SubResource("Resource_53h6n"), SubResource("Resource_b5jin"), SubResource("Resource_nix1t")])
 _random = false

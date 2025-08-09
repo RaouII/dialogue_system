@@ -71,5 +71,5 @@ is_greeting = false
 
 [resource]
 script = ExtResource("7_4feo5")
-_topics = Array[ExtResource("1_vgblw")]([SubResource("Resource_14gp0"), null])
+_topics = Array[ExtResource("1_vgblw")]([SubResource("Resource_14gp0")])
 _random = false
