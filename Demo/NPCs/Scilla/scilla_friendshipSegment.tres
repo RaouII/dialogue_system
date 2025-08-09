@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueBranch" load_steps=18 format=3 uid="uid://brhv4s5qkcgmh"]
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=18 format=3 uid="uid://brhv4s5qkcgmh"]
 
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_vgblw"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_5i35r"]
@@ -67,8 +67,9 @@ _exclusive = false
 _priority = 10
 _functions = Array[ExtResource("3_p3jom")]([SubResource("Resource_nwuvy"), SubResource("Resource_a3guo")])
 _conditions = Array[ExtResource("2_5i35r")]([SubResource("Resource_p3jom")])
+is_greeting = false
 
 [resource]
 script = ExtResource("7_4feo5")
-_topics = Array[ExtResource("1_vgblw")]([SubResource("Resource_14gp0")])
+_topics = Array[ExtResource("1_vgblw")]([SubResource("Resource_14gp0"), null])
 _random = false

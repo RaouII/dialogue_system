@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DialogueTree" load_steps=11 format=3 uid="uid://fh0t3k4t64bt"]
 
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_a56e5"]
-[ext_resource type="Resource" uid="uid://c1nm3ha3q220n" path="res://Demo/NPCs/NPC_GenericBranch01.tres" id="2_2shbf"]
+[ext_resource type="Resource" uid="uid://c1nm3ha3q220n" path="res://Demo/NPCs/NPC_GenericSegment.tres" id="2_2shbf"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="3_8sgqd"]
 [ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_8sgqd"]
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_nbcjw"]

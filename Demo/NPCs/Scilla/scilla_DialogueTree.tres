@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="DialogueTree" load_steps=4 format=3 uid="uid://k0qits6bk3y8"]
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=6 format=3 uid="uid://k0qits6bk3y8"]
 
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="1_a56e5"]
-[ext_resource type="Resource" uid="uid://c3y6lglt5c14v" path="res://Demo/NPCs/Scilla/scilla_greetingBranch.tres" id="3_ag4vm"]
+[ext_resource type="Resource" uid="uid://c3y6lglt5c14v" path="res://Demo/NPCs/Scilla/scilla_greetingSegment.tres" id="1_ag4vm"]
+[ext_resource type="Resource" uid="uid://brhv4s5qkcgmh" path="res://Demo/NPCs/Scilla/scilla_friendshipSegment.tres" id="3_5nyn2"]
+[ext_resource type="Resource" uid="uid://c1nm3ha3q220n" path="res://Demo/NPCs/NPC_GenericSegment.tres" id="4_5nyn2"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="5_7mp2g"]
 
 [resource]
 script = ExtResource("5_7mp2g")
-_segments = Array[ExtResource("1_a56e5")]([])
-_greeting = ExtResource("3_ag4vm")
+_segments = Array[ExtResource("1_a56e5")]([ExtResource("3_5nyn2"), ExtResource("4_5nyn2")])
+_greeting = ExtResource("1_ag4vm")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
