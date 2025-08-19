@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bryusw2h5ihym"]
+[gd_scene load_steps=7 format=3 uid="uid://bryusw2h5ihym"]
 
+[ext_resource type="Theme" uid="uid://xxy7kgquroua" path="res://addons/dialogue_editor/normal_theme.tres" id="1_0t1l3"]
 [ext_resource type="Script" uid="uid://dy6j4n0k5di73" path="res://addons/dialogue_editor/topic_graphnode.gd" id="1_5cxuq"]
 [ext_resource type="StyleBox" uid="uid://doi4s6e1sypgg" path="res://addons/dialogue_editor/main scenes/styles/panel.tres" id="1_t4bdh"]
 [ext_resource type="StyleBox" uid="uid://b86h2xldbokue" path="res://addons/dialogue_editor/main scenes/styles/panel_selected.tres" id="2_0t1l3"]
@@ -21,6 +22,7 @@ corner_radius_top_right = 3
 offset_right = 470.0
 offset_bottom = 223.0
 rotation = 0.000167007
+theme = ExtResource("1_0t1l3")
 theme_override_styles/panel = ExtResource("1_t4bdh")
 theme_override_styles/panel_selected = ExtResource("2_0t1l3")
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_go8cc")

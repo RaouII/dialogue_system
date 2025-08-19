@@ -13,6 +13,7 @@ signal can_advance_line_signal(bool)
 
 
 var dialogue_lines: Array[DialogueResponse] = []
+var valid_lines: Array[DialogueResponse] = []
 var current_line_index = 0
 
 var current_branch: DialogueSegment
@@ -33,8 +34,15 @@ func _ready():
 func _on_can_advance_line(_b: bool):
 	can_advance_line = _b
 func _on_topic_selected(_topic: DialogueTopic):
+	valid_lines = []
+	current_topic = _topic
 	if option_available == true:
 		option_available = false
+	for f in _topic._functions:
+		f.run() ## Runs the function if there is one
+	for _response in _topic._responses:
+		if check_response_conditions(_response):
+				valid_lines.append(_response)
 	show_responses(_topic)
 	
 func _on_create_topic(_topic: DialogueTopic):
@@ -43,6 +51,8 @@ func _on_create_topic(_topic: DialogueTopic):
 
 #### FIRST STEP: START THE DIALOGUE
 func start_dialogue(_tree: DialogueTree):
+	print("start")
+	valid_lines = []
 	if is_dialogue_active:
 		return
 	started_dialogue.emit()
@@ -93,6 +103,12 @@ func choose_greeting(greeting: DialogueSegment):
 		var picked = randi_range(0,best_pick_array.size()-1)
 		best_pick = best_pick_array[picked] # if the "random" flag is on, this will choose one of the entries here at random. Otherwise, it'll keep the first pick. Theres probably room for improving this code, maybe checking this *before* looping through all of the entries, but I'll do that later if I feel like it.
 	current_greeting = best_pick
+	for _response in current_greeting._responses:
+		if check_response_conditions(_response):
+			print("true")
+			valid_lines.append(_response)
+	for f in current_greeting._functions:
+		f.run() ## Runs the function if there is one
 	show_responses(best_pick)
 	
 
@@ -124,22 +140,35 @@ func display_maintree_topics():
 			### IF THERE ARE TOPICS TO BE DISPLAYED, INSTANTIATE THE TOPIC COMPONENT OF THE DIALOGUE BOX
 			check_topic_availability(topic)
 
-
+func check_response_conditions(_response: DialogueResponse) -> bool:
+	if _response == null:
+		print("CONDITION FAILED FOR THE RESPONSE")
+		return false
+	if _response._conditions.is_empty():
+		return true
+	for condition in _response._conditions:
+		if condition.check() != true:
+			print("CONDITION FAILED FOR THE RESPONSE")
+			return false
+	return true
 
 func show_responses(_topic: DialogueTopic):
 	if _topic._responses.is_empty(): ### IF THERE ARE NO DIALOGUE RESPONSES IN THE CURRENT TOPIC, CLOSE IT
 		close_dialogue()
 		return
-	
+	var _responses = valid_lines
 	current_topic = _topic
-	
-	var _responses = _topic._responses
 	if _topic._random:
 		var i = randi_range(0, _responses.size()-1)
 		var _response = _responses[i]
 		#print(i)
+		while !check_response_conditions(_response):
+			i = randi_range(0, _responses.size()-1)
+			_response = _responses[i]
 		display_text.emit(_response._responseText)
-		DialogueController.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
+		for f in _response._functions:
+			f.run() ## Runs the function if there is one
+		#DialogueController.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 		
 		if current_topic._nextBranch != null and !current_topic._nextBranch._topics.is_empty():
 			for topic in current_topic._nextBranch._topics:
@@ -151,7 +180,9 @@ func show_responses(_topic: DialogueTopic):
 	if _responses[current_line_index] != null:
 		var _response = _responses[current_line_index]
 		display_text.emit(_response._responseText)
-		DialogueController.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
+		for f in _response._functions:
+			f.run() ## Runs the function if there is one
+		#DialogueController.set_character_idle_animation.emit(_response.character_id, _response._idleAnimation)
 	else:
 		push_error("No response found at current_line_index")
 
@@ -164,8 +195,7 @@ func show_responses(_topic: DialogueTopic):
 		display_maintree_topics()
 		current_line_index = 0
 	can_advance_line_signal.emit(false)
-	for f in current_topic._functions:
-		f.run() ## Runs the function if there is one
+
 
 
 func check_topic_availability(topic: DialogueTopic):
@@ -191,6 +221,7 @@ func _unhandled_input(event):
 		close_dialogue()
 		return
 	if 	event.is_action_pressed("mouse_left") && can_advance_line && option_available == false:
+		print("ADVANCE DIALOGUE")
 		advance_dialogue()
 		
 
@@ -199,7 +230,7 @@ func advance_dialogue():
 	advance_line.emit()
 	current_line_index += 1
 	if current_topic != null and !current_topic._random:
-		if current_line_index >= current_topic._responses.size():
+		if current_line_index >= valid_lines.size():
 			if current_topic._goodbye:
 				close_dialogue()
 			else:
@@ -221,6 +252,7 @@ func close_dialogue():
 	
 func reset_vars():
 	is_dialogue_active = false
+	option_available = false
 	current_line_index = 0
 	current_topic = null
 	current_branch = null

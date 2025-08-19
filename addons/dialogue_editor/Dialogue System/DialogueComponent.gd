@@ -12,6 +12,7 @@ func _process(delta):
 	### in that case, you can delete the contents of this [_process()] and just call the [_start()] function
 	var dis = get_parent().global_position.distance_to(Global.player.global_position)
 	if dis < range and Input.is_action_just_pressed("interact"):
+
 		_start()
 
 
