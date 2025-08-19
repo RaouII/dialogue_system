@@ -1,0 +1,95 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=18 format=3 uid="uid://dwtq1v60aqnbf"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_iwglo"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_sqtbs"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_oceux"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_tvo1q"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_idwud"]
+[ext_resource type="Script" uid="uid://c81l0isthin33" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/intAdd_RES.gd" id="6_p3tq0"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_fhnsb"]
+
+[sub_resource type="Resource" id="Resource_50k27"]
+script = ExtResource("3_oceux")
+_name = "found_maren"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_j1na4"]
+script = ExtResource("3_oceux")
+_name = "test"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_8vcpy"]
+script = ExtResource("5_idwud")
+_responseText = "We can't leave until we find what happened to miss Maren"
+_conditions = Array[ExtResource("2_sqtbs")]([SubResource("Resource_j1na4")])
+_functions = Array[ExtResource("4_tvo1q")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_155nr"]
+script = ExtResource("1_iwglo")
+_topicText = "Leave the Island"
+_responses = Array[ExtResource("5_idwud")]([SubResource("Resource_8vcpy")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_tvo1q")]([])
+_conditions = Array[ExtResource("2_sqtbs")]([SubResource("Resource_50k27")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_bbp6i"]
+script = ExtResource("6_p3tq0")
+_value = 0
+_name = "test"
+metadata/_custom_type_script = "uid://c81l0isthin33"
+
+[sub_resource type="Resource" id="Resource_44s6g"]
+script = ExtResource("5_idwud")
+_responseText = "I guess we should look around some more"
+_conditions = Array[ExtResource("2_sqtbs")]([])
+_functions = Array[ExtResource("4_tvo1q")]([SubResource("Resource_bbp6i")])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_3u7v4"]
+script = ExtResource("1_iwglo")
+_topicText = "Stay"
+_responses = Array[ExtResource("5_idwud")]([SubResource("Resource_44s6g")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_tvo1q")]([])
+_conditions = Array[ExtResource("2_sqtbs")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_0bea6"]
+script = ExtResource("3_oceux")
+_name = "found_maren"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_dmxdb"]
+script = ExtResource("5_idwud")
+_responseText = "I guess we did find out enough"
+_conditions = Array[ExtResource("2_sqtbs")]([])
+_functions = Array[ExtResource("4_tvo1q")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_o6r7p"]
+script = ExtResource("1_iwglo")
+_topicText = "Leave the Island"
+_responses = Array[ExtResource("5_idwud")]([SubResource("Resource_dmxdb")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_tvo1q")]([])
+_conditions = Array[ExtResource("2_sqtbs")]([SubResource("Resource_0bea6")])
+is_greeting = false
+
+[resource]
+script = ExtResource("7_fhnsb")
+_topics = Array[ExtResource("1_iwglo")]([SubResource("Resource_155nr"), SubResource("Resource_3u7v4"), SubResource("Resource_o6r7p")])
+_random = false

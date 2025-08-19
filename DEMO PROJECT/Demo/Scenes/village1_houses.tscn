@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://butj2l6xhngsg"]
+[gd_scene load_steps=61 format=4 uid="uid://butj2l6xhngsg"]
 
 [ext_resource type="TileSet" uid="uid://dt873lhy1lbwa" path="res://Demo/Tileset/ts_base.tres" id="1_dupha"]
 [ext_resource type="Script" uid="uid://rrrxrqqwjgj" path="res://Demo/Scenes/level.gd" id="1_kj37x"]
@@ -14,11 +14,10 @@
 [ext_resource type="Script" uid="uid://uwrnrfiu62ki" path="res://addons/dialogue_editor/Dialogue System/simple_message_component.gd" id="11_qvvwy"]
 [ext_resource type="PackedScene" uid="uid://dresscd6hker5" path="res://Demo/NPCs/maria.tscn" id="11_x68jp"]
 [ext_resource type="Resource" uid="uid://d2norlbbag3ow" path="res://Demo/NPCs/Gunner/gunner_ID.tres" id="12_nyras"]
-[ext_resource type="Script" uid="uid://c81l0isthin33" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/intAdd_RES.gd" id="12_pqfbl"]
 [ext_resource type="Script" uid="uid://b8v15g31g313y" path="res://addons/dialogue_editor/Dialogue System/condition_component.gd" id="13_n4hyk"]
 [ext_resource type="PackedScene" uid="uid://c887sfboy4ti1" path="res://Demo/NPCs/barman.tscn" id="14_nyras"]
 [ext_resource type="Script" uid="uid://cpoqbalfaejo6" path="res://Demo/System/SimpleSceneManager/run_function_on_teleport.gd" id="15_ljrny"]
-[ext_resource type="Script" uid="uid://bacgehb8cyvn6" path="res://addons/dialogue_editor/Dialogue System/Cinematic/scr_CutscenePlayer.gd" id="15_myl32"]
+[ext_resource type="Script" uid="uid://bacgehb8cyvn6" path="res://addons/dialogue_editor/Cinematic/scr_CutscenePlayer.gd" id="15_myl32"]
 [ext_resource type="Resource" uid="uid://chd11hmfw6ugl" path="res://Demo/player/player_id.tres" id="15_wtocl"]
 [ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="16_1yyp4"]
 [ext_resource type="Script" uid="uid://chbqwoxqpo048" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/boolSetter_RES.gd" id="16_5vppd"]
@@ -33,6 +32,7 @@
 script = ExtResource("9_nyras")
 _responseText = "A bunch of books"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -46,6 +46,7 @@ metadata/_custom_type_script = "uid://tfh1etiytb5"
 script = ExtResource("9_nyras")
 _responseText = "A simple furnace"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -65,6 +66,7 @@ metadata/_custom_type_script = "uid://d3qwl0rfl1cas"
 script = ExtResource("9_nyras")
 _responseText = "You found 1 [Mana Potion]"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 character_id = SubResource("Resource_enj4c")
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
@@ -73,14 +75,9 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("9_nyras")
 _responseText = "The owner wont like that"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
-
-[sub_resource type="Resource" id="Resource_6dkbv"]
-script = ExtResource("12_pqfbl")
-_value = 1
-_name = "potions"
-metadata/_custom_type_script = "uid://c81l0isthin33"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq0nv"]
 
@@ -88,6 +85,7 @@ metadata/_custom_type_script = "uid://c81l0isthin33"
 script = ExtResource("9_nyras")
 _responseText = "You found 1 [Apple]"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -101,6 +99,7 @@ metadata/_custom_type_script = "uid://tfh1etiytb5"
 script = ExtResource("9_nyras")
 _responseText = "You found 1 [Health Potion]"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -114,6 +113,7 @@ metadata/_custom_type_script = "uid://tfh1etiytb5"
 script = ExtResource("9_nyras")
 _responseText = "Gunner: Stop going through my stuff!!"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 character_id = ExtResource("12_nyras")
 _idleAnimation = "Protest"
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
@@ -128,6 +128,7 @@ metadata/_custom_type_script = "uid://tfh1etiytb5"
 script = ExtResource("9_nyras")
 _responseText = "There are a bunch of toys in there"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -159,6 +160,7 @@ metadata/_custom_type_script = "uid://c03tjkaexh7ef"
 script = ExtResource("9_nyras")
 _responseText = "????: I hope you have it by now..."
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -166,6 +168,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("9_nyras")
 _responseText = "Barman: I told you guys I needed more time."
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -173,6 +176,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("9_nyras")
 _responseText = "????: Its been months, Hector"
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -180,6 +184,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("9_nyras")
 _responseText = "Hector: And I told you that wasnt enough..."
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -187,6 +192,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("9_nyras")
 _responseText = "????: ...."
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -194,6 +200,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("9_nyras")
 _responseText = "????: You have one more week..."
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -307,6 +314,7 @@ tracks/1/keys = {
 script = ExtResource("9_nyras")
 _responseText = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 character_id = ExtResource("15_wtocl")
 _idleAnimation = "Walk"
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
@@ -315,6 +323,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("9_nyras")
 _responseText = ""
 _conditions = Array[ExtResource("7_cwn5c")]([])
+_functions = Array[ExtResource("8_2bc1i")]([])
 character_id = ExtResource("15_wtocl")
 _idleAnimation = "Idle"
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
@@ -438,7 +447,6 @@ position = Vector2(152, 48)
 [node name="SimpleMessageComponent" type="Node" parent="House1/Chest"]
 script = ExtResource("11_qvvwy")
 _responses = Array[ExtResource("9_nyras")]([SubResource("Resource_cgjll"), SubResource("Resource_l2j30")])
-_functions = Array[ExtResource("8_2bc1i")]([SubResource("Resource_6dkbv")])
 
 [node name="ConditionComponent" type="Node" parent="House1/Chest/SimpleMessageComponent"]
 script = ExtResource("13_n4hyk")

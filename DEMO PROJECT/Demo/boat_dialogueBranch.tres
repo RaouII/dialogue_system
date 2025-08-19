@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 script = ExtResource("4_i8s5q")
 _responseText = "We can't leave until we find what happened to miss Maren"
 _conditions = Array[ExtResource("2_2mo0p")]([])
+_functions = Array[ExtResource("3_4n18c")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_2mo0p"]
@@ -36,6 +37,7 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 script = ExtResource("4_i8s5q")
 _responseText = "I guess we should look around some more"
 _conditions = Array[ExtResource("2_2mo0p")]([])
+_functions = Array[ExtResource("3_4n18c")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://chbqwoxqpo048"
 
@@ -61,6 +63,7 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 script = ExtResource("4_i8s5q")
 _responseText = "I guess we did find out enough"
 _conditions = Array[ExtResource("2_2mo0p")]([])
+_functions = Array[ExtResource("3_4n18c")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_c60tl"]

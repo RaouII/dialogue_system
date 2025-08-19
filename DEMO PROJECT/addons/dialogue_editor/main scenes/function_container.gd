@@ -39,7 +39,7 @@ func _ready():
 	function_picker = EditorResourcePicker.new()
 	var delete_button = Button.new()
 	delete_button.text = "x"
-	delete_button.custom_minimum_size = Vector2(16,16)
+	delete_button.custom_minimum_size = Vector2(24,16)
 	delete_button.pressed.connect(_on_delete_pressed)
 	function_picker.base_type = "Function"
 	function_picker.resource_changed.connect(_on_resource_changed)

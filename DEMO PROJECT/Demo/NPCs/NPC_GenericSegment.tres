@@ -10,18 +10,21 @@
 script = ExtResource("4_lpwh4")
 _responseText = "There's not much to tell"
 _conditions = Array[ExtResource("2_a71tg")]([])
+_functions = Array[ExtResource("3_l1dmp")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_a71tg"]
 script = ExtResource("4_lpwh4")
 _responseText = "We have a lot of passersby, and they usually stay by the Inn near the east bridge."
 _conditions = Array[ExtResource("2_a71tg")]([])
+_functions = Array[ExtResource("3_l1dmp")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_l1dmp"]
 script = ExtResource("4_lpwh4")
 _responseText = "There's an Alchemist that also lives near that. You can talk to her if you need any medicine"
 _conditions = Array[ExtResource("2_a71tg")]([])
+_functions = Array[ExtResource("3_l1dmp")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_lpwh4"]
@@ -40,12 +43,14 @@ is_greeting = false
 script = ExtResource("4_lpwh4")
 _responseText = "I can't say I've met anyone by that name"
 _conditions = Array[ExtResource("2_a71tg")]([])
+_functions = Array[ExtResource("3_l1dmp")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_yk53f"]
 script = ExtResource("4_lpwh4")
 _responseText = "But then again, a lot of people come and go, so I dont memorize their names unless they stay around"
 _conditions = Array[ExtResource("2_a71tg")]([])
+_functions = Array[ExtResource("3_l1dmp")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_4i176"]

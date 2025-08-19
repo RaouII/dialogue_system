@@ -11,6 +11,7 @@
 script = ExtResource("5_ynr26")
 _responseText = "What do you want?!"
 _conditions = Array[ExtResource("3_8psop")]([])
+_functions = Array[ExtResource("4_cgyt1")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 

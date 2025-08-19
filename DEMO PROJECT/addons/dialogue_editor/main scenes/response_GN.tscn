@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb7hdwu515h3r"]
+[gd_scene load_steps=7 format=3 uid="uid://bb7hdwu515h3r"]
 
 [ext_resource type="StyleBox" uid="uid://doi4s6e1sypgg" path="res://addons/dialogue_editor/main scenes/styles/panel.tres" id="1_0kar6"]
+[ext_resource type="Theme" uid="uid://xxy7kgquroua" path="res://addons/dialogue_editor/normal_theme.tres" id="1_eiq75"]
 [ext_resource type="Script" uid="uid://c040o5e1gn2v" path="res://addons/dialogue_editor/main scenes/response_graphnode.gd" id="1_qstkq"]
 [ext_resource type="StyleBox" uid="uid://b86h2xldbokue" path="res://addons/dialogue_editor/main scenes/styles/panel_selected.tres" id="2_eiq75"]
 
@@ -18,10 +19,11 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 
 [node name="Response GraphNode" type="GraphNode"]
-custom_minimum_size = Vector2(0, 230)
-offset_right = 470.0
-offset_bottom = 230.0
+custom_minimum_size = Vector2(0, 150)
+offset_right = 362.0
+offset_bottom = 150.0
 rotation = 0.000167007
+theme = ExtResource("1_eiq75")
 theme_override_styles/panel = ExtResource("1_0kar6")
 theme_override_styles/panel_selected = ExtResource("2_eiq75")
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_auevs")
@@ -64,15 +66,6 @@ slot/3/right_type = 0
 slot/3/right_color = Color(1, 1, 1, 1)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
-slot/4/left_enabled = false
-slot/4/left_type = 0
-slot/4/left_color = Color(1, 1, 1, 1)
-slot/4/left_icon = null
-slot/4/right_enabled = false
-slot/4/right_type = 0
-slot/4/right_color = Color(1, 1, 1, 1)
-slot/4/right_icon = null
-slot/4/draw_stylebox = true
 script = ExtResource("1_qstkq")
 
 [node name="Topic Container" type="HBoxContainer" parent="."]
@@ -92,69 +85,156 @@ layout_mode = 2
 text = "Text"
 
 [node name="TextEdit" type="TextEdit" parent="Topic Container/HFlowContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(256, 48)
 layout_mode = 2
 size_flags_vertical = 3
 wrap_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Topic Container"]
+[node name="response_connection_container" type="MarginContainer" parent="Topic Container"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="Responses" type="Label" parent="Topic Container/MarginContainer"]
+[node name="Responses" type="Label" parent="Topic Container/response_connection_container"]
 layout_mode = 2
 text = "Responses"
 
 [node name="CharacterID" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="Select ID" type="Button" parent="CharacterID"]
 layout_mode = 2
-text = "Select Character ID"
+text = "Character ID"
 
-[node name="CharacterIDLabel" type="Label" parent="CharacterID"]
+[node name="Panel" type="Panel" parent="CharacterID"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
+[node name="CharacterIDLabel" type="Label" parent="CharacterID/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 27.0
+
 [node name="characterIDFilePicker" type="FileDialog" parent="CharacterID"]
+unique_name_in_owner = true
 title = "Open a File"
 ok_button_text = "Open"
 file_mode = 0
 filters = PackedStringArray("*.tres")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="DataContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DataContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Conditions Container" type="VBoxContainer" parent="DataContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="DataContainer/HBoxContainer/Conditions Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="DataContainer/HBoxContainer/Conditions Container/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ConditionsLabelHBox" type="HBoxContainer" parent="DataContainer/HBoxContainer/Conditions Container/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="DataContainer/HBoxContainer/Conditions Container/MarginContainer/ConditionsLabelHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "   Conditions   "
+
+[node name="AddCondition" type="Button" parent="DataContainer/HBoxContainer/Conditions Container/MarginContainer/ConditionsLabelHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = " + "
+
+[node name="ConditionListContainer" type="VBoxContainer" parent="DataContainer/HBoxContainer/Conditions Container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VSeparator" type="VSeparator" parent="DataContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Functions Container" type="VBoxContainer" parent="DataContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="DataContainer/HBoxContainer/Functions Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="DataContainer/HBoxContainer/Functions Container/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="FunctionsLabelHBox" type="HBoxContainer" parent="DataContainer/HBoxContainer/Functions Container/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="DataContainer/HBoxContainer/Functions Container/MarginContainer/FunctionsLabelHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "   Functions   "
+
+[node name="AddFunction" type="Button" parent="DataContainer/HBoxContainer/Functions Container/MarginContainer/FunctionsLabelHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = " + "
+
+[node name="FunctionListContainer" type="VBoxContainer" parent="DataContainer/HBoxContainer/Functions Container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="AnimationContainer" type="HBoxContainer" parent="DataContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DataContainer/AnimationContainer"]
 layout_mode = 2
 text = "Animation"
 
-[node name="AnimationLabel" type="TextEdit" parent="HBoxContainer"]
+[node name="AnimationLabel" type="TextEdit" parent="DataContainer/AnimationContainer"]
 custom_minimum_size = Vector2(210, 35)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/background_color = Color(0.23632, 0.210217, 0.267685, 1)
+theme_override_colors/font_placeholder_color = Color(0.465, 0.44, 0.5, 1)
 placeholder_text = "Animation Name"
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="Conditions Container" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Conditions Container"]
-layout_mode = 2
-
 [node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 4
-text = "delete"
+text = "colapse"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
 
 [connection signal="text_changed" from="Topic Container/HFlowContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="button_up" from="CharacterID/Select ID" to="." method="_on_select_id_button_up"]
-[connection signal="pressed" from="CharacterID/Select ID" to="." method="_on_add_condition_pressed"]
 [connection signal="file_selected" from="CharacterID/characterIDFilePicker" to="." method="_on_file_dialog_file_selected"]
-[connection signal="text_changed" from="HBoxContainer/AnimationLabel" to="." method="_on_animation_label_text_changed"]
+[connection signal="pressed" from="DataContainer/HBoxContainer/Conditions Container/MarginContainer/ConditionsLabelHBox/AddCondition" to="." method="_on_add_condition_pressed"]
+[connection signal="pressed" from="DataContainer/HBoxContainer/Functions Container/MarginContainer/FunctionsLabelHBox/AddFunction" to="." method="_on_add_function_pressed"]
+[connection signal="text_changed" from="DataContainer/AnimationContainer/AnimationLabel" to="." method="_on_animation_label_text_changed"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

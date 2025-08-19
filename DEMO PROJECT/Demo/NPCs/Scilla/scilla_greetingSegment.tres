@@ -26,6 +26,7 @@ metadata/_custom_type_script = "uid://chbqwoxqpo048"
 script = ExtResource("5_a0noq")
 _responseText = "My sight isnt the best but I dont think I recognize you. "
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_d5yyu"]
@@ -62,30 +63,35 @@ metadata/_custom_type_script = "uid://chbqwoxqpo048"
 script = ExtResource("5_a0noq")
 _responseText = "Thank you!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_5e401"]
 script = ExtResource("5_a0noq")
 _responseText = "My brother is the one that usually takes care of them, I'm always too busy working"
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_8266e"]
 script = ExtResource("5_a0noq")
 _responseText = "But lately I've been too sick to work, so I thought I'd tend to them to pass the time."
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_l8ijp"]
 script = ExtResource("5_a0noq")
 _responseText = "You aren't from around here, right?"
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_xja4r"]
 script = ExtResource("5_a0noq")
 _responseText = "Let me know if you need anything!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_urrqb"]
@@ -109,6 +115,7 @@ _random = false
 script = ExtResource("5_a0noq")
 _responseText = "Good morning!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_53h6n"]
@@ -141,6 +148,7 @@ metadata/_custom_type_script = "uid://dlkrxq3j1efes"
 script = ExtResource("5_a0noq")
 _responseText = "Hi handsome!"
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_b5jin"]
@@ -165,6 +173,7 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 script = ExtResource("5_a0noq")
 _responseText = "Can I help you with anything?"
 _conditions = Array[ExtResource("2_cn6p0")]([])
+_functions = Array[ExtResource("4_jwrdn")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_nix1t"]

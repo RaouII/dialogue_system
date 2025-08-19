@@ -1,7 +1,7 @@
 @icon("uid://c688tq47vlke4")
 class_name SimpleMessageComponent extends Node
 @export var _responses: Array[DialogueResponse]
-@export var _functions: Array[Function]
+#@export var _functions: Array[Function]
 # Called when the node enters the scene tree for the first time.
 
 
@@ -18,7 +18,7 @@ func _start():
 	var _branch = DialogueSegment.new()
 	var _topic = DialogueTopic.new()
 	_topic._responses = _responses
-	_topic._functions = _functions
+	#_topic._functions = _functions
 	_topic._goodbye = true
 	_topic._exclusive = true
 	_tree._greeting = _branch

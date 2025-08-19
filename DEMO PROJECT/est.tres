@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=15 format=3 uid="uid://cfwbge5alixjx"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_xc2sl"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_nw3mt"]
+[ext_resource type="Script" uid="uid://bbobh0woojdsj" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_Switch_RES.gd" id="3_pd0vd"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="4_pg4yr"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_w4iie"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="6_adso5"]
+
+[sub_resource type="Resource" id="Resource_50k27"]
+script = ExtResource("3_pd0vd")
+_name = "found_maren"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_aw7fc"]
+script = ExtResource("5_w4iie")
+_responseText = "We can't leave until we find what happened to miss Maren"
+_conditions = Array[ExtResource("2_nw3mt")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_btxmi"]
+script = ExtResource("1_xc2sl")
+_topicText = "Leave the Island"
+_responses = Array[ExtResource("5_w4iie")]([SubResource("Resource_aw7fc")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_pg4yr")]([])
+_conditions = Array[ExtResource("2_nw3mt")]([SubResource("Resource_50k27")])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_aunhj"]
+script = ExtResource("5_w4iie")
+_responseText = "I guess we should look around some more"
+_conditions = Array[ExtResource("2_nw3mt")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_1xjg7"]
+script = ExtResource("1_xc2sl")
+_topicText = "Stay"
+_responses = Array[ExtResource("5_w4iie")]([SubResource("Resource_aunhj")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_pg4yr")]([])
+_conditions = Array[ExtResource("2_nw3mt")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_0bea6"]
+script = ExtResource("3_pd0vd")
+_name = "found_maren"
+_value = true
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
+[sub_resource type="Resource" id="Resource_cbo6i"]
+script = ExtResource("5_w4iie")
+_responseText = "I guess we did find out enough"
+_conditions = Array[ExtResource("2_nw3mt")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_qegm4"]
+script = ExtResource("1_xc2sl")
+_topicText = "Leave the Island"
+_responses = Array[ExtResource("5_w4iie")]([SubResource("Resource_cbo6i")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("4_pg4yr")]([])
+_conditions = Array[ExtResource("2_nw3mt")]([SubResource("Resource_0bea6")])
+is_greeting = false
+
+[resource]
+script = ExtResource("6_adso5")
+_topics = Array[ExtResource("1_xc2sl")]([SubResource("Resource_btxmi"), SubResource("Resource_1xjg7"), SubResource("Resource_qegm4")])
+_random = false

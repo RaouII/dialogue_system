@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://xxy7kgquroua"]
+
+[ext_resource type="StyleBox" uid="uid://b3lo1fj24v8hn" path="res://addons/dialogue_editor/texteditor_box_flat.tres" id="1_wtyt4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lobi0"]
+content_margin_left = 5.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 5.0
+bg_color = Color(0.580566, 0.549206, 0.6254, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0962047, 0.0962048, 0.0962046, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.94902)
+anti_aliasing_size = 2.27
+
+[resource]
+TextEdit/colors/caret_color = Color(0.303581, 0.230534, 0.192267, 1)
+TextEdit/colors/font_color = Color(0.152638, 0.128762, 0.103908, 1)
+TextEdit/colors/font_placeholder_color = Color(0.432102, 0.305872, 0.268438, 0.6)
+TextEdit/constants/line_spacing = -4
+TextEdit/font_sizes/font_size = 17
+TextEdit/styles/focus = ExtResource("1_wtyt4")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_lobi0")

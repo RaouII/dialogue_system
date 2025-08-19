@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSegment" load_steps=30 format=3 uid="uid://c45auqj7s7lyy"]
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=29 format=3 uid="uid://c45auqj7s7lyy"]
 
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_vg5xs"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_wtxk8"]
@@ -25,12 +25,14 @@ metadata/_custom_type_script = "uid://c03tjkaexh7ef"
 script = ExtResource("6_m6h04")
 _responseText = "Nothing a customer needs to be worried about."
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_4y34h"]
 script = ExtResource("6_m6h04")
 _responseText = "I appreciate the concern, though"
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_m6h04"]
@@ -58,40 +60,38 @@ _value = 35.0
 _name = "money_problem"
 metadata/_custom_type_script = "uid://c03tjkaexh7ef"
 
-[sub_resource type="Resource" id="Resource_p4syt"]
-script = ExtResource("7_oi515")
-_topics = Array[ExtResource("1_vg5xs")]([null, null])
-_random = false
-
 [sub_resource type="Resource" id="Resource_mghcd"]
 script = ExtResource("6_m6h04")
 _responseText = "..."
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_vumem"]
 script = ExtResource("6_m6h04")
 _responseText = "I borrowed some money from them "
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_x8ied"]
 script = ExtResource("6_m6h04")
 _responseText = "and now they wanna collect it"
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_wkkaw"]
 script = ExtResource("6_m6h04")
 _responseText = "But I dont have it."
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_8ndl3"]
 script = ExtResource("1_vg5xs")
 _topicText = "Come on, who are those guys?"
 _responses = Array[ExtResource("6_m6h04")]([SubResource("Resource_mghcd"), SubResource("Resource_vumem"), SubResource("Resource_x8ied"), SubResource("Resource_wkkaw")])
-_nextBranch = SubResource("Resource_p4syt")
 _goodbye = false
 _random = false
 _exclusive = false
@@ -117,6 +117,7 @@ metadata/_custom_type_script = "uid://c03tjkaexh7ef"
 script = ExtResource("6_m6h04")
 _responseText = "Really? Thank you!"
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_e4qma"]
@@ -155,6 +156,7 @@ metadata/_custom_type_script = "uid://c03tjkaexh7ef"
 script = ExtResource("6_m6h04")
 _responseText = "Thank you!"
 _conditions = Array[ExtResource("2_wtxk8")]([])
+_functions = Array[ExtResource("4_0ii7x")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_28b6s"]

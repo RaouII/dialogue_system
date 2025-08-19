@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ckkwfw0fe0bil" path="res://addons/dialogue_editor/main scenes/function_container.gd" id="1_elhqp"]
 
 [node name="ConditionContainer" type="VBoxContainer"]
+offset_right = 247.0
+offset_bottom = 35.0
 theme_override_constants/separation = 1
 script = ExtResource("1_elhqp")
 
@@ -23,6 +25,5 @@ text = "▶"
 [node name="HSeparator" type="HSeparator" parent="."]
 modulate = Color(0.439216, 0.439216, 0.439216, 0.290196)
 layout_mode = 2
-theme_override_constants/separation = 0
 
 [connection signal="toggled" from="HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]

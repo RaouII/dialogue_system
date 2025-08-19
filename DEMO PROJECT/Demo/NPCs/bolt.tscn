@@ -1,78 +1,16 @@
-[gd_scene load_steps=28 format=4 uid="uid://px1fygb0l1al"]
+[gd_scene load_steps=15 format=4 uid="uid://px1fygb0l1al"]
 
 [ext_resource type="Script" uid="uid://dqfcqdux7dbap" path="res://addons/dialogue_editor/Dialogue System/DialogueComponent.gd" id="1_m47wj"]
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="2_dbs4g"]
+[ext_resource type="Resource" uid="uid://dxe4kslgs60am" path="res://Demo/NPCs/Bolt/bolt_greetingBranch2.tres" id="2_p1q5d"]
 [ext_resource type="Script" uid="uid://7aaar335xgew" path="res://Demo/NPCs/entity.gd" id="3_p1q5d"]
-[ext_resource type="Resource" uid="uid://doctdamb0pybx" path="res://Demo/NPCs/Bolt/bolt_greetingBranch.tres" id="3_uyj4s"]
-[ext_resource type="Resource" uid="uid://bsr7flxdaj3vs" path="res://Demo/NPCs/Bolt/bolt_friendshipBranch.tres" id="3_wahbi"]
 [ext_resource type="Script" uid="uid://d3qwl0rfl1cas" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/characterID_RES.gd" id="4_rh75q"]
-[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="4_ts6y0"]
-[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="5_ts6y0"]
-[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="5_wahbi"]
 [ext_resource type="Script" uid="uid://tfh1etiytb5" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTree_RES.gd" id="6_m3vsl"]
-[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="7_wahbi"]
-
-[sub_resource type="Resource" id="Resource_2bvhw"]
-script = ExtResource("5_wahbi")
-_responseText = "There's not much to tell"
-_idleAnimation = ""
-_conditions = Array[ExtResource("4_ts6y0")]([])
-
-[sub_resource type="Resource" id="Resource_a71tg"]
-script = ExtResource("5_wahbi")
-_responseText = "We have a lot of passersby, and they usually stay by the Inn near the east bridge."
-_idleAnimation = ""
-_conditions = Array[ExtResource("4_ts6y0")]([])
-
-[sub_resource type="Resource" id="Resource_l1dmp"]
-script = ExtResource("5_wahbi")
-_responseText = "There's an Alchemist that also lives near that. You can talk to her if you need any medicine"
-_idleAnimation = ""
-_conditions = Array[ExtResource("4_ts6y0")]([])
-
-[sub_resource type="Resource" id="Resource_lpwh4"]
-script = ExtResource("7_wahbi")
-_topicText = "Ask about the Village"
-_responses = Array[ExtResource("5_wahbi")]([SubResource("Resource_2bvhw"), SubResource("Resource_a71tg"), SubResource("Resource_l1dmp")])
-_goodbye = true
-_random = false
-_exclusive = false
-_priority = 10
-_functions = Array[ExtResource("5_ts6y0")]([])
-_conditions = Array[ExtResource("4_ts6y0")]([])
-
-[sub_resource type="Resource" id="Resource_5wy82"]
-script = ExtResource("5_wahbi")
-_responseText = "I can't say I've met anyone by that name"
-_idleAnimation = ""
-_conditions = Array[ExtResource("4_ts6y0")]([])
-
-[sub_resource type="Resource" id="Resource_yk53f"]
-script = ExtResource("5_wahbi")
-_responseText = "But then again, a lot of people come and go, so I dont memorize their names unless they stay around"
-_idleAnimation = ""
-_conditions = Array[ExtResource("4_ts6y0")]([])
-
-[sub_resource type="Resource" id="Resource_4i176"]
-script = ExtResource("7_wahbi")
-_topicText = "Ask About Maren Valor"
-_responses = Array[ExtResource("5_wahbi")]([SubResource("Resource_5wy82"), SubResource("Resource_yk53f")])
-_goodbye = false
-_random = false
-_exclusive = false
-_priority = 10
-_functions = Array[ExtResource("5_ts6y0")]([])
-_conditions = Array[ExtResource("4_ts6y0")]([])
-
-[sub_resource type="Resource" id="Resource_n3vmx"]
-script = ExtResource("2_dbs4g")
-_topics = Array[ExtResource("7_wahbi")]([SubResource("Resource_lpwh4"), SubResource("Resource_4i176")])
-_random = false
 
 [sub_resource type="Resource" id="Resource_dbs4g"]
 script = ExtResource("6_m3vsl")
-_branches = Array[ExtResource("2_dbs4g")]([ExtResource("3_wahbi"), SubResource("Resource_n3vmx")])
-_greeting = ExtResource("3_uyj4s")
+_segments = Array[ExtResource("2_dbs4g")]([])
+_greeting = ExtResource("2_p1q5d")
 metadata/_custom_type_script = "uid://tfh1etiytb5"
 
 [sub_resource type="Resource" id="Resource_qjpog"]

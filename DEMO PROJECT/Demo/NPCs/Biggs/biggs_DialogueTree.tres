@@ -25,6 +25,7 @@ metadata/_custom_type_script = "uid://chbqwoxqpo048"
 script = ExtResource("8_ha6fi")
 _responseText = "Hey, a new face around! "
 _conditions = Array[ExtResource("4_4y5nh")]([])
+_functions = Array[ExtResource("6_f3esk")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -32,6 +33,7 @@ metadata/_custom_type_script = "uid://d2xpiewoltoba"
 script = ExtResource("8_ha6fi")
 _responseText = "How are you doing?"
 _conditions = Array[ExtResource("4_4y5nh")]([])
+_functions = Array[ExtResource("6_f3esk")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 
@@ -58,6 +60,7 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 script = ExtResource("8_ha6fi")
 _responseText = "How is it going?"
 _conditions = Array[ExtResource("4_4y5nh")]([])
+_functions = Array[ExtResource("6_f3esk")]([])
 _idleAnimation = ""
 metadata/_custom_type_script = "uid://d2xpiewoltoba"
 

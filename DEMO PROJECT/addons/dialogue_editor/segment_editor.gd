@@ -160,10 +160,11 @@ func create_topic_resource(_node: TopicGraphNode) -> DialogueTopic:
 		var last_pos: int = response_chain.size()-1
 		var new_response := DialogueResponse.new()
 		new_response._responseText = response.topic_prompt.text
-		new_response.character_id = response.characterID
-		new_response._idleAnimation = response.animation
+		for condition:ConditionContainer in response.condition_list:
+			new_response._conditions.append(condition.current_resource)
+		for function:FunctionContainer in response.function_list:
+			new_response._functions.append(function.current_resource)
 		new_topic._responses.append(new_response)
-
 			
 	return(new_topic)
 
@@ -227,7 +228,7 @@ func _create_response_node_from_file(_init_pos, _index):
 	var node = RESPONSE_GN.instantiate()
 	var padding = v_padding
 	var width = node.size.x+padding
-	var height = node.size.y+padding
+	var height = node.size.y+padding+70
 	var y_offset = height*rows
 	node.position_offset = _init_pos + Vector2(0,y_offset) + (_index * Vector2(width,0)) 
 	graph_edit.add_child(node)
@@ -261,6 +262,16 @@ func _load_responses(topic:DialogueTopic, offset, parent_offset,parent):
 		var response_node:ResponseGraphNode = _create_response_node_from_file(new_init_pos,_i)
 		response_to_node[response] = response_node.name
 		response_node.topic_prompt.text = response._responseText
+		for condition : Condition in response._conditions:
+			response_node._on_add_condition_pressed()
+			response_node.condition_container.current_resource = condition
+			response_node.condition_container.condition_picker.edited_resource = condition
+			response_node.condition_container.resource_editor.edit(condition)
+		for function : Function in response._functions:
+			response_node._on_add_function_pressed()
+			response_node.function_container.current_resource = function
+			response_node.function_container.function_picker.edited_resource = function
+			response_node.function_container.resource_editor.edit(function)
 		if _i == topic._responses.size()-1:
 			if topic._nextBranch:
 				print("adding topics")
@@ -271,6 +282,7 @@ func _load_responses(topic:DialogueTopic, offset, parent_offset,parent):
 			#response_node.topic_prompt.text = response._responseText
 			#ii += 1
 		_i += 1
+
 
 func load_topics(parent_topic: DialogueTopic, response: DialogueResponse,offset, parent_offset):
 	var _i = 0

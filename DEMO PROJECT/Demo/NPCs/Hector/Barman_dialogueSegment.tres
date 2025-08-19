@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=12 format=3 uid="uid://kmoh74k1s2d3"]
+
+[ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_jnink"]
+[ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_l8j2c"]
+[ext_resource type="Script" uid="uid://bx5f8o26ddsmc" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Functions/functions_RES.gd" id="3_xkyqy"]
+[ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="4_j15ub"]
+[ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="5_wbnti"]
+
+[sub_resource type="Resource" id="Resource_fjsxl"]
+script = ExtResource("4_j15ub")
+_responseText = "Sure thing"
+_conditions = Array[ExtResource("2_l8j2c")]([])
+_functions = Array[ExtResource("3_xkyqy")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_bdaiu"]
+script = ExtResource("1_jnink")
+_topicText = "I wanna rent a room"
+_responses = Array[ExtResource("4_j15ub")]([SubResource("Resource_fjsxl")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_xkyqy")]([])
+_conditions = Array[ExtResource("2_l8j2c")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_y3304"]
+script = ExtResource("4_j15ub")
+_responseText = "Sure thing"
+_conditions = Array[ExtResource("2_l8j2c")]([])
+_functions = Array[ExtResource("3_xkyqy")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_ugab1"]
+script = ExtResource("1_jnink")
+_topicText = "Can I have a drink?"
+_responses = Array[ExtResource("4_j15ub")]([SubResource("Resource_y3304")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_xkyqy")]([])
+_conditions = Array[ExtResource("2_l8j2c")]([])
+is_greeting = false
+
+[sub_resource type="Resource" id="Resource_om0ec"]
+script = ExtResource("4_j15ub")
+_responseText = "Sorry but no"
+_conditions = Array[ExtResource("2_l8j2c")]([])
+_functions = Array[ExtResource("3_xkyqy")]([])
+_idleAnimation = ""
+
+[sub_resource type="Resource" id="Resource_vbtxi"]
+script = ExtResource("1_jnink")
+_topicText = "Have you heard any rumours recently?"
+_responses = Array[ExtResource("4_j15ub")]([SubResource("Resource_om0ec")])
+_goodbye = true
+_random = false
+_exclusive = false
+_priority = 10
+_functions = Array[ExtResource("3_xkyqy")]([])
+_conditions = Array[ExtResource("2_l8j2c")]([])
+is_greeting = false
+
+[resource]
+script = ExtResource("5_wbnti")
+_topics = Array[ExtResource("1_jnink")]([SubResource("Resource_bdaiu"), SubResource("Resource_ugab1"), SubResource("Resource_vbtxi")])
+_random = false

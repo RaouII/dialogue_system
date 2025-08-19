@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSegment" load_steps=16 format=3 uid="uid://c5kohaq0vgwok"]
+[gd_resource type="Resource" script_class="DialogueSegment" load_steps=13 format=3 uid="uid://c5kohaq0vgwok"]
 
 [ext_resource type="Script" uid="uid://wgnly555mcgi" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DTopic_RES.gd" id="1_i2yvw"]
 [ext_resource type="Script" uid="uid://cstfk1kl6q38o" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Conditions/Condition_RES.gd" id="2_afhnb"]
@@ -8,52 +8,30 @@
 [ext_resource type="Script" uid="uid://d2xpiewoltoba" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DResponse_RES.gd" id="6_bhgfk"]
 [ext_resource type="Script" uid="uid://bphmgatjcmttf" path="res://addons/dialogue_editor/Dialogue System/ResourceScripts/Base/DBranch_RES.gd" id="7_3ta83"]
 
-[sub_resource type="Resource" id="Resource_c60tl"]
-script = ExtResource("3_ulpfb")
-_name = "inspected_the_boat"
-_value = true
-metadata/_custom_type_script = "uid://bbobh0woojdsj"
-
-[sub_resource type="Resource" id="Resource_i2yvw"]
-script = ExtResource("6_bhgfk")
-_responseText = "What should we do?"
-_conditions = Array[ExtResource("2_afhnb")]([])
-_idleAnimation = ""
-
 [sub_resource type="Resource" id="Resource_afhnb"]
-script = ExtResource("1_i2yvw")
-_topicText = "Second Observation"
-_responses = Array[ExtResource("6_bhgfk")]([SubResource("Resource_i2yvw")])
-_goodbye = false
-_random = false
-_exclusive = false
-_priority = 10
-_functions = Array[ExtResource("4_vgj3i")]([])
-_conditions = Array[ExtResource("2_afhnb")]([SubResource("Resource_c60tl")])
-is_greeting = true
-
-[sub_resource type="Resource" id="Resource_2mo0p"]
-script = ExtResource("3_ulpfb")
-_name = "inspected_the_boat"
-_value = false
-metadata/_custom_type_script = "uid://bbobh0woojdsj"
-
-[sub_resource type="Resource" id="Resource_4n18c"]
 script = ExtResource("5_gnd38")
 _value = true
 _name = "inspected_the_boat"
 metadata/_custom_type_script = "uid://chbqwoxqpo048"
 
+[sub_resource type="Resource" id="Resource_i2yvw"]
+script = ExtResource("3_ulpfb")
+_name = "inspected_the_boat"
+_value = false
+metadata/_custom_type_script = "uid://bbobh0woojdsj"
+
 [sub_resource type="Resource" id="Resource_ulpfb"]
 script = ExtResource("6_bhgfk")
 _responseText = "Its our boat. Its not fancy, but it keeps us above the water"
-_conditions = Array[ExtResource("2_afhnb")]([])
+_conditions = Array[ExtResource("2_afhnb")]([SubResource("Resource_i2yvw")])
+_functions = Array[ExtResource("4_vgj3i")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_vgj3i"]
 script = ExtResource("6_bhgfk")
 _responseText = "What should we do?"
 _conditions = Array[ExtResource("2_afhnb")]([])
+_functions = Array[ExtResource("4_vgj3i")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_gnd38"]
@@ -64,11 +42,11 @@ _goodbye = false
 _random = false
 _exclusive = false
 _priority = 10
-_functions = Array[ExtResource("4_vgj3i")]([SubResource("Resource_4n18c")])
-_conditions = Array[ExtResource("2_afhnb")]([SubResource("Resource_2mo0p")])
+_functions = Array[ExtResource("4_vgj3i")]([SubResource("Resource_afhnb")])
+_conditions = Array[ExtResource("2_afhnb")]([])
 is_greeting = true
 
 [resource]
 script = ExtResource("7_3ta83")
-_topics = Array[ExtResource("1_i2yvw")]([SubResource("Resource_afhnb"), SubResource("Resource_gnd38")])
+_topics = Array[ExtResource("1_i2yvw")]([SubResource("Resource_gnd38")])
 _random = false

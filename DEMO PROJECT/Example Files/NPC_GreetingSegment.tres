@@ -30,6 +30,7 @@ metadata/_custom_type_script = "uid://chbqwoxqpo048"
 script = ExtResource("5_rbgau")
 _responseText = "The forest ahead is dangerous"
 _conditions = Array[ExtResource("2_g7dr8")]([])
+_functions = Array[ExtResource("4_p036e")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_p036e"]
@@ -66,6 +67,7 @@ metadata/_custom_type_script = "uid://chbqwoxqpo048"
 script = ExtResource("5_rbgau")
 _responseText = "You actually managed to come back alive?! Impressive"
 _conditions = Array[ExtResource("2_g7dr8")]([])
+_functions = Array[ExtResource("4_p036e")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_c3uub"]
@@ -90,6 +92,7 @@ metadata/_custom_type_script = "uid://bbobh0woojdsj"
 script = ExtResource("5_rbgau")
 _responseText = "I still cant believe you did it"
 _conditions = Array[ExtResource("2_g7dr8")]([])
+_functions = Array[ExtResource("4_p036e")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_mn2fc"]
@@ -108,6 +111,7 @@ is_greeting = true
 script = ExtResource("5_rbgau")
 _responseText = "You should stay away."
 _conditions = Array[ExtResource("2_g7dr8")]([])
+_functions = Array[ExtResource("4_p036e")]([])
 _idleAnimation = ""
 
 [sub_resource type="Resource" id="Resource_1rhh5"]
